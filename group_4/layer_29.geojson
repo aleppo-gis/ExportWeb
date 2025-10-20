@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_29",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "160", "Name": "أرض في ريف المهندسين الثاني", "description": "", "MapLink": "<a href=\"#17/36.112324/36.910284\">◄</a>", "GID": 160, "Address": "مفرق أورم", "CadastralID": "أرناز", "EstateID": "39 – 40 -41", "Ownership Authority": "نقابة المهندسين", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": "سياحي تجاري", "Planning Status": "داخل التنظيم", "Physical Condition": "أرض فراغ معدة للبناء", "Remark": null, "Area": "13.08 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 36.910664292863054, 36.111569642246081, 0.0 ], [ 36.912099348135811, 36.110298865312537, 0.0 ], [ 36.913787696907981, 36.111500452231539, 0.0 ], [ 36.911910388822562, 36.113272637318268, 0.0 ], [ 36.907260203228937, 36.114346149164241, 0.0 ], [ 36.906780786661777, 36.112490456146752, 0.0 ], [ 36.910664292863054, 36.111569642246081, 0.0 ] ] ] } }
-]
-}

@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_101",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "3926B5E9443B267AA3C6", "Name": "المنطقة الثالثة 28 هكتار", "description": null, "MapLink": "<a href=\"#17/36.035849/36.935934\">◄</a>", "GID": null, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": null, "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": null, "Area": "28.21 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 36.940052594352309, 36.037936430822803, 0.0 ], [ 36.93853971680317, 36.03882539221209, 0.0 ], [ 36.931813923466741, 36.036109722628431, 0.0 ], [ 36.931984642022186, 36.033002356433123, 0.0 ], [ 36.935911871375787, 36.032873077406258, 0.0 ], [ 36.940052594352309, 36.037936430822803, 0.0 ] ] ] } }
-]
-}
