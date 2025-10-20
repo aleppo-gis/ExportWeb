@@ -1,0 +1,3444 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <title>خريطة تفاعلية حسب مجموعات QGIS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      direction: rtl;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+    }
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+    .leaflet-popup-content {
+      text-align: right;
+    }
+    .leaflet-control-layers {
+      max-height: 100vh !important;
+      overflow-y: auto !important;
+      direction: rtl;
+      text-align: right;
+    }
+    .leaflet-control-layers-expanded {
+      height: 100vh !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+    var map = L.map('map');
+    var allBounds = L.latLngBounds();
+    var treeGroups = [];
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+    var group_2 = [];
+
+    var aliasMap_layer_1 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_1 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_1.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_1 = L.geoJSON(data, {
+          style: style_layer_1,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_1[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_1.addTo(map);
+        allBounds.extend(layer_1.getBounds());
+        group_2.push({ label: "صالة ألعاب أطفال", layer: layer_1 });
+      });
+
+    var aliasMap_layer_2 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_2 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_2.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_2 = L.geoJSON(data, {
+          style: style_layer_2,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_2[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_2.addTo(map);
+        allBounds.extend(layer_2.getBounds());
+        group_2.push({ label: "صالة مناسبات", layer: layer_2 });
+      });
+
+    var aliasMap_layer_3 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_3 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_3.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_3 = L.geoJSON(data, {
+          style: style_layer_3,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_3[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_3.addTo(map);
+        allBounds.extend(layer_3.getBounds());
+        group_2.push({ label: "كافتيريا 1", layer: layer_3 });
+      });
+
+    var aliasMap_layer_4 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_4 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_4.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_4 = L.geoJSON(data, {
+          style: style_layer_4,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_4[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_4.addTo(map);
+        allBounds.extend(layer_4.getBounds());
+        group_2.push({ label: "كافتيريا 2", layer: layer_4 });
+      });
+
+    var aliasMap_layer_5 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_5 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_5.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_5 = L.geoJSON(data, {
+          style: style_layer_5,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_5[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_5.addTo(map);
+        allBounds.extend(layer_5.getBounds());
+        group_2.push({ label: "كافتيريا 3", layer: layer_5 });
+      });
+
+    var aliasMap_layer_6 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_6 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_6.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_6 = L.geoJSON(data, {
+          style: style_layer_6,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_6[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_6.addTo(map);
+        allBounds.extend(layer_6.getBounds());
+        group_2.push({ label: "كافتيريا 4", layer: layer_6 });
+      });
+
+    var aliasMap_layer_7 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_7 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_7.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_7 = L.geoJSON(data, {
+          style: style_layer_7,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_7[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_7.addTo(map);
+        allBounds.extend(layer_7.getBounds());
+        group_2.push({ label: "كافتيريا 5", layer: layer_7 });
+      });
+
+    var aliasMap_layer_8 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_8 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_8.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_8 = L.geoJSON(data, {
+          style: style_layer_8,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_8[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_8.addTo(map);
+        allBounds.extend(layer_8.getBounds());
+        group_2.push({ label: "كافتيريا 6", layer: layer_8 });
+      });
+
+    var aliasMap_layer_9 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_9 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_9.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_9 = L.geoJSON(data, {
+          style: style_layer_9,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_9[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_9.addTo(map);
+        allBounds.extend(layer_9.getBounds());
+        group_2.push({ label: "مؤسسة تعليمية خاصة (روضة)", layer: layer_9 });
+      });
+
+    var aliasMap_layer_10 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_10 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_10.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_10 = L.geoJSON(data, {
+          style: style_layer_10,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_10[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_10.addTo(map);
+        allBounds.extend(layer_10.getBounds());
+        group_2.push({ label: "مؤسسة تعليمية خاصة (روضة+مدرسة)", layer: layer_10 });
+      });
+
+    var aliasMap_layer_11 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_11 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_11.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_11 = L.geoJSON(data, {
+          style: style_layer_11,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_11[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_11.addTo(map);
+        allBounds.extend(layer_11.getBounds());
+        group_2.push({ label: "مبنى الخدمات الفنية", layer: layer_11 });
+      });
+
+    var aliasMap_layer_12 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_12 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_12.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_12 = L.geoJSON(data, {
+          style: style_layer_12,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_12[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_12.addTo(map);
+        allBounds.extend(layer_12.getBounds());
+        group_2.push({ label: "مبنى الهجرة والجوازات القديم", layer: layer_12 });
+      });
+
+    var aliasMap_layer_13 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_13 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_13.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_13 = L.geoJSON(data, {
+          style: style_layer_13,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_13[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_13.addTo(map);
+        allBounds.extend(layer_13.getBounds());
+        group_2.push({ label: "مبنى خدمي في موقع المقصف العمالي", layer: layer_13 });
+      });
+
+    var aliasMap_layer_14 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_14 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_14.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_14 = L.geoJSON(data, {
+          style: style_layer_14,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_14[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_14.addTo(map);
+        allBounds.extend(layer_14.getBounds());
+        group_2.push({ label: "مجمع تجاري في جمعية التعليم العالي", layer: layer_14 });
+      });
+
+    var aliasMap_layer_15 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_15 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_15.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_15 = L.geoJSON(data, {
+          style: style_layer_15,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_15[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_15.addTo(map);
+        allBounds.extend(layer_15.getBounds());
+        group_2.push({ label: "مجمع تجاري في جمعية الزهراء", layer: layer_15 });
+      });
+
+    var aliasMap_layer_16 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_16 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_16.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_16 = L.geoJSON(data, {
+          style: style_layer_16,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_16[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_16.addTo(map);
+        allBounds.extend(layer_16.getBounds());
+        group_2.push({ label: "مجمع تجاري في جمعية المهندسين", layer: layer_16 });
+      });
+
+    var aliasMap_layer_17 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_17 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_17.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_17 = L.geoJSON(data, {
+          style: style_layer_17,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_17[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_17.addTo(map);
+        allBounds.extend(layer_17.getBounds());
+        group_2.push({ label: "مجمع تجاري في حلب الجديدة القطعة 268", layer: layer_17 });
+      });
+
+    var aliasMap_layer_18 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_18 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_18.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_18 = L.geoJSON(data, {
+          style: style_layer_18,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_18[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_18.addTo(map);
+        allBounds.extend(layer_18.getBounds());
+        group_2.push({ label: "مركز السفريات", layer: layer_18 });
+      });
+
+    var aliasMap_layer_19 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_19 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_19.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_19 = L.geoJSON(data, {
+          style: style_layer_19,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_19[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_19.addTo(map);
+        allBounds.extend(layer_19.getBounds());
+        group_2.push({ label: "مركز تجاري سياحي ثقافي", layer: layer_19 });
+      });
+
+    var aliasMap_layer_20 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_20 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_20.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_20 = L.geoJSON(data, {
+          style: style_layer_20,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_20[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_20.addTo(map);
+        allBounds.extend(layer_20.getBounds());
+        group_2.push({ label: "موقع السرايا القديمة (أرض السجن)", layer: layer_20 });
+      });
+
+    var aliasMap_layer_21 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_21 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_21.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_21 = L.geoJSON(data, {
+          style: style_layer_21,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_21[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_21.addTo(map);
+        allBounds.extend(layer_21.getBounds());
+        group_2.push({ label: "موقع ثكنة طارق بن زياد", layer: layer_21 });
+      });
+
+    var aliasMap_layer_22 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_22 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_22.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_22 = L.geoJSON(data, {
+          style: style_layer_22,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_22[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_22.addTo(map);
+        allBounds.extend(layer_22.getBounds());
+        group_2.push({ label: "موقع رحبة فيصل", layer: layer_22 });
+      });
+
+    var aliasMap_layer_23 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_23 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_23.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_23 = L.geoJSON(data, {
+          style: style_layer_23,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_23[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_23.addTo(map);
+        allBounds.extend(layer_23.getBounds());
+        group_2.push({ label: "موقع سوق الأنتاج", layer: layer_23 });
+      });
+
+    var aliasMap_layer_24 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_24 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_24.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_24 = L.geoJSON(data, {
+          style: style_layer_24,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_24[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_24.addTo(map);
+        allBounds.extend(layer_24.getBounds());
+        group_2.push({ label: "موقع مدينة ملاهي", layer: layer_24 });
+      });
+
+    var aliasMap_layer_25 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_25 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_25.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_25 = L.geoJSON(data, {
+          style: style_layer_25,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_25[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_25.addTo(map);
+        allBounds.extend(layer_25.getBounds());
+        group_2.push({ label: "موقع مقصف ميامي", layer: layer_25 });
+      });
+
+    var aliasMap_layer_26 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_26 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_26.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_26 = L.geoJSON(data, {
+          style: style_layer_26,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_26[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_26.addTo(map);
+        allBounds.extend(layer_26.getBounds());
+        group_2.push({ label: "مول التجاري في سوق البشائر", layer: layer_26 });
+      });
+
+    var aliasMap_layer_27 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_27 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_2/layer_27.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_27 = L.geoJSON(data, {
+          style: style_layer_27,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_27[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_27.addTo(map);
+        allBounds.extend(layer_27.getBounds());
+        group_2.push({ label: "نادي اجتماعي", layer: layer_27 });
+      });
+
+    setTimeout(function() {
+      if (group_2.length > 0) {
+        treeGroups.push({
+          label: "مجلس مدينة حلب",
+          children: group_2
+        });
+      }
+    }, 1000);
+    var group_3 = [];
+
+    var aliasMap_layer_28 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_28 = {"fillColor": "#38da57", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_3/layer_28.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_28 = L.geoJSON(data, {
+          style: style_layer_28,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_28[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_28.addTo(map);
+        allBounds.extend(layer_28.getBounds());
+        group_3.push({ label: "سوق الهال", layer: layer_28 });
+      });
+
+    setTimeout(function() {
+      if (group_3.length > 0) {
+        treeGroups.push({
+          label: "المحافظة",
+          children: group_3
+        });
+      }
+    }, 1000);
+    var group_4 = [];
+
+    var aliasMap_layer_29 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_29 = {"fillColor": "#a61de1", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_4/layer_29.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_29 = L.geoJSON(data, {
+          style: style_layer_29,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_29[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_29.addTo(map);
+        allBounds.extend(layer_29.getBounds());
+        group_4.push({ label: "أرض في ريف المهندسين الثاني", layer: layer_29 });
+      });
+
+    var aliasMap_layer_30 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_30 = {"fillColor": "#a61de1", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_4/layer_30.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_30 = L.geoJSON(data, {
+          style: style_layer_30,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_30[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_30.addTo(map);
+        allBounds.extend(layer_30.getBounds());
+        group_4.push({ label: "أرض مجبل نقابة المهندسين", layer: layer_30 });
+      });
+
+    var aliasMap_layer_31 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_31 = {"fillColor": "#a61de1", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_4/layer_31.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_31 = L.geoJSON(data, {
+          style: style_layer_31,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_31[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_31.addTo(map);
+        allBounds.extend(layer_31.getBounds());
+        group_4.push({ label: "مطعم نقابة المهندسين الزربة", layer: layer_31 });
+      });
+
+    var aliasMap_layer_32 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_32 = {"fillColor": "#a61de1", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_4/layer_32.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_32 = L.geoJSON(data, {
+          style: style_layer_32,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_32[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_32.addTo(map);
+        allBounds.extend(layer_32.getBounds());
+        group_4.push({ label: "مول المهندسين بشارع النيل", layer: layer_32 });
+      });
+
+    var aliasMap_layer_33 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_33 = {"fillColor": "#a61de1", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_4/layer_33.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_33 = L.geoJSON(data, {
+          style: style_layer_33,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_33[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_33.addTo(map);
+        allBounds.extend(layer_33.getBounds());
+        group_4.push({ label: "أرض بلليرمون", layer: layer_33 });
+      });
+
+    var aliasMap_layer_34 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_34 = {"fillColor": "#a61de1", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_4/layer_34.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_34 = L.geoJSON(data, {
+          style: style_layer_34,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_34[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_34.addTo(map);
+        allBounds.extend(layer_34.getBounds());
+        group_4.push({ label: "أرض خزانة التقاعد", layer: layer_34 });
+      });
+
+    setTimeout(function() {
+      if (group_4.length > 0) {
+        treeGroups.push({
+          label: "نقابة المهندسين",
+          children: group_4
+        });
+      }
+    }, 1000);
+    var group_5 = [];
+
+    var aliasMap_layer_35 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_35 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_35.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_35 = L.geoJSON(data, {
+          style: style_layer_35,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_35[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_35.addTo(map);
+        allBounds.extend(layer_35.getBounds());
+        group_5.push({ label: "الفوج 46", layer: layer_35 });
+      });
+
+    var aliasMap_layer_36 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_36 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_36.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_36 = L.geoJSON(data, {
+          style: style_layer_36,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_36[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_36.addTo(map);
+        allBounds.extend(layer_36.getBounds());
+        group_5.push({ label: "الكلية الادارية كفرجوم", layer: layer_36 });
+      });
+
+    var aliasMap_layer_37 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_37 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_37.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_37 = L.geoJSON(data, {
+          style: style_layer_37,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_37[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_37.addTo(map);
+        allBounds.extend(layer_37.getBounds());
+        group_5.push({ label: "جمارك كفرجوم", layer: layer_37 });
+      });
+
+    var aliasMap_layer_38 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_38 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_38.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_38 = L.geoJSON(data, {
+          style: style_layer_38,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_38[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_38.addTo(map);
+        allBounds.extend(layer_38.getBounds());
+        group_5.push({ label: "١٠٠٩٧ دفاع", layer: layer_38 });
+      });
+
+    var aliasMap_layer_39 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_39 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_39.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_39 = L.geoJSON(data, {
+          style: style_layer_39,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_39[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_39.addTo(map);
+        allBounds.extend(layer_39.getBounds());
+        group_5.push({ label: "٧٩٠٧ و٧٩٠٨ دفاع", layer: layer_39 });
+      });
+
+    var aliasMap_layer_40 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_40 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_40.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_40 = L.geoJSON(data, {
+          style: style_layer_40,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_40[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_40.addTo(map);
+        allBounds.extend(layer_40.getBounds());
+        group_5.push({ label: "٧٩٠٩ و٧٩١٠ دفاع", layer: layer_40 });
+      });
+
+    var aliasMap_layer_41 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_41 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_41.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_41 = L.geoJSON(data, {
+          style: style_layer_41,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_41[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_41.addTo(map);
+        allBounds.extend(layer_41.getBounds());
+        group_5.push({ label: "١٢٧٢٨ انصاري دفاع", layer: layer_41 });
+      });
+
+    var aliasMap_layer_42 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_42 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_42.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_42 = L.geoJSON(data, {
+          style: style_layer_42,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_42[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_42.addTo(map);
+        allBounds.extend(layer_42.getBounds());
+        group_5.push({ label: "٩٧ دفاع", layer: layer_42 });
+      });
+
+    var aliasMap_layer_43 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_43 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_43.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_43 = L.geoJSON(data, {
+          style: style_layer_43,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_43[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_43.addTo(map);
+        allBounds.extend(layer_43.getBounds());
+        group_5.push({ label: "البحوث العلمية", layer: layer_43 });
+      });
+
+    var aliasMap_layer_44 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_44 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_5/layer_44.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_44 = L.geoJSON(data, {
+          style: style_layer_44,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_44[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_44.addTo(map);
+        allBounds.extend(layer_44.getBounds());
+        group_5.push({ label: "اللواء 80", layer: layer_44 });
+      });
+
+    setTimeout(function() {
+      if (group_5.length > 0) {
+        treeGroups.push({
+          label: "وزارة الدفاع",
+          children: group_5
+        });
+      }
+    }, 1000);
+    var group_6 = [];
+
+    var aliasMap_layer_45 = {"fid": "", "id": "", "Name": "الاسم", "Description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_45 = {"fillColor": "#ff0000", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_6/layer_45.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_45 = L.geoJSON(data, {
+          style: style_layer_45,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_45[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_45.addTo(map);
+        allBounds.extend(layer_45.getBounds());
+        group_6.push({ label: "أرض الشيخ نجار", layer: layer_45 });
+      });
+
+    var aliasMap_layer_46 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_46 = {"fillColor": "#ff0000", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_6/layer_46.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_46 = L.geoJSON(data, {
+          style: style_layer_46,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_46[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_46.addTo(map);
+        allBounds.extend(layer_46.getBounds());
+        group_6.push({ label: "أرض المسلمية", layer: layer_46 });
+      });
+
+    var aliasMap_layer_47 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_47 = {"fillColor": "#ff0000", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_6/layer_47.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_47 = L.geoJSON(data, {
+          style: style_layer_47,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_47[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_47.addTo(map);
+        allBounds.extend(layer_47.getBounds());
+        group_6.push({ label: "أرض هنانو", layer: layer_47 });
+      });
+
+    var aliasMap_layer_48 = {"fid": "", "id": "", "Name": "الاسم", "Description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_48 = {"fillColor": "#ff0000", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_6/layer_48.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_48 = L.geoJSON(data, {
+          style: style_layer_48,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_48[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_48.addTo(map);
+        allBounds.extend(layer_48.getBounds());
+        group_6.push({ label: "العيادات العمالية", layer: layer_48 });
+      });
+
+    var aliasMap_layer_49 = {"fid": "", "id": "", "Name": "الاسم", "Description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_49 = {"fillColor": "#ff0000", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_6/layer_49.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_49 = L.geoJSON(data, {
+          style: style_layer_49,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_49[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_49.addTo(map);
+        allBounds.extend(layer_49.getBounds());
+        group_6.push({ label: "المجمع العمالي", layer: layer_49 });
+      });
+
+    var aliasMap_layer_50 = {"fid": "", "id": "", "Name": "الاسم", "Description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_50 = {"fillColor": "#ff0000", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_6/layer_50.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_50 = L.geoJSON(data, {
+          style: style_layer_50,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_50[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_50.addTo(map);
+        allBounds.extend(layer_50.getBounds());
+        group_6.push({ label: "مشفى الشيحان", layer: layer_50 });
+      });
+
+    setTimeout(function() {
+      if (group_6.length > 0) {
+        treeGroups.push({
+          label: "اتحاد العمال",
+          children: group_6
+        });
+      }
+    }, 1000);
+    var group_7 = [];
+
+    var aliasMap_layer_51 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_51 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_51.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_51 = L.geoJSON(data, {
+          style: style_layer_51,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_51[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_51.addTo(map);
+        allBounds.extend(layer_51.getBounds());
+        group_7.push({ label: "الشركة السورية للغزل و النسيج", layer: layer_51 });
+      });
+
+    var aliasMap_layer_52 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_52 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_52.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_52 = L.geoJSON(data, {
+          style: style_layer_52,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_52[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_52.addTo(map);
+        allBounds.extend(layer_52.getBounds());
+        group_7.push({ label: "الشركة العامة لصناعة و تسويق الاسمنت - عمران", layer: layer_52 });
+      });
+
+    var aliasMap_layer_53 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_53 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_53.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_53 = L.geoJSON(data, {
+          style: style_layer_53,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_53[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_53.addTo(map);
+        allBounds.extend(layer_53.getBounds());
+        group_7.push({ label: "الشركة العامة للزيوت", layer: layer_53 });
+      });
+
+    var aliasMap_layer_54 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_54 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_54.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_54 = L.geoJSON(data, {
+          style: style_layer_54,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_54[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_54.addTo(map);
+        allBounds.extend(layer_54.getBounds());
+        group_7.push({ label: "الشهباء للمفازل و المناسج", layer: layer_54 });
+      });
+
+    var aliasMap_layer_55 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_55 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_55.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_55 = L.geoJSON(data, {
+          style: style_layer_55,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_55[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_55.addTo(map);
+        allBounds.extend(layer_55.getBounds());
+        group_7.push({ label: "رحبة باصات النقل الداخلي", layer: layer_55 });
+      });
+
+    var aliasMap_layer_56 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_56 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_56.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_56 = L.geoJSON(data, {
+          style: style_layer_56,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_56[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_56.addTo(map);
+        allBounds.extend(layer_56.getBounds());
+        group_7.push({ label: "شركة زنوبيا وشمرا", layer: layer_56 });
+      });
+
+    var aliasMap_layer_57 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_57 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_57.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_57 = L.geoJSON(data, {
+          style: style_layer_57,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_57[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_57.addTo(map);
+        allBounds.extend(layer_57.getBounds());
+        group_7.push({ label: "محلج أمية", layer: layer_57 });
+      });
+
+    var aliasMap_layer_58 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_58 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_58.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_58 = L.geoJSON(data, {
+          style: style_layer_58,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_58[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_58.addTo(map);
+        allBounds.extend(layer_58.getBounds());
+        group_7.push({ label: "محلج الشرق", layer: layer_58 });
+      });
+
+    var aliasMap_layer_59 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_59 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_59.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_59 = L.geoJSON(data, {
+          style: style_layer_59,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_59[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_59.addTo(map);
+        allBounds.extend(layer_59.getBounds());
+        group_7.push({ label: "محلج الشرق", layer: layer_59 });
+      });
+
+    var aliasMap_layer_60 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_60 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_60.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_60 = L.geoJSON(data, {
+          style: style_layer_60,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_60[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_60.addTo(map);
+        allBounds.extend(layer_60.getBounds());
+        group_7.push({ label: "محلج الشرق", layer: layer_60 });
+      });
+
+    var aliasMap_layer_61 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_61 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_61.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_61 = L.geoJSON(data, {
+          style: style_layer_61,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_61[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_61.addTo(map);
+        allBounds.extend(layer_61.getBounds());
+        group_7.push({ label: "محلج اللواء", layer: layer_61 });
+      });
+
+    var aliasMap_layer_62 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_62 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_62.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_62 = L.geoJSON(data, {
+          style: style_layer_62,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_62[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_62.addTo(map);
+        allBounds.extend(layer_62.getBounds());
+        group_7.push({ label: "محلج الوحدة", layer: layer_62 });
+      });
+
+    var aliasMap_layer_63 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_63 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_63.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_63 = L.geoJSON(data, {
+          style: style_layer_63,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_63[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_63.addTo(map);
+        allBounds.extend(layer_63.getBounds());
+        group_7.push({ label: "معمل ألبان", layer: layer_63 });
+      });
+
+    var aliasMap_layer_64 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_64 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_64.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_64 = L.geoJSON(data, {
+          style: style_layer_64,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_64[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_64.addTo(map);
+        allBounds.extend(layer_64.getBounds());
+        group_7.push({ label: "معمل التبغ - الريجي", layer: layer_64 });
+      });
+
+    var aliasMap_layer_65 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_65 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_65.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_65 = L.geoJSON(data, {
+          style: style_layer_65,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_65[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_65.addTo(map);
+        allBounds.extend(layer_65.getBounds());
+        group_7.push({ label: "معمل الزجاج", layer: layer_65 });
+      });
+
+    var aliasMap_layer_66 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_66 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_66.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_66 = L.geoJSON(data, {
+          style: style_layer_66,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_66[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_66.addTo(map);
+        allBounds.extend(layer_66.getBounds());
+        group_7.push({ label: "معمل السجاد", layer: layer_66 });
+      });
+
+    var aliasMap_layer_67 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_67 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_67.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_67 = L.geoJSON(data, {
+          style: style_layer_67,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_67[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_67.addTo(map);
+        allBounds.extend(layer_67.getBounds());
+        group_7.push({ label: "معمل الشرق", layer: layer_67 });
+      });
+
+    var aliasMap_layer_68 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_68 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_68.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_68 = L.geoJSON(data, {
+          style: style_layer_68,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_68[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_68.addTo(map);
+        allBounds.extend(layer_68.getBounds());
+        group_7.push({ label: "الشركة الاهلية - معمل رقم 1", layer: layer_68 });
+      });
+
+    var aliasMap_layer_69 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_69 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_69.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_69 = L.geoJSON(data, {
+          style: style_layer_69,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_69[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_69.addTo(map);
+        allBounds.extend(layer_69.getBounds());
+        group_7.push({ label: "الشركة الاهلية - معمل رقم 2", layer: layer_69 });
+      });
+
+    var aliasMap_layer_70 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_70 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_70.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_70 = L.geoJSON(data, {
+          style: style_layer_70,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_70[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_70.addTo(map);
+        allBounds.extend(layer_70.getBounds());
+        group_7.push({ label: "الشركة الاهلية معمل رقم 3", layer: layer_70 });
+      });
+
+    var aliasMap_layer_71 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_71 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_71.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_71 = L.geoJSON(data, {
+          style: style_layer_71,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_71[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_71.addTo(map);
+        allBounds.extend(layer_71.getBounds());
+        group_7.push({ label: "محلج الثورة - مؤسسة الاقطان", layer: layer_71 });
+      });
+
+    var aliasMap_layer_72 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_72 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_72.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_72 = L.geoJSON(data, {
+          style: style_layer_72,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_72[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_72.addTo(map);
+        allBounds.extend(layer_72.getBounds());
+        group_7.push({ label: "محلج الرصافة - مؤسسة الاقطان", layer: layer_72 });
+      });
+
+    var aliasMap_layer_73 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_73 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_73.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_73 = L.geoJSON(data, {
+          style: style_layer_73,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_73[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_73.addTo(map);
+        allBounds.extend(layer_73.getBounds());
+        group_7.push({ label: "مستودع الاسطوانة - مؤسسة الاقطان", layer: layer_73 });
+      });
+
+    var aliasMap_layer_74 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_74 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_74.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_74 = L.geoJSON(data, {
+          style: style_layer_74,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_74[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_74.addTo(map);
+        allBounds.extend(layer_74.getBounds());
+        group_7.push({ label: "مستودع الحكيم - مؤسسة الاقطان", layer: layer_74 });
+      });
+
+    var aliasMap_layer_75 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_75 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_75.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_75 = L.geoJSON(data, {
+          style: style_layer_75,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_75[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_75.addTo(map);
+        allBounds.extend(layer_75.getBounds());
+        group_7.push({ label: "مستودع المنشاري - مؤسسة الاقطان", layer: layer_75 });
+      });
+
+    var aliasMap_layer_76 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_76 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_76.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_76 = L.geoJSON(data, {
+          style: style_layer_76,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_76[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_76.addTo(map);
+        allBounds.extend(layer_76.getBounds());
+        group_7.push({ label: "مستودع سابا - مؤسسة الاقطان", layer: layer_76 });
+      });
+
+    var aliasMap_layer_77 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_77 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_77.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_77 = L.geoJSON(data, {
+          style: style_layer_77,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_77[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_77.addTo(map);
+        allBounds.extend(layer_77.getBounds());
+        group_7.push({ label: "معمل عوف", layer: layer_77 });
+      });
+
+    var aliasMap_layer_78 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_78 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_78.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_78 = L.geoJSON(data, {
+          style: style_layer_78,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_78[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_78.addTo(map);
+        allBounds.extend(layer_78.getBounds());
+        group_7.push({ label: "شركة تاميكو - معمل السيرومات", layer: layer_78 });
+      });
+
+    var aliasMap_layer_79 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_79 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_79.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_79 = L.geoJSON(data, {
+          style: style_layer_79,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_79[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_79.addTo(map);
+        allBounds.extend(layer_79.getBounds());
+        group_7.push({ label: "معمل الشاشات", layer: layer_79 });
+      });
+
+    var aliasMap_layer_80 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_80 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_80.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_80 = L.geoJSON(data, {
+          style: style_layer_80,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_80[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_80.addTo(map);
+        allBounds.extend(layer_80.getBounds());
+        group_7.push({ label: "الوحدة الاقتصادية - معمل الاسمنت", layer: layer_80 });
+      });
+
+    var aliasMap_layer_81 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_81 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_81.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_81 = L.geoJSON(data, {
+          style: style_layer_81,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_81[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_81.addTo(map);
+        allBounds.extend(layer_81.getBounds());
+        group_7.push({ label: "محلج تشرين", layer: layer_81 });
+      });
+
+    var aliasMap_layer_82 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_82 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_82.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_82 = L.geoJSON(data, {
+          style: style_layer_82,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_82[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_82.addTo(map);
+        allBounds.extend(layer_82.getBounds());
+        group_7.push({ label: "معمل البطاريات", layer: layer_82 });
+      });
+
+    var aliasMap_layer_83 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_83 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_83.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_83 = L.geoJSON(data, {
+          style: style_layer_83,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_83[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_83.addTo(map);
+        allBounds.extend(layer_83.getBounds());
+        group_7.push({ label: "معمل الجرارات", layer: layer_83 });
+      });
+
+    var aliasMap_layer_84 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_84 = {"fillColor": "#ff1eff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_7/layer_84.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_84 = L.geoJSON(data, {
+          style: style_layer_84,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_84[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_84.addTo(map);
+        allBounds.extend(layer_84.getBounds());
+        group_7.push({ label: "معمل الكابلات", layer: layer_84 });
+      });
+
+    setTimeout(function() {
+      if (group_7.length > 0) {
+        treeGroups.push({
+          label: "وزارة الصناعة",
+          children: group_7
+        });
+      }
+    }, 1000);
+    var group_8 = [];
+
+    var aliasMap_layer_85 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_85 = {"fillColor": "#ffce00", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_8/layer_85.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_85 = L.geoJSON(data, {
+          style: style_layer_85,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_85[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_85.addTo(map);
+        allBounds.extend(layer_85.getBounds());
+        group_8.push({ label: "دائرة الشبكات", layer: layer_85 });
+      });
+
+    var aliasMap_layer_86 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_86 = {"fillColor": "#ffce00", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_8/layer_86.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_86 = L.geoJSON(data, {
+          style: style_layer_86,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_86[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_86.addTo(map);
+        allBounds.extend(layer_86.getBounds());
+        group_8.push({ label: "دائرة الاليات - المراب", layer: layer_86 });
+      });
+
+    var aliasMap_layer_87 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_87 = {"fillColor": "#ffce00", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_8/layer_87.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_87 = L.geoJSON(data, {
+          style: style_layer_87,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_87[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_87.addTo(map);
+        allBounds.extend(layer_87.getBounds());
+        group_8.push({ label: "دائرة الاليات - الكازية", layer: layer_87 });
+      });
+
+    var aliasMap_layer_88 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_88 = {"fillColor": "#ffce00", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_8/layer_88.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_88 = L.geoJSON(data, {
+          style: style_layer_88,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_88[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_88.addTo(map);
+        allBounds.extend(layer_88.getBounds());
+        group_8.push({ label: "أرض مركز الجباية", layer: layer_88 });
+      });
+
+    setTimeout(function() {
+      if (group_8.length > 0) {
+        treeGroups.push({
+          label: "مؤسسة المياه",
+          children: group_8
+        });
+      }
+    }, 1000);
+    var group_9 = [];
+
+    var aliasMap_layer_89 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_89 = {"fillColor": "#b7c926", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_9/layer_89.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_89 = L.geoJSON(data, {
+          style: style_layer_89,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_89[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_89.addTo(map);
+        allBounds.extend(layer_89.getBounds());
+        group_9.push({ label: "حمام يلبغا الناصري", layer: layer_89 });
+      });
+
+    setTimeout(function() {
+      if (group_9.length > 0) {
+        treeGroups.push({
+          label: "وزارة السياحة",
+          children: group_9
+        });
+      }
+    }, 1000);
+    var group_10 = [];
+
+    var aliasMap_layer_90 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_90 = {"fillColor": "#a47158", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_10/layer_90.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_90 = L.geoJSON(data, {
+          style: style_layer_90,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_90[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_90.addTo(map);
+        allBounds.extend(layer_90.getBounds());
+        group_10.push({ label: "أرض حلب الجديدة بنيامين", layer: layer_90 });
+      });
+
+    setTimeout(function() {
+      if (group_10.length > 0) {
+        treeGroups.push({
+          label: "غرفة التجارة",
+          children: group_10
+        });
+      }
+    }, 1000);
+    var group_11 = [];
+
+    var aliasMap_layer_91 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_91 = {"fillColor": "#a7e58d", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_11/layer_91.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_91 = L.geoJSON(data, {
+          style: style_layer_91,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_91[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_91.addTo(map);
+        allBounds.extend(layer_91.getBounds());
+        group_11.push({ label: "غرفة زراعة حلب", layer: layer_91 });
+      });
+
+    setTimeout(function() {
+      if (group_11.length > 0) {
+        treeGroups.push({
+          label: "غرفة زراعة حلب",
+          children: group_11
+        });
+      }
+    }, 1000);
+    var group_12 = [];
+
+    var aliasMap_layer_92 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_92 = {"fillColor": "#0000ff", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_12/layer_92.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_92 = L.geoJSON(data, {
+          style: style_layer_92,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_92[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_92.addTo(map);
+        allBounds.extend(layer_92.getBounds());
+        group_12.push({ label: "رودكو الطرق والجسور", layer: layer_92 });
+      });
+
+    setTimeout(function() {
+      if (group_12.length > 0) {
+        treeGroups.push({
+          label: "وزارة النقل",
+          children: group_12
+        });
+      }
+    }, 1000);
+    var group_13 = [];
+
+    var aliasMap_layer_93 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_93 = {"fillColor": "#31adec", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_13/layer_93.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_93 = L.geoJSON(data, {
+          style: style_layer_93,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_93[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_93.addTo(map);
+        allBounds.extend(layer_93.getBounds());
+        group_13.push({ label: "موارد مائية 31", layer: layer_93 });
+      });
+
+    setTimeout(function() {
+      if (group_13.length > 0) {
+        treeGroups.push({
+          label: "وزارة الطاقة",
+          children: group_13
+        });
+      }
+    }, 1000);
+    var group_14 = [];
+
+    var aliasMap_layer_94 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_94 = {"fillColor": "#cdb427", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_14/layer_94.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_94 = L.geoJSON(data, {
+          style: style_layer_94,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_94[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_94.addTo(map);
+        allBounds.extend(layer_94.getBounds());
+        group_14.push({ label: "العقار 16 ابوشيلم", layer: layer_94 });
+      });
+
+    setTimeout(function() {
+      if (group_14.length > 0) {
+        treeGroups.push({
+          label: "وزارة الإسكان",
+          children: group_14
+        });
+      }
+    }, 1000);
+    var group_15 = [];
+
+    var aliasMap_layer_95 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_95 = {"fillColor": "#3dc196", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_15/layer_95.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_95 = L.geoJSON(data, {
+          style: style_layer_95,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_95[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_95.addTo(map);
+        allBounds.extend(layer_95.getBounds());
+        group_15.push({ label: "بردة ايكاردا", layer: layer_95 });
+      });
+
+    var aliasMap_layer_96 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_96 = {"fillColor": "#3dc196", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_15/layer_96.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_96 = L.geoJSON(data, {
+          style: style_layer_96,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_96[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_96.addTo(map);
+        allBounds.extend(layer_96.getBounds());
+        group_15.push({ label: "مداجن خان طومان", layer: layer_96 });
+      });
+
+    var aliasMap_layer_97 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_97 = {"fillColor": "#3dc196", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_15/layer_97.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_97 = L.geoJSON(data, {
+          style: style_layer_97,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_97[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_97.addTo(map);
+        allBounds.extend(layer_97.getBounds());
+        group_15.push({ label: "31 تابع للدواجن خان طومان", layer: layer_97 });
+      });
+
+    var aliasMap_layer_98 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_98 = {"fillColor": "#3dc196", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_15/layer_98.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_98 = L.geoJSON(data, {
+          style: style_layer_98,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_98[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_98.addTo(map);
+        allBounds.extend(layer_98.getBounds());
+        group_15.push({ label: "مداجن الزربة", layer: layer_98 });
+      });
+
+    var aliasMap_layer_99 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_99 = {"fillColor": "#3dc196", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_15/layer_99.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_99 = L.geoJSON(data, {
+          style: style_layer_99,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_99[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_99.addTo(map);
+        allBounds.extend(layer_99.getBounds());
+        group_15.push({ label: "المنطقة الاولى 36 هكتار", layer: layer_99 });
+      });
+
+    var aliasMap_layer_100 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_100 = {"fillColor": "#3dc196", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_15/layer_100.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_100 = L.geoJSON(data, {
+          style: style_layer_100,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_100[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_100.addTo(map);
+        allBounds.extend(layer_100.getBounds());
+        group_15.push({ label: "المنطقة الثانية 25 هكتار", layer: layer_100 });
+      });
+
+    var aliasMap_layer_101 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_101 = {"fillColor": "#3dc196", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_15/layer_101.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_101 = L.geoJSON(data, {
+          style: style_layer_101,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_101[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_101.addTo(map);
+        allBounds.extend(layer_101.getBounds());
+        group_15.push({ label: "المنطقة الثالثة 28 هكتار", layer: layer_101 });
+      });
+
+    var aliasMap_layer_102 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_102 = {"fillColor": "#3dc196", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_15/layer_102.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_102 = L.geoJSON(data, {
+          style: style_layer_102,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_102[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_102.addTo(map);
+        allBounds.extend(layer_102.getBounds());
+        group_15.push({ label: "المنطقة الرابعة 21 هكتار", layer: layer_102 });
+      });
+
+    var aliasMap_layer_103 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_103 = {"fillColor": "#3dc196", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_15/layer_103.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_103 = L.geoJSON(data, {
+          style: style_layer_103,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_103[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_103.addTo(map);
+        allBounds.extend(layer_103.getBounds());
+        group_15.push({ label: "المنطقة الخامسة 30 هكتار", layer: layer_103 });
+      });
+
+    setTimeout(function() {
+      if (group_15.length > 0) {
+        treeGroups.push({
+          label: "وزارة الزراعة",
+          children: group_15
+        });
+      }
+    }, 1000);
+    var group_16 = [];
+
+    var aliasMap_layer_104 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_104 = {"fillColor": "#c43c39", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_16/layer_104.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_104 = L.geoJSON(data, {
+          style: style_layer_104,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_104[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_104.addTo(map);
+        allBounds.extend(layer_104.getBounds());
+        group_16.push({ label: "أرض للمالية", layer: layer_104 });
+      });
+
+    setTimeout(function() {
+      if (group_16.length > 0) {
+        treeGroups.push({
+          label: "وزارة المالية",
+          children: group_16
+        });
+      }
+    }, 1000);
+    var group_17 = [];
+
+    var aliasMap_layer_105 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_105 = {"fillColor": "#3ab1fc", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_17/layer_105.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_105 = L.geoJSON(data, {
+          style: style_layer_105,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_105[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_105.addTo(map);
+        allBounds.extend(layer_105.getBounds());
+        group_17.push({ label: "معسكر الشبية", layer: layer_105 });
+      });
+
+    setTimeout(function() {
+      if (group_17.length > 0) {
+        treeGroups.push({
+          label: "وزارة الإدارة المحلية",
+          children: group_17
+        });
+      }
+    }, 1000);
+    var group_18 = [];
+
+    var aliasMap_layer_106 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_106 = {"fillColor": "#d0359a", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_18/layer_106.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_106 = L.geoJSON(data, {
+          style: style_layer_106,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_106[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_106.addTo(map);
+        allBounds.extend(layer_106.getBounds());
+        group_18.push({ label: "كتلة السكك", layer: layer_106 });
+      });
+
+    var aliasMap_layer_107 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+    var style_layer_107 = {"fillColor": "#d0359a", "fillOpacity": 1.0, "color": "#232323", "weight": 0.26};
+
+    fetch('group_18/layer_107.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer_107 = L.geoJSON(data, {
+          style: style_layer_107,
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>";
+            for (var key in props) {
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_107[key] || key;
+                popup += "<tr>" +
+                         "<td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
+                         "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td>" +
+                         "</tr>";
+              }
+            }
+            popup += "</table>";
+            if (popup) layer.bindPopup(popup);
+          }
+        });
+        layer_107.addTo(map);
+        allBounds.extend(layer_107.getBounds());
+        group_18.push({ label: " ضاحية فيلات سكنية", layer: layer_107 });
+      });
+
+    setTimeout(function() {
+      if (group_18.length > 0) {
+        treeGroups.push({
+          label: "السكك الحديدية",
+          children: group_18
+        });
+      }
+    }, 1000);
+
+    setTimeout(function() {
+      map.fitBounds(allBounds);
+      L.control.layers.tree(null, treeGroups, {
+        collapsed: false,
+        position: 'topright'
+      }).addTo(map);
+    }, 1500);
+  </script>
+</body>
+</html>
