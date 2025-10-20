@@ -1,0 +1,2275 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>خريطة تفاعلية حسب مجموعات QGIS</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <div id="map" style="width: 100%; height: 100vh;"></div>
+  <script>
+    var map = L.map('map');
+    var allBounds = L.latLngBounds();
+    var overlays = {};
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    var aliasMap_صالة_ألعاب_أطفال = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/صالة ألعاب أطفال.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_صالة_ألعاب_أطفال[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: صالة ألعاب أطفال"] = layer;
+      });
+
+    var aliasMap_صالة_مناسبات = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/صالة مناسبات.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_صالة_مناسبات[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: صالة مناسبات"] = layer;
+      });
+
+    var aliasMap_كافتيريا_1 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/كافتيريا 1.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_كافتيريا_1[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: كافتيريا 1"] = layer;
+      });
+
+    var aliasMap_كافتيريا_2 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/كافتيريا 2.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_كافتيريا_2[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: كافتيريا 2"] = layer;
+      });
+
+    var aliasMap_كافتيريا_3 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/كافتيريا 3.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_كافتيريا_3[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: كافتيريا 3"] = layer;
+      });
+
+    var aliasMap_كافتيريا_4 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/كافتيريا 4.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_كافتيريا_4[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: كافتيريا 4"] = layer;
+      });
+
+    var aliasMap_كافتيريا_5 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/كافتيريا 5.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_كافتيريا_5[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: كافتيريا 5"] = layer;
+      });
+
+    var aliasMap_كافتيريا_6 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/كافتيريا 6.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_كافتيريا_6[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: كافتيريا 6"] = layer;
+      });
+
+    var aliasMap_مؤسسة_تعليمية_خاصة_(روضة) = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مؤسسة تعليمية خاصة (روضة).geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مؤسسة_تعليمية_خاصة_(روضة)[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مؤسسة تعليمية خاصة (روضة)"] = layer;
+      });
+
+    var aliasMap_مؤسسة_تعليمية_خاصة_(روضة+مدرسة) = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مؤسسة تعليمية خاصة (روضة+مدرسة).geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مؤسسة_تعليمية_خاصة_(روضة+مدرسة)[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مؤسسة تعليمية خاصة (روضة+مدرسة)"] = layer;
+      });
+
+    var aliasMap_مبنى_الخدمات_الفنية = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مبنى الخدمات الفنية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مبنى_الخدمات_الفنية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مبنى الخدمات الفنية"] = layer;
+      });
+
+    var aliasMap_مبنى_الهجرة_والجوازات_القديم = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مبنى الهجرة والجوازات القديم.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مبنى_الهجرة_والجوازات_القديم[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مبنى الهجرة والجوازات القديم"] = layer;
+      });
+
+    var aliasMap_مبنى_خدمي_في_موقع_المقصف_العمالي = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مبنى خدمي في موقع المقصف العمالي.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مبنى_خدمي_في_موقع_المقصف_العمالي[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مبنى خدمي في موقع المقصف العمالي"] = layer;
+      });
+
+    var aliasMap_مجمع_تجاري_في_جمعية_التعليم_العالي = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مجمع تجاري في جمعية التعليم العالي.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مجمع_تجاري_في_جمعية_التعليم_العالي[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مجمع تجاري في جمعية التعليم العالي"] = layer;
+      });
+
+    var aliasMap_مجمع_تجاري_في_جمعية_الزهراء = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مجمع تجاري في جمعية الزهراء.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مجمع_تجاري_في_جمعية_الزهراء[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مجمع تجاري في جمعية الزهراء"] = layer;
+      });
+
+    var aliasMap_مجمع_تجاري_في_جمعية_المهندسين = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مجمع تجاري في جمعية المهندسين.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مجمع_تجاري_في_جمعية_المهندسين[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مجمع تجاري في جمعية المهندسين"] = layer;
+      });
+
+    var aliasMap_مجمع_تجاري_في_حلب_الجديدة_القطعة_268 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مجمع تجاري في حلب الجديدة القطعة 268.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مجمع_تجاري_في_حلب_الجديدة_القطعة_268[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مجمع تجاري في حلب الجديدة القطعة 268"] = layer;
+      });
+
+    var aliasMap_مركز_السفريات = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مركز السفريات.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مركز_السفريات[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مركز السفريات"] = layer;
+      });
+
+    var aliasMap_مركز_تجاري_سياحي_ثقافي = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مركز تجاري سياحي ثقافي.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مركز_تجاري_سياحي_ثقافي[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مركز تجاري سياحي ثقافي"] = layer;
+      });
+
+    var aliasMap_موقع_السرايا_القديمة_(أرض_السجن) = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/موقع السرايا القديمة (أرض السجن).geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_موقع_السرايا_القديمة_(أرض_السجن)[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: موقع السرايا القديمة (أرض السجن)"] = layer;
+      });
+
+    var aliasMap_موقع_ثكنة_طارق_بن_زياد = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/موقع ثكنة طارق بن زياد.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_موقع_ثكنة_طارق_بن_زياد[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: موقع ثكنة طارق بن زياد"] = layer;
+      });
+
+    var aliasMap_موقع_رحبة_فيصل = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/موقع رحبة فيصل.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_موقع_رحبة_فيصل[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: موقع رحبة فيصل"] = layer;
+      });
+
+    var aliasMap_موقع_سوق_الأنتاج = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/موقع سوق الأنتاج.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_موقع_سوق_الأنتاج[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: موقع سوق الأنتاج"] = layer;
+      });
+
+    var aliasMap_موقع_مدينة_ملاهي = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/موقع مدينة ملاهي.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_موقع_مدينة_ملاهي[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: موقع مدينة ملاهي"] = layer;
+      });
+
+    var aliasMap_موقع_مقصف_ميامي = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/موقع مقصف ميامي.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_موقع_مقصف_ميامي[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: موقع مقصف ميامي"] = layer;
+      });
+
+    var aliasMap_مول_التجاري_في_سوق_البشائر = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/مول التجاري في سوق البشائر.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مول_التجاري_في_سوق_البشائر[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: مول التجاري في سوق البشائر"] = layer;
+      });
+
+    var aliasMap_نادي_اجتماعي = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مجلس مدينة حلب/نادي اجتماعي.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_نادي_اجتماعي[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مجلس مدينة حلب: نادي اجتماعي"] = layer;
+      });
+
+    var aliasMap_سوق_الهال = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('المحافظة/سوق الهال.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_سوق_الهال[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["المحافظة: سوق الهال"] = layer;
+      });
+
+    var aliasMap_أرض_في_ريف_المهندسين_الثاني = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('نقابة المهندسين/أرض في ريف المهندسين الثاني.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_في_ريف_المهندسين_الثاني[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["نقابة المهندسين: أرض في ريف المهندسين الثاني"] = layer;
+      });
+
+    var aliasMap_أرض_مجبل_نقابة_المهندسين = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('نقابة المهندسين/أرض مجبل نقابة المهندسين.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_مجبل_نقابة_المهندسين[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["نقابة المهندسين: أرض مجبل نقابة المهندسين"] = layer;
+      });
+
+    var aliasMap_مطعم_نقابة_المهندسين_الزربة = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('نقابة المهندسين/مطعم نقابة المهندسين الزربة.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مطعم_نقابة_المهندسين_الزربة[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["نقابة المهندسين: مطعم نقابة المهندسين الزربة"] = layer;
+      });
+
+    var aliasMap_مول_المهندسين_بشارع_النيل = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('نقابة المهندسين/مول المهندسين بشارع النيل.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مول_المهندسين_بشارع_النيل[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["نقابة المهندسين: مول المهندسين بشارع النيل"] = layer;
+      });
+
+    var aliasMap_أرض_بلليرمون = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('نقابة المهندسين/أرض بلليرمون.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_بلليرمون[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["نقابة المهندسين: أرض بلليرمون"] = layer;
+      });
+
+    var aliasMap_أرض_خزانة_التقاعد = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('نقابة المهندسين/أرض خزانة التقاعد.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_خزانة_التقاعد[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["نقابة المهندسين: أرض خزانة التقاعد"] = layer;
+      });
+
+    var aliasMap_الفوج_46 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/الفوج 46.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الفوج_46[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: الفوج 46"] = layer;
+      });
+
+    var aliasMap_الكلية_الادارية_كفرجوم = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/الكلية الادارية كفرجوم.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الكلية_الادارية_كفرجوم[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: الكلية الادارية كفرجوم"] = layer;
+      });
+
+    var aliasMap_جمارك_كفرجوم = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/جمارك كفرجوم.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_جمارك_كفرجوم[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: جمارك كفرجوم"] = layer;
+      });
+
+    var aliasMap_١٠٠٩٧_دفاع = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/١٠٠٩٧ دفاع.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_١٠٠٩٧_دفاع[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: ١٠٠٩٧ دفاع"] = layer;
+      });
+
+    var aliasMap_٧٩٠٧_و٧٩٠٨_دفاع = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/٧٩٠٧ و٧٩٠٨ دفاع.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_٧٩٠٧_و٧٩٠٨_دفاع[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: ٧٩٠٧ و٧٩٠٨ دفاع"] = layer;
+      });
+
+    var aliasMap_٧٩٠٩_و٧٩١٠_دفاع = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/٧٩٠٩ و٧٩١٠ دفاع.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_٧٩٠٩_و٧٩١٠_دفاع[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: ٧٩٠٩ و٧٩١٠ دفاع"] = layer;
+      });
+
+    var aliasMap_١٢٧٢٨_انصاري_دفاع = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/١٢٧٢٨ انصاري دفاع.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_١٢٧٢٨_انصاري_دفاع[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: ١٢٧٢٨ انصاري دفاع"] = layer;
+      });
+
+    var aliasMap_٩٧_دفاع = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/٩٧ دفاع.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_٩٧_دفاع[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: ٩٧ دفاع"] = layer;
+      });
+
+    var aliasMap_البحوث_العلمية = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/البحوث العلمية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_البحوث_العلمية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: البحوث العلمية"] = layer;
+      });
+
+    var aliasMap_اللواء_80 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الدفاع/اللواء 80.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_اللواء_80[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الدفاع: اللواء 80"] = layer;
+      });
+
+    var aliasMap_أرض_الشيخ_نجار = {"fid": "", "id": "", "Name": "الاسم", "Description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('اتحاد العمال/أرض الشيخ نجار.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_الشيخ_نجار[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["اتحاد العمال: أرض الشيخ نجار"] = layer;
+      });
+
+    var aliasMap_أرض_المسلمية = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('اتحاد العمال/أرض المسلمية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_المسلمية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["اتحاد العمال: أرض المسلمية"] = layer;
+      });
+
+    var aliasMap_أرض_هنانو = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('اتحاد العمال/أرض هنانو.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_هنانو[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["اتحاد العمال: أرض هنانو"] = layer;
+      });
+
+    var aliasMap_العيادات_العمالية = {"fid": "", "id": "", "Name": "الاسم", "Description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('اتحاد العمال/العيادات العمالية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_العيادات_العمالية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["اتحاد العمال: العيادات العمالية"] = layer;
+      });
+
+    var aliasMap_المجمع_العمالي = {"fid": "", "id": "", "Name": "الاسم", "Description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('اتحاد العمال/المجمع العمالي.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_المجمع_العمالي[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["اتحاد العمال: المجمع العمالي"] = layer;
+      });
+
+    var aliasMap_مشفى_الشيحان = {"fid": "", "id": "", "Name": "الاسم", "Description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('اتحاد العمال/مشفى الشيحان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مشفى_الشيحان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["اتحاد العمال: مشفى الشيحان"] = layer;
+      });
+
+    var aliasMap_الشركة_السورية_للغزل_و_النسيج = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/الشركة السورية للغزل و النسيج.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الشركة_السورية_للغزل_و_النسيج[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: الشركة السورية للغزل و النسيج"] = layer;
+      });
+
+    var aliasMap_الشركة_العامة_لصناعة_و_تسويق_الاسمنت___عمران = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/الشركة العامة لصناعة و تسويق الاسمنت - عمران.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الشركة_العامة_لصناعة_و_تسويق_الاسمنت___عمران[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: الشركة العامة لصناعة و تسويق الاسمنت - عمران"] = layer;
+      });
+
+    var aliasMap_الشركة_العامة_للزيوت = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/الشركة العامة للزيوت.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الشركة_العامة_للزيوت[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: الشركة العامة للزيوت"] = layer;
+      });
+
+    var aliasMap_الشهباء_للمفازل_و_المناسج = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/الشهباء للمفازل و المناسج.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الشهباء_للمفازل_و_المناسج[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: الشهباء للمفازل و المناسج"] = layer;
+      });
+
+    var aliasMap_رحبة_باصات_النقل_الداخلي = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/رحبة باصات النقل الداخلي.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_رحبة_باصات_النقل_الداخلي[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: رحبة باصات النقل الداخلي"] = layer;
+      });
+
+    var aliasMap_شركة_زنوبيا_وشمرا = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/شركة زنوبيا وشمرا.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_شركة_زنوبيا_وشمرا[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: شركة زنوبيا وشمرا"] = layer;
+      });
+
+    var aliasMap_محلج_أمية = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/محلج أمية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_محلج_أمية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: محلج أمية"] = layer;
+      });
+
+    var aliasMap_محلج_الشرق = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/محلج الشرق.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_محلج_الشرق[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: محلج الشرق"] = layer;
+      });
+
+    var aliasMap_محلج_الشرق = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/محلج الشرق.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_محلج_الشرق[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: محلج الشرق"] = layer;
+      });
+
+    var aliasMap_محلج_الشرق = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/محلج الشرق.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_محلج_الشرق[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: محلج الشرق"] = layer;
+      });
+
+    var aliasMap_محلج_اللواء = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/محلج اللواء.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_محلج_اللواء[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: محلج اللواء"] = layer;
+      });
+
+    var aliasMap_محلج_الوحدة = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/محلج الوحدة.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_محلج_الوحدة[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: محلج الوحدة"] = layer;
+      });
+
+    var aliasMap_معمل_ألبان = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل ألبان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_ألبان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل ألبان"] = layer;
+      });
+
+    var aliasMap_معمل_التبغ___الريجي = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل التبغ - الريجي.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_التبغ___الريجي[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل التبغ - الريجي"] = layer;
+      });
+
+    var aliasMap_معمل_الزجاج = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل الزجاج.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_الزجاج[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل الزجاج"] = layer;
+      });
+
+    var aliasMap_معمل_السجاد = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل السجاد.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_السجاد[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل السجاد"] = layer;
+      });
+
+    var aliasMap_معمل_الشرق = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل الشرق.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_الشرق[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل الشرق"] = layer;
+      });
+
+    var aliasMap_الشركة_الاهلية___معمل_رقم_1 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/الشركة الاهلية - معمل رقم 1.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الشركة_الاهلية___معمل_رقم_1[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: الشركة الاهلية - معمل رقم 1"] = layer;
+      });
+
+    var aliasMap_الشركة_الاهلية___معمل_رقم_2 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/الشركة الاهلية - معمل رقم 2.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الشركة_الاهلية___معمل_رقم_2[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: الشركة الاهلية - معمل رقم 2"] = layer;
+      });
+
+    var aliasMap_الشركة_الاهلية_معمل_رقم_3 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/الشركة الاهلية معمل رقم 3.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الشركة_الاهلية_معمل_رقم_3[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: الشركة الاهلية معمل رقم 3"] = layer;
+      });
+
+    var aliasMap_محلج_الثورة___مؤسسة_الاقطان = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/محلج الثورة - مؤسسة الاقطان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_محلج_الثورة___مؤسسة_الاقطان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: محلج الثورة - مؤسسة الاقطان"] = layer;
+      });
+
+    var aliasMap_محلج_الرصافة___مؤسسة_الاقطان = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/محلج الرصافة - مؤسسة الاقطان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_محلج_الرصافة___مؤسسة_الاقطان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: محلج الرصافة - مؤسسة الاقطان"] = layer;
+      });
+
+    var aliasMap_مستودع_الاسطوانة___مؤسسة_الاقطان = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/مستودع الاسطوانة - مؤسسة الاقطان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مستودع_الاسطوانة___مؤسسة_الاقطان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: مستودع الاسطوانة - مؤسسة الاقطان"] = layer;
+      });
+
+    var aliasMap_مستودع_الحكيم___مؤسسة_الاقطان = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/مستودع الحكيم - مؤسسة الاقطان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مستودع_الحكيم___مؤسسة_الاقطان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: مستودع الحكيم - مؤسسة الاقطان"] = layer;
+      });
+
+    var aliasMap_مستودع_المنشاري___مؤسسة_الاقطان = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/مستودع المنشاري - مؤسسة الاقطان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مستودع_المنشاري___مؤسسة_الاقطان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: مستودع المنشاري - مؤسسة الاقطان"] = layer;
+      });
+
+    var aliasMap_مستودع_سابا___مؤسسة_الاقطان = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/مستودع سابا - مؤسسة الاقطان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مستودع_سابا___مؤسسة_الاقطان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: مستودع سابا - مؤسسة الاقطان"] = layer;
+      });
+
+    var aliasMap_معمل_عوف = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل عوف.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_عوف[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل عوف"] = layer;
+      });
+
+    var aliasMap_شركة_تاميكو___معمل_السيرومات = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/شركة تاميكو - معمل السيرومات.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_شركة_تاميكو___معمل_السيرومات[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: شركة تاميكو - معمل السيرومات"] = layer;
+      });
+
+    var aliasMap_معمل_الشاشات = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل الشاشات.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_الشاشات[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل الشاشات"] = layer;
+      });
+
+    var aliasMap_الوحدة_الاقتصادية___معمل_الاسمنت = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/الوحدة الاقتصادية - معمل الاسمنت.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_الوحدة_الاقتصادية___معمل_الاسمنت[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: الوحدة الاقتصادية - معمل الاسمنت"] = layer;
+      });
+
+    var aliasMap_محلج_تشرين = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/محلج تشرين.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_محلج_تشرين[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: محلج تشرين"] = layer;
+      });
+
+    var aliasMap_معمل_البطاريات = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل البطاريات.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_البطاريات[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل البطاريات"] = layer;
+      });
+
+    var aliasMap_معمل_الجرارات = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل الجرارات.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_الجرارات[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل الجرارات"] = layer;
+      });
+
+    var aliasMap_معمل_الكابلات = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الصناعة/معمل الكابلات.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معمل_الكابلات[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الصناعة: معمل الكابلات"] = layer;
+      });
+
+    var aliasMap_دائرة_الشبكات = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مؤسسة المياه/دائرة الشبكات.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_دائرة_الشبكات[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مؤسسة المياه: دائرة الشبكات"] = layer;
+      });
+
+    var aliasMap_دائرة_الاليات___المراب = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مؤسسة المياه/دائرة الاليات - المراب.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_دائرة_الاليات___المراب[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مؤسسة المياه: دائرة الاليات - المراب"] = layer;
+      });
+
+    var aliasMap_دائرة_الاليات___الكازية = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مؤسسة المياه/دائرة الاليات - الكازية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_دائرة_الاليات___الكازية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مؤسسة المياه: دائرة الاليات - الكازية"] = layer;
+      });
+
+    var aliasMap_أرض_مركز_الجباية = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('مؤسسة المياه/أرض مركز الجباية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_مركز_الجباية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["مؤسسة المياه: أرض مركز الجباية"] = layer;
+      });
+
+    var aliasMap_حمام_يلبغا_الناصري = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة السياحة/حمام يلبغا الناصري.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_حمام_يلبغا_الناصري[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة السياحة: حمام يلبغا الناصري"] = layer;
+      });
+
+    var aliasMap_أرض_حلب_الجديدة_بنيامين = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('غرفة التجارة/أرض حلب الجديدة بنيامين.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_حلب_الجديدة_بنيامين[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["غرفة التجارة: أرض حلب الجديدة بنيامين"] = layer;
+      });
+
+    var aliasMap_غرفة_زراعة_حلب = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('غرفة زراعة حلب/غرفة زراعة حلب.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_غرفة_زراعة_حلب[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["غرفة زراعة حلب: غرفة زراعة حلب"] = layer;
+      });
+
+    var aliasMap_رودكو_الطرق_والجسور = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة النقل/رودكو الطرق والجسور.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_رودكو_الطرق_والجسور[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة النقل: رودكو الطرق والجسور"] = layer;
+      });
+
+    var aliasMap_موارد_مائية_31 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الطاقة/موارد مائية 31.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_موارد_مائية_31[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الطاقة: موارد مائية 31"] = layer;
+      });
+
+    var aliasMap_العقار_16_ابوشيلم = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الإسكان/العقار 16 ابوشيلم.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_العقار_16_ابوشيلم[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الإسكان: العقار 16 ابوشيلم"] = layer;
+      });
+
+    var aliasMap_بردة_ايكاردا = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الزراعة/بردة ايكاردا.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_بردة_ايكاردا[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الزراعة: بردة ايكاردا"] = layer;
+      });
+
+    var aliasMap_مداجن_خان_طومان = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الزراعة/مداجن خان طومان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مداجن_خان_طومان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الزراعة: مداجن خان طومان"] = layer;
+      });
+
+    var aliasMap_31_تابع_للدواجن_خان_طومان = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الزراعة/31 تابع للدواجن خان طومان.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_31_تابع_للدواجن_خان_طومان[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الزراعة: 31 تابع للدواجن خان طومان"] = layer;
+      });
+
+    var aliasMap_مداجن_الزربة = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الزراعة/مداجن الزربة.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_مداجن_الزربة[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الزراعة: مداجن الزربة"] = layer;
+      });
+
+    var aliasMap_المنطقة_الاولى_36_هكتار = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الزراعة/المنطقة الاولى 36 هكتار.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_المنطقة_الاولى_36_هكتار[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الزراعة: المنطقة الاولى 36 هكتار"] = layer;
+      });
+
+    var aliasMap_المنطقة_الثانية_25_هكتار = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الزراعة/المنطقة الثانية 25 هكتار.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_المنطقة_الثانية_25_هكتار[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الزراعة: المنطقة الثانية 25 هكتار"] = layer;
+      });
+
+    var aliasMap_المنطقة_الثالثة_28_هكتار = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الزراعة/المنطقة الثالثة 28 هكتار.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_المنطقة_الثالثة_28_هكتار[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الزراعة: المنطقة الثالثة 28 هكتار"] = layer;
+      });
+
+    var aliasMap_المنطقة_الرابعة_21_هكتار = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الزراعة/المنطقة الرابعة 21 هكتار.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_المنطقة_الرابعة_21_هكتار[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الزراعة: المنطقة الرابعة 21 هكتار"] = layer;
+      });
+
+    var aliasMap_المنطقة_الخامسة_30_هكتار = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الزراعة/المنطقة الخامسة 30 هكتار.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_المنطقة_الخامسة_30_هكتار[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الزراعة: المنطقة الخامسة 30 هكتار"] = layer;
+      });
+
+    var aliasMap_أرض_للمالية = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة المالية/أرض للمالية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_أرض_للمالية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة المالية: أرض للمالية"] = layer;
+      });
+
+    var aliasMap_معسكر_الشبية = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('وزارة الإدارة المحلية/معسكر الشبية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_معسكر_الشبية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["وزارة الإدارة المحلية: معسكر الشبية"] = layer;
+      });
+
+    var aliasMap_كتلة_السكك = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('السكك الحديدية/كتلة السكك.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap_كتلة_السكك[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["السكك الحديدية: كتلة السكك"] = layer;
+      });
+
+    var aliasMap__ضاحية_فيلات_سكنية = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
+
+    fetch('السكك الحديدية/ ضاحية فيلات سكنية.geojson')
+      .then(res => res.json())
+      .then(data => {
+        var layer = L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
+            var props = feature.properties;
+            var popup = "";
+            for (var key in props) {
+              var alias = aliasMap__ضاحية_فيلات_سكنية[key] || key;
+              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+            }
+            layer.bindPopup(popup);
+          }
+        });
+        layer.addTo(map);
+        allBounds.extend(layer.getBounds());
+        overlays["السكك الحديدية:  ضاحية فيلات سكنية"] = layer;
+      });
+
+    setTimeout(function() {
+      map.fitBounds(allBounds);
+      L.control.layers(null, overlays).addTo(map);
+    }, 1000);
+  </script>
+</body>
+</html>

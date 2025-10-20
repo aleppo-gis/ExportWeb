@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "صالة ألعاب أطفال",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "1", "Name": "صالة ألعاب أطفال", "description": "3000 م2", "MapLink": "<a href=\"#17/36.197423/37.149606\">◄</a>", "GID": 1, "Address": "حلب مركز المدينة سوق البشائر", "CadastralID": "الخامسة", "EstateID": "9939", "Ownership Authority": "مجلس مدينة حلب", "Land Use Category": "صالة ألعاب أطفال", "Building Regulation": null, "Proposed Investment": "تأهيل واستثمار صالة ألعاب أطفال", "Planning Status": "داخل التنظيم", "Physical Condition": "غير مستثمر- بناء قائم مؤلف من طابق واحد بحاجة إلى تأهيل ومتضرر جزئياً", "Remark": "", "Area": "2291 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.1492597234122, 36.197275907073909, 0.0 ], [ 37.149905776778297, 36.197219832177268, 0.0 ], [ 37.149952698305512, 36.197573954740101, 0.0 ], [ 37.149311450006792, 36.197626735762391, 0.0 ], [ 37.1492597234122, 36.197275907073909, 0.0 ] ] ] } }
+]
+}

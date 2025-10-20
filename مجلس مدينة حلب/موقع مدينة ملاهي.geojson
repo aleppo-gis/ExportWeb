@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "موقع مدينة ملاهي",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "24", "Name": "موقع مدينة ملاهي", "description": null, "MapLink": "<a href=\"#17/36.212502/37.152704\">◄</a>", "GID": 24, "Address": "العزيزية مقابل كازية شمس", "CadastralID": "الثالثة", "EstateID": "1854", "Ownership Authority": "مجلس مدينة حلب", "Land Use Category": "سياحي تجاري", "Building Regulation": "طابقين", "Proposed Investment": "مطاعم – كافيتريات – محلات تجارية – ألعاب أطفال", "Planning Status": "داخل التنظيم", "Physical Condition": "أرض معدة للبناء", "Remark": "", "Area": "9006 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.152105566681698, 36.212145522510653, 0.0 ], [ 37.153007154124317, 36.211933217237878, 0.0 ], [ 37.153307585309051, 36.212875356697921, 0.0 ], [ 37.152395919103988, 36.213064114159756, 0.0 ], [ 37.152105566681698, 36.212145522510653, 0.0 ] ] ] } }
+]
+}

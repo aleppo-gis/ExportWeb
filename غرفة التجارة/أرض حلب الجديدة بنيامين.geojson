@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "أرض حلب الجديدة بنيامين",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "150", "Name": "أرض حلب الجديدة بنيامين", "description": "", "MapLink": "<a href=\"#17/36.194462/37.089684\">◄</a>", "GID": 150, "Address": "حلب الجديدة - بنيامين", "CadastralID": "الرابعة", "EstateID": "2763 - 2778", "Ownership Authority": "غرفة تجارة حلب", "Land Use Category": "مقر خدمات اجتماعي خاص بالهيئة العامة لغرفة تجارة حلب", "Building Regulation": "خدمات", "Proposed Investment": "خدمات", "Planning Status": "داخل التنظيم", "Physical Condition": "أرض جاهزة  للبناء غير مرخصة", "Remark": "", "Area": "9000 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.088791268015832, 36.194132760267287, 0.0 ], [ 37.090614924081727, 36.194288265510778, 0.0 ], [ 37.090555257128138, 36.194787701268737, 0.0 ], [ 37.088754926744173, 36.194620210686672, 0.0 ], [ 37.088791268015832, 36.194132760267287, 0.0 ] ] ] } }
+]
+}
