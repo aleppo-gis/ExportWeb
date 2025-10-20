@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_34",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "165", "Name": "أرض خزانة التقاعد", "description": "", "MapLink": "<a href=\"#17/36.202009/37.149473\">◄</a>", "GID": 165, "Address": "باب جنين مركز مدينة حلب جنوب المتحف وبجانب غرفة تجارة حلب ومواجه البنك المركزي للمدينة ومجاور لسور المدينة القديمة ويطل عليها وعلى قلعتها", "CadastralID": "الرابعة", "EstateID": "9915", "Ownership Authority": "نقابة المهندسين", "Land Use Category": null, "Building Regulation": "6.33", "Proposed Investment": "فندق سوية أربع نجوم", "Planning Status": "داخل التنظيم", "Physical Condition": "أرض فراغ", "Remark": null, "Area": "1388 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.149314375169517, 36.20219348810803, 0.0 ], [ 37.149262322507163, 36.201833244298562, 0.0 ], [ 37.14960529338736, 36.201797613104503, 0.0 ], [ 37.149681446673831, 36.202219148843362, 0.0 ], [ 37.149314375169517, 36.20219348810803, 0.0 ] ] ] } }
+]
+}

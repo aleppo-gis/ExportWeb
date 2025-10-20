@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_98",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": null, "Name": "مداجن الزربة", "description": "", "MapLink": "<a href=\"#17/36.077188/36.971222\">◄</a>", "GID": null, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الزراعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": null, "Area": "68.06 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 36.977174807128208, 36.080576235977738, 0.0 ], [ 36.977283861660887, 36.080662683514767, 0.0 ], [ 36.975981523825141, 36.083431277685179, 0.0 ], [ 36.965156922363292, 36.078207628635262, 0.0 ], [ 36.967977063122639, 36.07282964023446, 0.0 ], [ 36.968095073860283, 36.07167196274839, 0.0 ], [ 36.9691210681382, 36.070942977642801, 0.0 ], [ 36.977174807128208, 36.080576235977738, 0.0 ] ] ] } }
+]
+}
