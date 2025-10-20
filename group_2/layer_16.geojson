@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_16",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "16", "Name": "مجمع تجاري في جمعية المهندسين", "description": null, "MapLink": "<a href=\"#17/36.204437/37.104151\">◄</a>", "GID": 16, "Address": "حلب الجديدة جمعية المهندسين ", "CadastralID": "الرابعة", "EstateID": "10368- 12924 - 12925", "Ownership Authority": "مجلس مدينة حلب", "Land Use Category": "مجمع تجاري", "Building Regulation": null, "Proposed Investment": "بناء واستثمار مجمّع تجاري", "Planning Status": "داخل التنظيم", "Physical Condition": "مستثمر من رياض عسلي", "Remark": "", "Area": "3580 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.10371751468869, 36.204207441549293, 0.0 ], [ 37.10461951724659, 36.204275318748813, 0.0 ], [ 37.104573409742663, 36.204663897241353, 0.0 ], [ 37.10367906882108, 36.204612067368032, 0.0 ], [ 37.10371751468869, 36.204207441549293, 0.0 ] ] ] } }
-]
-}
