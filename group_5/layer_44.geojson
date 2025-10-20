@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_44",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "72", "Name": "اللواء 80", "description": null, "MapLink": "<a href=\"#17/36.199541/37.235985\">◄</a>", "GID": 72, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الدفاع", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": null, "Area": "31.66 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.240416982432272, 36.197525542579641, 0.0 ], [ 37.24039093757677, 36.200830090274508, 0.0 ], [ 37.239220519269843, 36.200811174892522, 0.0 ], [ 37.239142343563053, 36.201114870225283, 0.0 ], [ 37.237816879856737, 36.201165889688824, 0.0 ], [ 37.236906770921017, 36.201523237834841, 0.0 ], [ 37.235918489991747, 36.201557076330978, 0.0 ], [ 37.231570646756531, 36.201486878890563, 0.0 ], [ 37.231555363713817, 36.198395656036993, 0.0 ], [ 37.231581723331573, 36.197992589254461, 0.0 ], [ 37.240416982432272, 36.197525542579641, 0.0 ] ] ] } }
-]
-}

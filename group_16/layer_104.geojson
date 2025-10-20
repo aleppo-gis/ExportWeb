@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_104",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "01953535F13B26386630", "Name": "أرض للمالية", "description": null, "MapLink": "<a href=\"#17/36.207769/37.140175\">◄</a>", "GID": null, "Address": "الجميلية", "CadastralID": "الأولى", "EstateID": "1028 - 1029", "Ownership Authority": "وزارة المالية", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": "أرض فراغ", "Remark": null, "Area": "1084 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.140215018042802, 36.207996376917087, 0.0 ], [ 37.139923699737118, 36.207683474197943, 0.0 ], [ 37.140153433174291, 36.20754160028158, 0.0 ], [ 37.14042551201441, 36.207859586666828, 0.0 ], [ 37.140215018042802, 36.207996376917087, 0.0 ] ] ] } }
-]
-}
