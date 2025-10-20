@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_84",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "67", "Name": "معمل الكابلات", "description": null, "MapLink": "<a href=\"#17/36.165361/37.305943\">◄</a>", "GID": 67, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الصناعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": "", "Area": "24.35 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.306396873480871, 36.168656630525177, 0.0 ], [ 37.304328061678461, 36.168099774676122, 0.0 ], [ 37.302768886060711, 36.167675194588178, 0.0 ], [ 37.303243310033963, 36.166519299123898, 0.0 ], [ 37.303734211835113, 36.165339091237158, 0.0 ], [ 37.304304030220422, 36.163944967538683, 0.0 ], [ 37.305031295004078, 36.162169408209202, 0.0 ], [ 37.309110394847082, 36.162067258100038, 0.0 ], [ 37.306396873480871, 36.168656630525177, 0.0 ] ] ] } }
-]
-}
