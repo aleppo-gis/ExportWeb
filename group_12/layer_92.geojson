@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_92",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "180", "Name": "رودكو الطرق والجسور", "description": null, "MapLink": "<a href=\"#17/36.195827/37.235994\">◄</a>", "GID": 180, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة النقل", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": null, "Area": "30.68 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.240119018862792, 36.193673700839533, 0.0 ], [ 37.240270345760621, 36.197560065386448, 0.0 ], [ 37.232424362360057, 36.197982671594119, 0.0 ], [ 37.231718076284459, 36.194356813222832, 0.0 ], [ 37.240119018862792, 36.193673700839533, 0.0 ] ] ] } }
+]
+}
