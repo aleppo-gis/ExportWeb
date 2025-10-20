@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <title>خريطة تفاعلية حسب مجموعات QGIS</title>
@@ -14,10 +14,15 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
+      direction: rtl;
+      font-family: "Segoe UI", sans-serif;
     }
     #map {
       width: 100%;
       height: 100%;
+    }
+    .leaflet-popup-content {
+      text-align: right;
     }
   </style>
 </head>
@@ -32,12 +37,6 @@
       maxZoom: 19,
       attribution: '© OpenStreetMap'
     }).addTo(map);
-    var group_1 = [];
-
-    treeGroups.push({
-      label: "",
-      children: group_1
-    });
     var group_2 = [];
 
     var aliasMap_layer_1 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -50,10 +49,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_1[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_1[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_1.addTo(map);
@@ -71,10 +73,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_2[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_2[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_2.addTo(map);
@@ -92,10 +97,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_3[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_3[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_3.addTo(map);
@@ -113,10 +121,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_4[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_4[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_4.addTo(map);
@@ -134,10 +145,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_5[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_5[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_5.addTo(map);
@@ -155,10 +169,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_6[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_6[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_6.addTo(map);
@@ -176,10 +193,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_7[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_7[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_7.addTo(map);
@@ -197,10 +217,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_8[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_8[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_8.addTo(map);
@@ -218,10 +241,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_9[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_9[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_9.addTo(map);
@@ -239,10 +265,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_10[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_10[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_10.addTo(map);
@@ -260,10 +289,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_11[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_11[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_11.addTo(map);
@@ -281,10 +313,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_12[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_12[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_12.addTo(map);
@@ -302,10 +337,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_13[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_13[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_13.addTo(map);
@@ -323,10 +361,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_14[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_14[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_14.addTo(map);
@@ -344,10 +385,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_15[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_15[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_15.addTo(map);
@@ -365,10 +409,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_16[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_16[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_16.addTo(map);
@@ -386,10 +433,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_17[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_17[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_17.addTo(map);
@@ -407,10 +457,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_18[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_18[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_18.addTo(map);
@@ -428,10 +481,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_19[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_19[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_19.addTo(map);
@@ -449,10 +505,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_20[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_20[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_20.addTo(map);
@@ -470,10 +529,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_21[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_21[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_21.addTo(map);
@@ -491,10 +553,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_22[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_22[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_22.addTo(map);
@@ -512,10 +577,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_23[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_23[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_23.addTo(map);
@@ -533,10 +601,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_24[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_24[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_24.addTo(map);
@@ -554,10 +625,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_25[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_25[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_25.addTo(map);
@@ -575,10 +649,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_26[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_26[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_26.addTo(map);
@@ -596,10 +673,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_27[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_27[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_27.addTo(map);
@@ -607,10 +687,12 @@
         group_2.push({ label: "نادي اجتماعي", layer: layer_27 });
       });
 
-    treeGroups.push({
-      label: "مجلس مدينة حلب",
-      children: group_2
-    });
+    if (group_2.length > 0) {
+      treeGroups.push({
+        label: "مجلس مدينة حلب",
+        children: group_2
+      });
+    }
     var group_3 = [];
 
     var aliasMap_layer_28 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -623,10 +705,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_28[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_28[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_28.addTo(map);
@@ -634,10 +719,12 @@
         group_3.push({ label: "سوق الهال", layer: layer_28 });
       });
 
-    treeGroups.push({
-      label: "المحافظة",
-      children: group_3
-    });
+    if (group_3.length > 0) {
+      treeGroups.push({
+        label: "المحافظة",
+        children: group_3
+      });
+    }
     var group_4 = [];
 
     var aliasMap_layer_29 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -650,10 +737,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_29[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_29[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_29.addTo(map);
@@ -671,10 +761,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_30[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_30[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_30.addTo(map);
@@ -692,10 +785,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_31[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_31[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_31.addTo(map);
@@ -713,10 +809,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_32[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_32[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_32.addTo(map);
@@ -734,10 +833,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_33[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_33[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_33.addTo(map);
@@ -755,10 +857,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_34[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_34[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_34.addTo(map);
@@ -766,10 +871,12 @@
         group_4.push({ label: "أرض خزانة التقاعد", layer: layer_34 });
       });
 
-    treeGroups.push({
-      label: "نقابة المهندسين",
-      children: group_4
-    });
+    if (group_4.length > 0) {
+      treeGroups.push({
+        label: "نقابة المهندسين",
+        children: group_4
+      });
+    }
     var group_5 = [];
 
     var aliasMap_layer_35 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -782,10 +889,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_35[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_35[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_35.addTo(map);
@@ -803,10 +913,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_36[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_36[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_36.addTo(map);
@@ -824,10 +937,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_37[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_37[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_37.addTo(map);
@@ -845,10 +961,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_38[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_38[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_38.addTo(map);
@@ -866,10 +985,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_39[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_39[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_39.addTo(map);
@@ -887,10 +1009,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_40[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_40[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_40.addTo(map);
@@ -908,10 +1033,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_41[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_41[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_41.addTo(map);
@@ -929,10 +1057,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_42[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_42[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_42.addTo(map);
@@ -950,10 +1081,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_43[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_43[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_43.addTo(map);
@@ -971,10 +1105,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_44[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_44[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_44.addTo(map);
@@ -982,10 +1119,12 @@
         group_5.push({ label: "اللواء 80", layer: layer_44 });
       });
 
-    treeGroups.push({
-      label: "وزارة الدفاع",
-      children: group_5
-    });
+    if (group_5.length > 0) {
+      treeGroups.push({
+        label: "وزارة الدفاع",
+        children: group_5
+      });
+    }
     var group_6 = [];
 
     var aliasMap_layer_45 = {"fid": "", "id": "", "Name": "الاسم", "Description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -998,10 +1137,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_45[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_45[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_45.addTo(map);
@@ -1019,10 +1161,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_46[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_46[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_46.addTo(map);
@@ -1040,10 +1185,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_47[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_47[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_47.addTo(map);
@@ -1061,10 +1209,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_48[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_48[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_48.addTo(map);
@@ -1082,10 +1233,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_49[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_49[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_49.addTo(map);
@@ -1103,10 +1257,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_50[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_50[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_50.addTo(map);
@@ -1114,10 +1271,12 @@
         group_6.push({ label: "مشفى الشيحان", layer: layer_50 });
       });
 
-    treeGroups.push({
-      label: "اتحاد العمال",
-      children: group_6
-    });
+    if (group_6.length > 0) {
+      treeGroups.push({
+        label: "اتحاد العمال",
+        children: group_6
+      });
+    }
     var group_7 = [];
 
     var aliasMap_layer_51 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -1130,10 +1289,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_51[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_51[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_51.addTo(map);
@@ -1151,10 +1313,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_52[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_52[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_52.addTo(map);
@@ -1172,10 +1337,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_53[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_53[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_53.addTo(map);
@@ -1193,10 +1361,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_54[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_54[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_54.addTo(map);
@@ -1214,10 +1385,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_55[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_55[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_55.addTo(map);
@@ -1235,10 +1409,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_56[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_56[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_56.addTo(map);
@@ -1256,10 +1433,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_57[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_57[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_57.addTo(map);
@@ -1277,10 +1457,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_58[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_58[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_58.addTo(map);
@@ -1298,10 +1481,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_59[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_59[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_59.addTo(map);
@@ -1319,10 +1505,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_60[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_60[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_60.addTo(map);
@@ -1340,10 +1529,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_61[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_61[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_61.addTo(map);
@@ -1361,10 +1553,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_62[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_62[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_62.addTo(map);
@@ -1382,10 +1577,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_63[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_63[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_63.addTo(map);
@@ -1403,10 +1601,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_64[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_64[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_64.addTo(map);
@@ -1424,10 +1625,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_65[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_65[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_65.addTo(map);
@@ -1445,10 +1649,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_66[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_66[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_66.addTo(map);
@@ -1466,10 +1673,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_67[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_67[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_67.addTo(map);
@@ -1487,10 +1697,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_68[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_68[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_68.addTo(map);
@@ -1508,10 +1721,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_69[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_69[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_69.addTo(map);
@@ -1529,10 +1745,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_70[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_70[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_70.addTo(map);
@@ -1550,10 +1769,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_71[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_71[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_71.addTo(map);
@@ -1571,10 +1793,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_72[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_72[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_72.addTo(map);
@@ -1592,10 +1817,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_73[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_73[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_73.addTo(map);
@@ -1613,10 +1841,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_74[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_74[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_74.addTo(map);
@@ -1634,10 +1865,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_75[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_75[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_75.addTo(map);
@@ -1655,10 +1889,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_76[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_76[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_76.addTo(map);
@@ -1676,10 +1913,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_77[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_77[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_77.addTo(map);
@@ -1697,10 +1937,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_78[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_78[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_78.addTo(map);
@@ -1718,10 +1961,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_79[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_79[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_79.addTo(map);
@@ -1739,10 +1985,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_80[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_80[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_80.addTo(map);
@@ -1760,10 +2009,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_81[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_81[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_81.addTo(map);
@@ -1781,10 +2033,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_82[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_82[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_82.addTo(map);
@@ -1802,10 +2057,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_83[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_83[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_83.addTo(map);
@@ -1823,10 +2081,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_84[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_84[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_84.addTo(map);
@@ -1834,10 +2095,12 @@
         group_7.push({ label: "معمل الكابلات", layer: layer_84 });
       });
 
-    treeGroups.push({
-      label: "وزارة الصناعة",
-      children: group_7
-    });
+    if (group_7.length > 0) {
+      treeGroups.push({
+        label: "وزارة الصناعة",
+        children: group_7
+      });
+    }
     var group_8 = [];
 
     var aliasMap_layer_85 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنظيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -1850,10 +2113,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_85[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_85[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_85.addTo(map);
@@ -1871,10 +2137,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_86[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_86[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_86.addTo(map);
@@ -1892,10 +2161,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_87[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_87[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_87.addTo(map);
@@ -1913,10 +2185,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_88[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_88[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_88.addTo(map);
@@ -1924,10 +2199,12 @@
         group_8.push({ label: "أرض مركز الجباية", layer: layer_88 });
       });
 
-    treeGroups.push({
-      label: "مؤسسة المياه",
-      children: group_8
-    });
+    if (group_8.length > 0) {
+      treeGroups.push({
+        label: "مؤسسة المياه",
+        children: group_8
+      });
+    }
     var group_9 = [];
 
     var aliasMap_layer_89 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -1940,10 +2217,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_89[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_89[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_89.addTo(map);
@@ -1951,10 +2231,12 @@
         group_9.push({ label: "حمام يلبغا الناصري", layer: layer_89 });
       });
 
-    treeGroups.push({
-      label: "وزارة السياحة",
-      children: group_9
-    });
+    if (group_9.length > 0) {
+      treeGroups.push({
+        label: "وزارة السياحة",
+        children: group_9
+      });
+    }
     var group_10 = [];
 
     var aliasMap_layer_90 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -1967,10 +2249,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_90[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_90[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_90.addTo(map);
@@ -1978,10 +2263,12 @@
         group_10.push({ label: "أرض حلب الجديدة بنيامين", layer: layer_90 });
       });
 
-    treeGroups.push({
-      label: "غرفة التجارة",
-      children: group_10
-    });
+    if (group_10.length > 0) {
+      treeGroups.push({
+        label: "غرفة التجارة",
+        children: group_10
+      });
+    }
     var group_11 = [];
 
     var aliasMap_layer_91 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -1994,10 +2281,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_91[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_91[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_91.addTo(map);
@@ -2005,10 +2295,12 @@
         group_11.push({ label: "غرفة زراعة حلب", layer: layer_91 });
       });
 
-    treeGroups.push({
-      label: "غرفة زراعة حلب",
-      children: group_11
-    });
+    if (group_11.length > 0) {
+      treeGroups.push({
+        label: "غرفة زراعة حلب",
+        children: group_11
+      });
+    }
     var group_12 = [];
 
     var aliasMap_layer_92 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -2021,10 +2313,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_92[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_92[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_92.addTo(map);
@@ -2032,10 +2327,12 @@
         group_12.push({ label: "رودكو الطرق والجسور", layer: layer_92 });
       });
 
-    treeGroups.push({
-      label: "وزارة النقل",
-      children: group_12
-    });
+    if (group_12.length > 0) {
+      treeGroups.push({
+        label: "وزارة النقل",
+        children: group_12
+      });
+    }
     var group_13 = [];
 
     var aliasMap_layer_93 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -2048,10 +2345,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_93[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_93[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_93.addTo(map);
@@ -2059,10 +2359,12 @@
         group_13.push({ label: "موارد مائية 31", layer: layer_93 });
       });
 
-    treeGroups.push({
-      label: "وزارة الطاقة",
-      children: group_13
-    });
+    if (group_13.length > 0) {
+      treeGroups.push({
+        label: "وزارة الطاقة",
+        children: group_13
+      });
+    }
     var group_14 = [];
 
     var aliasMap_layer_94 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -2075,10 +2377,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_94[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_94[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_94.addTo(map);
@@ -2086,10 +2391,12 @@
         group_14.push({ label: "العقار 16 ابوشيلم", layer: layer_94 });
       });
 
-    treeGroups.push({
-      label: "وزارة الإسكان",
-      children: group_14
-    });
+    if (group_14.length > 0) {
+      treeGroups.push({
+        label: "وزارة الإسكان",
+        children: group_14
+      });
+    }
     var group_15 = [];
 
     var aliasMap_layer_95 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -2102,10 +2409,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_95[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_95[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_95.addTo(map);
@@ -2123,10 +2433,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_96[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_96[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_96.addTo(map);
@@ -2144,10 +2457,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_97[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_97[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_97.addTo(map);
@@ -2165,10 +2481,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_98[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_98[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_98.addTo(map);
@@ -2186,10 +2505,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_99[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_99[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_99.addTo(map);
@@ -2207,10 +2529,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_100[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_100[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_100.addTo(map);
@@ -2228,10 +2553,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_101[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_101[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_101.addTo(map);
@@ -2249,10 +2577,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_102[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_102[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_102.addTo(map);
@@ -2270,10 +2601,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_103[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_103[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_103.addTo(map);
@@ -2281,10 +2615,12 @@
         group_15.push({ label: "المنطقة الخامسة 30 هكتار", layer: layer_103 });
       });
 
-    treeGroups.push({
-      label: "وزارة الزراعة",
-      children: group_15
-    });
+    if (group_15.length > 0) {
+      treeGroups.push({
+        label: "وزارة الزراعة",
+        children: group_15
+      });
+    }
     var group_16 = [];
 
     var aliasMap_layer_104 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -2297,10 +2633,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_104[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_104[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_104.addTo(map);
@@ -2308,10 +2647,12 @@
         group_16.push({ label: "أرض للمالية", layer: layer_104 });
       });
 
-    treeGroups.push({
-      label: "وزارة المالية",
-      children: group_16
-    });
+    if (group_16.length > 0) {
+      treeGroups.push({
+        label: "وزارة المالية",
+        children: group_16
+      });
+    }
     var group_17 = [];
 
     var aliasMap_layer_105 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -2324,10 +2665,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_105[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_105[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_105.addTo(map);
@@ -2335,10 +2679,12 @@
         group_17.push({ label: "معسكر الشبية", layer: layer_105 });
       });
 
-    treeGroups.push({
-      label: "وزارة الإدارة المحلية",
-      children: group_17
-    });
+    if (group_17.length > 0) {
+      treeGroups.push({
+        label: "وزارة الإدارة المحلية",
+        children: group_17
+      });
+    }
     var group_18 = [];
 
     var aliasMap_layer_106 = {"fid": "", "id": "", "Name": "الاسم", "description": "الوصف", "MapLink": "رابط الخريطة", "GID": "رقم الموقع", "Address": "العنوان التفصيلي", "CadastralID": "المنطقة العقارية", "EstateID": "رقم العقار", "Ownership Authority": "الجهة المالكة", "Land Use Category": "الصفة التنظيمية", "Building Regulation": "ضابطة البناء", "Proposed Investment": "الاستثمار المقترح", "Planning Status": "الحالة التنطيمية", "Physical Condition": "الحالة الراهنة", "Remark": "ملاحظات", "Area": "المساحة"};
@@ -2351,10 +2697,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_106[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_106[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_106.addTo(map);
@@ -2372,10 +2721,13 @@
             var props = feature.properties;
             var popup = "";
             for (var key in props) {
-              var alias = aliasMap_layer_107[key] || key;
-              popup += "<b>" + alias + ":</b> " + props[key] + "<br>";
+              var value = props[key];
+              if (value !== null && value !== "") {
+                var alias = aliasMap_layer_107[key] || key;
+                popup += "<b>" + alias + ":</b> " + value + "<br>";
+              }
             }
-            layer.bindPopup(popup);
+            if (popup) layer.bindPopup(popup);
           }
         });
         layer_107.addTo(map);
@@ -2383,17 +2735,16 @@
         group_18.push({ label: " ضاحية فيلات سكنية", layer: layer_107 });
       });
 
-    treeGroups.push({
-      label: "السكك الحديدية",
-      children: group_18
-    });
+    if (group_18.length > 0) {
+      treeGroups.push({
+        label: "السكك الحديدية",
+        children: group_18
+      });
+    }
 
     setTimeout(function() {
       map.fitBounds(allBounds);
-      L.control.layers.tree(null, {
-        label: "المجموعات",
-        children: treeGroups
-      }, { collapsed: false }).addTo(map);
+      L.control.layers.tree(null, treeGroups, { collapsed: false }).addTo(map);
     }, 1000);
   </script>
 </body>
