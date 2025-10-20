@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "البحوث العلمية",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 2, "id": "166", "Name": "البحوث العلمية", "description": null, "MapLink": "<a href=\"#17/36.203577/37.07258\">◄</a>", "GID": 166, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الدفاع", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": null, "Area": "106.3 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.067374100390687, 36.198736720283705, 0.0 ], [ 37.078523332000934, 36.198638514744509, 0.0 ], [ 37.077736988209786, 36.208518885465743, 0.0 ], [ 37.066634562777573, 36.207975044284915, 0.0 ], [ 37.067374100390687, 36.198736720283705, 0.0 ] ] ] } }
-]
-}

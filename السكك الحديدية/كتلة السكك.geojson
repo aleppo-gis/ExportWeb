@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "كتلة السكك",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "02CE8B09B33B264AA80F", "Name": "كتلة السكك", "description": null, "MapLink": "<a href=\"#17/36.218794/37.150629\">◄</a>", "GID": null, "Address": "كتلة السكك خلف نادي الحرية", "CadastralID": "الثانية", "EstateID": "٥٠٥٦", "Ownership Authority": "السكك الحديدية", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": null, "Area": "7.26 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.151026111219508, 36.217324407995719, 0.0 ], [ 37.153015700712942, 36.218581262657217, 0.0 ], [ 37.152667156827931, 36.218916393515222, 0.0 ], [ 37.152528196229177, 36.220191766058782, 0.0 ], [ 37.152339417189062, 36.220262875550752, 0.0 ], [ 37.151918115575562, 36.220158015741013, 0.0 ], [ 37.149749035944843, 36.219104966148379, 0.0 ], [ 37.148240638980504, 36.218213421038541, 0.0 ], [ 37.149562023786338, 36.217662645074988, 0.0 ], [ 37.151026111219508, 36.217324407995719, 0.0 ] ] ] } }
-]
-}

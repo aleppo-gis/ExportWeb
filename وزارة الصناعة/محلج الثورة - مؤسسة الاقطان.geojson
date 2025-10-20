@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "محلج الثورة - مؤسسة الاقطان",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "54", "Name": "محلج الثورة - مؤسسة الاقطان", "description": null, "MapLink": "<a href=\"#17/36.232229/37.123987\">◄</a>", "GID": 54, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الصناعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": "", "Area": "2.33 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.123724481386823, 36.231121980680619, 0.0 ], [ 37.125232104219407, 36.232811118448218, 0.0 ], [ 37.124463139847833, 36.233333614708691, 0.0 ], [ 37.122747448905578, 36.231697717848142, 0.0 ], [ 37.123724481386823, 36.231121980680619, 0.0 ] ] ] } }
-]
-}

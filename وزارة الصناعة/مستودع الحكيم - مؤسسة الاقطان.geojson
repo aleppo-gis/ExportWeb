@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "مستودع الحكيم - مؤسسة الاقطان",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "57", "Name": "مستودع الحكيم - مؤسسة الاقطان", "description": null, "MapLink": "<a href=\"#17/36.231071/37.124523\">◄</a>", "GID": 57, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الصناعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": "", "Area": "6707 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.125168543176642, 36.231100635496162, 0.0 ], [ 37.124367477338538, 36.231585542822707, 0.0 ], [ 37.123880927093843, 36.231034982527518, 0.0 ], [ 37.124675804795949, 36.230556823322537, 0.0 ], [ 37.125168543176642, 36.231100635496162, 0.0 ] ] ] } }
-]
-}

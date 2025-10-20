@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "الوحدة الاقتصادية - معمل الاسمنت",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "63", "Name": "الوحدة الاقتصادية - معمل الاسمنت", "description": null, "MapLink": "<a href=\"#17/36.173817/37.295088\">◄</a>", "GID": 63, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الصناعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": "", "Area": "64.16 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.289722580906123, 36.176409775490733, 0.0 ], [ 37.291718325960169, 36.169433248403912, 0.0 ], [ 37.300450078832988, 36.169624515490973, 0.0 ], [ 37.298277944324937, 36.174934163481112, 0.0 ], [ 37.297793477488312, 36.175163370348237, 0.0 ], [ 37.297161787404931, 36.176600645107847, 0.0 ], [ 37.297414866958192, 36.177057538415738, 0.0 ], [ 37.297083031972733, 36.17783677900335, 0.0 ], [ 37.296600133191951, 36.177719770072628, 0.0 ], [ 37.296393046160453, 36.178203054753503, 0.0 ], [ 37.289722580906123, 36.176409775490733, 0.0 ] ] ] } }
-]
-}

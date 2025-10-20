@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "أرض المسلمية",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "29", "Name": "أرض المسلمية", "description": null, "MapLink": "<a href=\"#17/36.251957/37.17593\">◄</a>", "GID": 29, "Address": "المسلمية جانب دوار الجندول", "CadastralID": "المسلمية", "EstateID": "9075", "Ownership Authority": "اتحاد عمال حلب", "Land Use Category": "أرض معدة للبناء", "Building Regulation": "بناء مقصف أو مطعم", "Proposed Investment": "مطعم أو مقصف", "Planning Status": "داخل التنظيم", "Physical Condition": "يوجد كهرباء مياه صرف صحي انترنت طرق معبدة", "Remark": "", "Area": "1.58 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.175046573949068, 36.251448210850548, 0.0 ], [ 37.175992638198537, 36.251042375575338, 0.0 ], [ 37.17681488667796, 36.252525712107243, 0.0 ], [ 37.176044632464617, 36.252866297158079, 0.0 ], [ 37.175046573949068, 36.251448210850548, 0.0 ] ] ] } }
-]
-}

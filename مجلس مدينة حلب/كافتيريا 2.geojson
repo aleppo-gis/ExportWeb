@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "كافتيريا 2",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "4", "Name": "كافتيريا 2", "description": null, "MapLink": "<a href=\"#17/36.198441/37.148439\">◄</a>", "GID": 4, "Address": "حلب مركز المدينة سوق البشائر", "CadastralID": "الرابعة", "EstateID": "14101", "Ownership Authority": "مجلس مدينة حلب", "Land Use Category": "كافيتريا", "Building Regulation": "طابقين", "Proposed Investment": "استثمار الكافيتريا رقم /2/", "Planning Status": "داخل التنظيم", "Physical Condition": "بناء على الهيكل سليم غير مستثمر", "Remark": "", "Area": "178 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.148347792853698, 36.198397045459963, 0.0 ], [ 37.148518490780873, 36.198379682818818, 0.0 ], [ 37.148532452132997, 36.198483887884123, 0.0 ], [ 37.148364214795642, 36.198500861566806, 0.0 ], [ 37.148347792853698, 36.198397045459963, 0.0 ] ] ] } }
-]
-}

@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "الشركة الاهلية - معمل رقم 2",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "52", "Name": "الشركة الاهلية - معمل رقم 2", "description": null, "MapLink": "<a href=\"#17/36.230833/37.126514\">◄</a>", "GID": 52, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الصناعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": "", "Area": "6.01 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.127104783476959, 36.229102508097633, 0.0 ], [ 37.128202451606747, 36.230299809249153, 0.0 ], [ 37.127575560139391, 36.23155927196796, 0.0 ], [ 37.126737736455397, 36.232566011845933, 0.0 ], [ 37.124824990296659, 36.230472964458237, 0.0 ], [ 37.127104783476959, 36.229102508097633, 0.0 ] ] ] } }
-]
-}
