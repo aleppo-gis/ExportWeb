@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_17",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "17", "Name": "مجمع تجاري في حلب الجديدة القطعة 268", "description": null, "MapLink": "<a href=\"#17/36.191158/37.09177\">◄</a>", "GID": 17, "Address": "حلب الجديدة جنوبي - منيان", "CadastralID": "الرابعة", "EstateID": "13366", "Ownership Authority": "مجلس مدينة حلب", "Land Use Category": "مجمع تجاري", "Building Regulation": "خمسة طوابق", "Proposed Investment": "بناء واستثمار مجمّع تجاري", "Planning Status": "داخل التنظيم", "Physical Condition": "أرض فراغ", "Remark": "", "Area": "6633 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.091412464706423, 36.190724421144331, 0.0 ], [ 37.092239708289689, 36.190786799582142, 0.0 ], [ 37.09211640557605, 36.19159246991422, 0.0 ], [ 37.091300096387457, 36.191516482133778, 0.0 ], [ 37.091412464706423, 36.190724421144331, 0.0 ] ] ] } }
+]
+}

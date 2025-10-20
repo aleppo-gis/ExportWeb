@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_83",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "66", "Name": "معمل الجرارات", "description": null, "MapLink": "<a href=\"#17/36.179985/37.292305\">◄</a>", "GID": 66, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الصناعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": "", "Area": "45.4 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.294819215860713, 36.183555155050527, 0.0 ], [ 37.287729329362612, 36.183379364037123, 0.0 ], [ 37.28971982024985, 36.176415187856449, 0.0 ], [ 37.296883650873433, 36.178352934580779, 0.0 ], [ 37.294819215860713, 36.183555155050527, 0.0 ] ] ] } }
+]
+}
