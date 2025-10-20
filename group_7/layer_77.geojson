@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_77",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "60", "Name": "معمل عوف", "description": null, "MapLink": "<a href=\"#17/36.25622/37.09412\">◄</a>", "GID": 60, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الصناعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": "", "Area": "3.76 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.095132743681923, 36.25698029965082, 0.0 ], [ 37.093556069627013, 36.25681110660522, 0.0 ], [ 37.09226923641679, 36.25654289620018, 0.0 ], [ 37.092708287344983, 36.255459860884429, 0.0 ], [ 37.095972333562713, 36.255841262630213, 0.0 ], [ 37.095132743681923, 36.25698029965082, 0.0 ] ] ] } }
+]
+}
