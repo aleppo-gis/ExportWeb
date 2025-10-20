@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_32",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "163", "Name": "مول المهندسين بشارع النيل", "description": "", "MapLink": "<a href=\"#17/36.224722/37.12652\">◄</a>", "GID": 163, "Address": "الخالدية شارع النيل مفرق الصخرة", "CadastralID": "الرابعة", "EstateID": "13427", "Ownership Authority": "نقابة المهندسين", "Land Use Category": "مول تجاري", "Building Regulation": null, "Proposed Investment": "مول تجاري", "Planning Status": "داخل التنظيم", "Physical Condition": "مبنى على الهيكل مؤلف من تسعة طوابق بمساحة طابقية 1000 م2", "Remark": null, "Area": "2038 m²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.126805648461961, 36.224875986061299, 0.0 ], [ 37.12636249216132, 36.224988563169433, 0.0 ], [ 37.126228646857719, 36.224539996815103, 0.0 ], [ 37.126655432804917, 36.224450891983707, 0.0 ], [ 37.126805648461961, 36.224875986061299, 0.0 ] ] ] } }
+]
+}
