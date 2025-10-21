@@ -26,6 +26,12 @@
         text-align: right;
     }
     .leaflet-control-layers {
+        top:0 !important;
+        right:0 !important;
+        left: auto !important;
+        margin:0 !important;
+        border-radius:0 !important;
+        box-shadow: none !important;
         max-height:90vh !important;
         min-width:220px;
         max-width:400px;
@@ -46,6 +52,15 @@
  max-height:80vh !important;
  overflow-y: auto !important;
  }
+    .layer-title {
+        background: #eee;
+        padding: 8px 12px;
+        font-weight: bold;
+        text-align: right;
+        border-bottom:1px solid #ccc;
+        font-family: 'Tajawal', sans-serif;
+        font-size:14pt;
+    }
     </style>
 </head>
 <body>
@@ -171,11 +186,20 @@
 
         setTimeout(function() {
             try { if (allBounds.isValid && typeof allBounds.isValid === "function" && allBounds.isValid()) { map.fitBounds(allBounds); } } catch(e) {}
-            L.control.layers.tree(null, treeGroups, {
+            var control = L.control.layers.tree(null, treeGroups, {
                 collapsed: false,
                 position: "topright"
-            }).addTo(map);
-
+            });
+            control.addTo(map);
+            // إضافة عنوان page_title أعلى نافذة الطبقات
+            var layersPanel = document.querySelector(".leaflet-control-layers");
+            
+            if (layersPanel) {
+                var titleDiv = document.createElement("div");
+                titleDiv.className = "layer-title";
+                titleDiv.innerText = "\u062e\u0631\u064a\u0637\u0629 \u0627\u0644\u0645\u0634\u0627\u0631\u064a\u0639 \u0627\u0644\u0627\u0633\u062a\u062b\u0645\u0627\u0631\u064a\u0629";
+                layersPanel.insertBefore(titleDiv, layersPanel.firstChild);
+            }
         },1000);
     });
     </script>
