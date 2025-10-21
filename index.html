@@ -57,14 +57,17 @@
         font-size:14pt;
         flex:00 auto;
     }
+    .leaflet-layerstree-node {
+        margin-right:20px !important;
+    }
     .leaflet-control-layers-list,
- .leaflet-control-layers-overlays,
- .leaflet-control-layers-tree {
- flex:11 auto;
- overflow-y: auto !important;
- min-height:0;
- max-height: none !important;
- }
+    .leaflet-control-layers-overlays,
+    .leaflet-control-layers-tree {
+       flex:11 auto;
+       overflow-y: auto !important;
+       min-height:0;
+       max-height: none !important;
+    }
     </style>
 </head>
 <body>
@@ -162,7 +165,7 @@
 
                 try { allBounds.extend(layer.getBounds()); } catch (e) {}
 
-                var labelHtml = "<span style='display:inline-block;width:12px;height:12px;margin-left:3px;margin-right:20px;vertical-align:middle;background-color:" + (style.fillColor||style.color) + ";opacity:" + (style.fillOpacity||0.6) + ";border:1px solid #333'></span><span>" + layerName + "</span>";
+                var labelHtml = "<span style='display:inline-block;width:12px;height:12px;margin-left:3px;margin-right:3px;vertical-align:middle;background-color:" + (style.fillColor||style.color) + ";opacity:" + (style.fillOpacity||0.6) + ";border:1px solid #333'></span><span>" + layerName + "</span>";
                 groupObjects[gid].push({ label: labelHtml, layer: layer });
             }
         }
