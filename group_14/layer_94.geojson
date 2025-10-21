@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_94",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": null, "Name": "العقار 16 ابوشيلم", "description": null, "MapLink": "<a href=\"#17/36.132938/37.038338\">◄</a>", "GID": null, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": null, "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": null, "Area": "27.63 ha" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.035401331036432, 36.135215173672186, 0.0 ], [ 37.035393529086903, 36.134723911916517, 0.0 ], [ 37.035297101156033, 36.133173861991203, 0.0 ], [ 37.035361902067287, 36.131663044551168, 0.0 ], [ 37.035275403898723, 36.130647290475679, 0.0 ], [ 37.035822800571133, 36.130090021250354, 0.0 ], [ 37.037958378387252, 36.13038377037293, 0.0 ], [ 37.041398379394352, 36.131020873435077, 0.0 ], [ 37.040173093249692, 36.135787490627877, 0.0 ], [ 37.035401331036432, 36.135215173672186, 0.0 ] ] ] } }
-]
-}
