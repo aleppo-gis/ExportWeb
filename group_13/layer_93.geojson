@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_93",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": null, "Name": "موارد مائية 31", "description": null, "MapLink": "<a href=\"#17/36.121489/37.015774\">◄</a>", "GID": null, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الزراعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": null, "Area": "7.21 هكتار" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.014029457820222, 36.123305452576872, 0.0 ], [ 37.014450768895607, 36.120013886047808, 0.0 ], [ 37.015285458826497, 36.119671049403472, 0.0 ], [ 37.015923950634367, 36.120579682693503, 0.0 ], [ 37.016057054740813, 36.120478965705388, 0.0 ], [ 37.016584552226867, 36.120757881426897, 0.0 ], [ 37.017517272866719, 36.122221266155549, 0.0 ], [ 37.01509480931329, 36.123091230077407, 0.0 ], [ 37.01508857762812, 36.12289373676392, 0.0 ], [ 37.014983242124622, 36.122780638592502, 0.0 ], [ 37.014029457820222, 36.123305452576872, 0.0 ] ] ] } }
-]
-}

@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_47",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "30", "Name": "أرض هنانو", "description": null, "MapLink": "<a href=\"#17/36.226534/37.199549\">◄</a>", "GID": 30, "Address": "مساكن هنانو جانب مساكن الشرطة", "CadastralID": "هنانو", "EstateID": "10038", "Ownership Authority": "اتحاد عمال حلب", "Land Use Category": "مخصصة ملاعب", "Building Regulation": null, "Proposed Investment": "ملاعب ومسابح وصالات رياضية ومحلات", "Planning Status": "داخل التنظيم", "Physical Condition": "لا يوجد كهرباء أو انترنت أو شبكة اتصالات ... يوجد مياه وصرف صحي وطرق معبدة", "Remark": "", "Area": "4.95 هكتار" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.198019817258817, 36.227575862582697, 0.0 ], [ 37.197937549174327, 36.225592586137481, 0.0 ], [ 37.200629342411283, 36.225492324417147, 0.0 ], [ 37.201156928096843, 36.226808839704439, 0.0 ], [ 37.199994796129808, 36.227106936070463, 0.0 ], [ 37.198019817258817, 36.227575862582697, 0.0 ] ] ] } }
-]
-}

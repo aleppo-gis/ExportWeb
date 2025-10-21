@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "layer_63",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "fid": 1, "id": "46", "Name": "معمل ألبان", "description": null, "MapLink": "<a href=\"#17/36.223856/37.165974\">◄</a>", "GID": 46, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "وزارة الصناعة", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": "", "Area": "2577 م²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.166606692852532, 36.223786208914419, 0.0 ], [ 37.165428495114163, 36.22412007487047, 0.0 ], [ 37.165342948688917, 36.223917969722997, 0.0 ], [ 37.166523899209032, 36.223596979798039, 0.0 ], [ 37.166606692852532, 36.223786208914419, 0.0 ] ] ] } }
-]
-}
