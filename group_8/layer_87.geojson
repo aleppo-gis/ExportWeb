@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_87",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "70", "Name": "دائرة الاليات - الكازية", "description": null, "MapLink": "<a href=\"#17/36.210848/37.17103\">◄</a>", "GID": 70, "Address": null, "CadastralID": null, "EstateID": null, "Ownership Authority": "مؤسسة المياه", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": "", "Area": "1625 م²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.171300675218532, 36.210559136362789, 0.0 ], [ 37.171294914546387, 36.21058360131078, 0.0 ], [ 37.171263475524029, 36.21060851287519, 0.0 ], [ 37.171204715847892, 36.21069419564958, 0.0 ], [ 37.171171241268922, 36.210832528774411, 0.0 ], [ 37.171169352296019, 36.210917171686418, 0.0 ], [ 37.171182918801058, 36.210949438154969, 0.0 ], [ 37.171227217864832, 36.211037209374773, 0.0 ], [ 37.171016998595981, 36.21113653697337, 0.0 ], [ 37.170754821823792, 36.210653151585589, 0.0 ], [ 37.171279103623213, 36.210563380081012, 0.0 ], [ 37.171300675218532, 36.210559136362789, 0.0 ] ] ] } }
+]
+}

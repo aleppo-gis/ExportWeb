@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_31",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "162", "Name": "مطعم نقابة المهندسين الزربة", "description": "", "MapLink": "<a href=\"#17/36.098639/36.956619\">◄</a>", "GID": 162, "Address": "مفرق كازية الأهرام", "CadastralID": null, "EstateID": null, "Ownership Authority": "نقابة المهندسين", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": "سياحي تجاري", "Planning Status": "داخل التنظيم", "Physical Condition": "أرض فراغ مطعم + مسبح + سياحة شعبية", "Remark": null, "Area": "8.65 هكتار" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 36.955117779377183, 36.100230463652842, 0.0 ], [ 36.955536619425409, 36.096829228836782, 0.0 ], [ 36.958121856554698, 36.097402982262963, 0.0 ], [ 36.957811814545543, 36.100448158575013, 0.0 ], [ 36.955117779377183, 36.100230463652842, 0.0 ] ] ] } }
+]
+}

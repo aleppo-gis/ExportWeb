@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "layer_39",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "id": "02152F86993B23F8C5F7", "Name": "٧٩٠٧ و٧٩٠٨ دفاع", "description": null, "MapLink": "<a href=\"#17/36.224035/37.126938\">◄</a>", "GID": null, "Address": null, "CadastralID": null, "EstateID": "٧٩٠٧ و ٧٩٠٨", "Ownership Authority": "وزارة الدفاع", "Land Use Category": null, "Building Regulation": null, "Proposed Investment": null, "Planning Status": null, "Physical Condition": null, "Remark": null, "Area": "2910 م²" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 37.127257947779228, 36.224342595347409, 0.0 ], [ 37.126858788234458, 36.224411671982892, 0.0 ], [ 37.126617471272887, 36.22376989112604, 0.0 ], [ 37.127032943662464, 36.223656391728603, 0.0 ], [ 37.127257947779228, 36.224342595347409, 0.0 ] ] ] } }
+]
+}
