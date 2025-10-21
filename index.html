@@ -85,7 +85,7 @@
                                 var key = f.name;
                                 var alias = f.alias || key;
                                 var value = props[key];
-                                if (value !== null && value !== undefined && value !== "") {
+                                if (value !== null && value !== undefined && String(value).trim() !== "") {
                                     popup += "<tr><td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
                                              "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td></tr>";
                                 }
@@ -94,7 +94,7 @@
                             for (var key in props) {
                                 if (key === "__group__" || key === "__layer__" || key === "__visible_fields__") continue;
                                 var value = props[key];
-                                if (value !== null && value !== "") {
+                                if (value !== null && value !== undefined && String(value).trim() !== "") {
                                     popup += "<tr><td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + key + "</b></td>" +
                                              "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td></tr>";
                                 }
