@@ -1,154 +1,163 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="utf-8" />
-    <title>خريطة المشاريع الاستثمارية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <title>خريطة المشاريع الاستثمارية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="map"></div>
-    <script>
-    var map = L.map("map");
-    var allBounds = L.latLngBounds();
-    var treeGroups = [];
+  <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات">☰</button>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
+  <script>
+    const map = L.map("map");
+    const allBounds = L.latLngBounds();
+    const treeGroups = [];
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom:19,
-        attribution: "© OpenStreetMap"
+      maxZoom: 19,
+      attribution: "© OpenStreetMap"
     }).addTo(map);
 
-    var groupLayers = {"group_2": {"صالة ألعاب أطفال": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "صالة مناسبات": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "كافتيريا 1": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "كافتيريا 2": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "كافتيريا 3": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "كافتيريا 4": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "كافتيريا 5": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "كافتيريا 6": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مؤسسة تعليمية خاصة (روضة)": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مؤسسة تعليمية خاصة (روضة+مدرسة)": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مبنى الخدمات الفنية": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مبنى الهجرة والجوازات القديم": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مبنى خدمي في موقع المقصف العمالي": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مجمع تجاري في جمعية التعليم العالي": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مجمع تجاري في جمعية الزهراء": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مجمع تجاري في جمعية المهندسين": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مجمع تجاري في حلب الجديدة القطعة 268": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مركز السفريات": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مركز تجاري سياحي ثقافي": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "موقع السرايا القديمة (أرض السجن)": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "موقع ثكنة طارق بن زياد": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "موقع رحبة فيصل": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "موقع سوق الأنتاج": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "موقع مدينة ملاهي": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "موقع مقصف ميامي": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مول التجاري في سوق البشائر": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "نادي اجتماعي": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_3": {"سوق الهال": {"fillColor": "rgba(56, 218, 87, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_4": {"أرض في ريف المهندسين الثاني": {"fillColor": "rgba(166, 29, 225, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "أرض مجبل نقابة المهندسين": {"fillColor": "rgba(166, 29, 225, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مطعم نقابة المهندسين الزربة": {"fillColor": "rgba(166, 29, 225, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مول المهندسين بشارع النيل": {"fillColor": "rgba(166, 29, 225, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "أرض بلليرمون": {"fillColor": "rgba(166, 29, 225, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "أرض خزانة التقاعد": {"fillColor": "rgba(166, 29, 225, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_5": {"الفوج 46": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "الكلية الادارية كفرجوم": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "جمارك كفرجوم": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "١٠٠٩٧ دفاع": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "٧٩٠٧ و٧٩٠٨ دفاع": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "٧٩٠٩ و٧٩١٠ دفاع": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "١٢٧٢٨ انصاري دفاع": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "٩٧ دفاع": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "البحوث العلمية": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "اللواء 80": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_6": {"أرض الشيخ نجار": {"fillColor": "rgba(255, 0, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "أرض المسلمية": {"fillColor": "rgba(255, 0, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "أرض هنانو": {"fillColor": "rgba(255, 0, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "العيادات العمالية": {"fillColor": "rgba(255, 0, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "المجمع العمالي": {"fillColor": "rgba(255, 0, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مشفى الشيحان": {"fillColor": "rgba(255, 0, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_7": {"الشركة السورية للغزل و النسيج": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "الشركة العامة لصناعة و تسويق الاسمنت - عمران": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "الشركة العامة للزيوت": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "الشهباء للمفازل و المناسج": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "رحبة باصات النقل الداخلي": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "شركة زنوبيا وشمرا": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "محلج أمية": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "محلج الشرق": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "محلج اللواء": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "محلج الوحدة": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل ألبان": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل التبغ - الريجي": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل الزجاج": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل السجاد": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل الشرق": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "الشركة الاهلية - معمل رقم 1": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "الشركة الاهلية - معمل رقم 2": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "الشركة الاهلية معمل رقم 3": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "محلج الثورة - مؤسسة الاقطان": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "محلج الرصافة - مؤسسة الاقطان": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مستودع الاسطوانة - مؤسسة الاقطان": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مستودع الحكيم - مؤسسة الاقطان": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مستودع المنشاري - مؤسسة الاقطان": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مستودع سابا - مؤسسة الاقطان": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل عوف": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "شركة تاميكو - معمل السيرومات": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل الشاشات": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "الوحدة الاقتصادية - معمل الاسمنت": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "محلج تشرين": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل البطاريات": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل الجرارات": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "معمل الكابلات": {"fillColor": "rgba(255, 30, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_8": {"دائرة الشبكات": {"fillColor": "rgba(255, 206, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "دائرة الاليات - المراب": {"fillColor": "rgba(255, 206, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "دائرة الاليات - الكازية": {"fillColor": "rgba(255, 206, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "أرض مركز الجباية": {"fillColor": "rgba(255, 206, 0, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_9": {"حمام يلبغا الناصري": {"fillColor": "rgba(183, 201, 38, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_10": {"أرض حلب الجديدة بنيامين": {"fillColor": "rgba(164, 113, 88, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_11": {"غرفة زراعة حلب": {"fillColor": "rgba(167, 229, 141, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_12": {"رودكو الطرق والجسور": {"fillColor": "rgba(0, 0, 255, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_13": {"موارد مائية 31": {"fillColor": "rgba(49, 173, 236, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_14": {"العقار 16 ابوشيلم": {"fillColor": "rgba(205, 180, 39, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_15": {"بردة ايكاردا": {"fillColor": "rgba(61, 193, 150, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مداجن خان طومان": {"fillColor": "rgba(61, 193, 150, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "31 تابع للدواجن خان طومان": {"fillColor": "rgba(61, 193, 150, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "مداجن الزربة": {"fillColor": "rgba(61, 193, 150, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "المنطقة الاولى 36 هكتار": {"fillColor": "rgba(61, 193, 150, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "المنطقة الثانية 25 هكتار": {"fillColor": "rgba(61, 193, 150, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "المنطقة الثالثة 28 هكتار": {"fillColor": "rgba(61, 193, 150, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "المنطقة الرابعة 21 هكتار": {"fillColor": "rgba(61, 193, 150, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, "المنطقة الخامسة 30 هكتار": {"fillColor": "rgba(61, 193, 150, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_16": {"أرض للمالية": {"fillColor": "rgba(196, 60, 57, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_17": {"معسكر الشبية": {"fillColor": "rgba(58, 177, 252, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}, "group_18": {"كتلة السكك": {"fillColor": "rgba(208, 53, 154, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}, " ضاحية فيلات سكنية": {"fillColor": "rgba(208, 53, 154, 0.5019607843137255)", "fillOpacity": 0.5019607843137255, "color": "#232323", "weight": 0.26, "radius": 6}}};
-    var groupNames = {"group_2": "مجلس مدينة حلب", "group_3": "المحافظة", "group_4": "نقابة المهندسين", "group_5": "وزارة الدفاع", "group_6": "اتحاد العمال", "group_7": "وزارة الصناعة", "group_8": "مؤسسة المياه", "group_9": "وزارة السياحة", "group_10": "غرفة التجارة", "group_11": "غرفة زراعة حلب", "group_12": "وزارة النقل", "group_13": "وزارة الطاقة", "group_14": "وزارة الإسكان", "group_15": "وزارة الزراعة", "group_16": "وزارة المالية", "group_17": "وزارة الإدارة المحلية", "group_18": "السكك الحديدية"};
-    var groupObjects = {};
-    for (let gid in groupLayers) {
-        groupObjects[gid] = [];
-    }
-
-    fetch("layers_combined.geojson")
-    .then(res => res.json())
-    .then(data => {
-        // helper to detect empty values and avoid showing empty rows in popup
-        function isEmptyValue(v) {
-            if (v === null || v === undefined) return true;
-            if (typeof v === "string") return v.trim() === "";
-            if (Array.isArray(v)) return v.length ===0;
-            if (typeof v === "object") {
-                try { return Object.keys(v).length ===0; } catch(e) { return false; }
-            }
-            return false;
-        }
-
-        // data now هو هيكل: {group_id: { layerName: FeatureCollection }}
+    fetch("geojson_grouped.json")
+      .then(res => res.json())
+      .then(data => {
         for (let gid in data) {
-            let layers = data[gid];
-            for (let layerName in layers) {
-                let fc = layers[layerName];
-                let style = (groupLayers[gid] && groupLayers[gid][layerName]) ? groupLayers[gid][layerName] : {};
+          const group = data[gid];
+          const groupName = group.__group_name__ || gid;
+          const groupStyles = group.__styles__ || {};
+          const children = [];
 
-                var layer = L.geoJSON(fc, {
-                    style: function(feature) {
-                        return style;
-                    },
-                    pointToLayer: function (feature, latlng) {
-                        var opts = {
-                            radius: style.radius ||6,
-                            fillColor: style.fillColor || style.color || "#3388ff",
-                            color: style.color || "#333333",
-                            weight: style.weight ||1,
-                            fillOpacity: style.fillOpacity ||0.6
-                        };
-                        return L.circleMarker(latlng, opts);
-                    },
-                    onEachFeature: function (feature, layerObj) {
-                        var props = feature.properties || {};
-                        // إذا كانت هناك قائمة حقول مرئية __visible_fields__ استعملها، خلاف ذلك استعمل جميع الخصائص ما عدا المفاتيح الخاصة
-                        var rows = "";
-                        var rowsAdded =0;
-                        if (props.__visible_fields__ && Array.isArray(props.__visible_fields__) && props.__visible_fields__.length>0) {
-                            props.__visible_fields__.forEach(function(f){
-                                var key = f.name;
-                                var alias = f.alias || key;
-                                var value = props[key];
-                                if (!isEmptyValue(value)) {
-                                    rows += "<tr><td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + alias + "</b></td>" +
-                                             "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td></tr>";
-                                    rowsAdded++;
-                                }
-                            });
+          for (let layerName in group) {
+            if (layerName.startsWith("__")) continue;
+            const fc = group[layerName];
+            const style = groupStyles[layerName] || {};
 
-                        } else {
-                            for (var key in props) {
-                                if (key === "__group__" || key === "__layer__" || key === "__visible_fields__") continue;
-                                var value = props[key];
-                                if (!isEmptyValue(value)) {
-                                    rows += "<tr><td style='background-color:#ccc; border:1px dotted #ccc; padding:4px;'><b>" + key + "</b></td>" +
-                                             "<td style='border:1px dotted #ccc; padding:4px;'>" + value + "</td></tr>";
-                                    rowsAdded++;
-                                }
-                            }
-                        }
-
-                        if (rowsAdded >0) {
-                            var popup = "<table style='width:100%; text-align:right; border-collapse: collapse;'>" + rows + "</table>";
-                            layerObj.bindPopup(popup);
-                        }
-
-                    }
-                });
-
-                layer.addTo(map);
-
-                try { allBounds.extend(layer.getBounds()); } catch (e) {}
-
-                var labelHtml = "<span style='display:inline-block;width:12px;height:12px;margin-left:3px;margin-right:3px;vertical-align:middle;background-color:" + (style.fillColor||style.color) + ";opacity:" + (style.fillOpacity||0.6) + ";border:1px solid #333'></span><span>" + layerName + "</span>";
-                groupObjects[gid].push({ label: labelHtml, layer: layer });
-            }
-        }
-
-        for (let gid in groupObjects) {
-            var groupLabel = "<label><input type='checkbox' id='chk_" + gid + "' checked /> <b>" + groupNames[gid] + "</b></label>";
-            treeGroups.push({
-                label: groupLabel,
-                children: groupObjects[gid],
-                collapsed: true
-            });
-
-            setTimeout(() => {
-                var el = document.getElementById('chk_' + gid);
-                if (el) {
-                    el.addEventListener("change", function(e) {
-                        var checked = e.target.checked;
-                        groupObjects[gid].forEach(function(item) {
-                            if (checked) { map.addLayer(item.layer); } else { map.removeLayer(item.layer); }
-                        });
-                    });
+            let mapLink = null;
+            if (fc.features && fc.features.length > 0) {
+              const props = fc.features[0].properties || {};
+              if (typeof props.MapLink === "string") {
+                const raw = props.MapLink.trim();
+                const cleaned = raw.replace(/^["']|["']$/g, "");
+                if (/^\d+\/-?\d+(\.\d+)?\/-?\d+(\.\d+)?$/.test(cleaned)) {
+                  mapLink = cleaned;
                 }
-            },500);
+              }
+            }
+
+            const zoomCoords = mapLink ? mapLink.split("/") : null;
+            const zoom = zoomCoords ? parseInt(zoomCoords[0]) : null;
+            const lat = zoomCoords ? parseFloat(zoomCoords[1]) : null;
+            const lng = zoomCoords ? parseFloat(zoomCoords[2]) : null;
+
+            const jumpIcon = (zoom && lat && lng)
+              ? `<span class='jump-icon' title='الذهاب إلى الموقع' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'>>></span>`
+              : "";
+
+            const labelHtml = `
+              <span class='layer-color-box' style='background-color:${style.fillColor || style.color || "#3388ff"};opacity:${style.fillOpacity || 0.6};'></span>
+              <span class='layer-name'>${layerName}</span>
+              ${jumpIcon}
+            `;
+
+            const layer = L.geoJSON(fc, {
+              style: () => style,
+              pointToLayer: (feature, latlng) => {
+                const opts = {
+                  radius: style.radius || 6,
+                  fillColor: style.fillColor || style.color || "#3388ff",
+                  color: style.color || "#333333",
+                  weight: style.weight || 1,
+                  fillOpacity: style.fillOpacity || 0.6
+                };
+                return L.circleMarker(latlng, opts);
+              },
+              onEachFeature: (feature, layerObj) => {
+                const props = feature.properties || {};
+                let rows = "";
+                let rowsAdded = 0;
+                const visible = props.__visible_fields__;
+
+                if (Array.isArray(visible) && visible.length > 0) {
+                  visible.forEach(f => {
+                    const key = f.name;
+                    const alias = f.alias || key;
+                    const value = props[key];
+                    if (value !== null && value !== undefined && value !== "") {
+                      rows += `<tr><td class='popup-key'><b>${alias}</b></td><td class='popup-value'>${value}</td></tr>`;
+                      rowsAdded++;
+                    }
+                  });
+                } else {
+                  for (let key in props) {
+                    if (key.startsWith("__")) continue;
+                    const value = props[key];
+                    if (value !== null && value !== undefined && value !== "") {
+                      rows += `<tr><td class='popup-key'><b>${key}</b></td><td class='popup-value'>${value}</td></tr>`;
+                      rowsAdded++;
+                    }
+                  }
+                }
+
+                if (rowsAdded > 0) {
+                  const popup = `<table class='popup-table'>${rows}</table>`;
+                  layerObj.bindPopup(popup);
+                }
+              }
+            });
+
+            layer.addTo(map);
+            try { allBounds.extend(layer.getBounds()); } catch (e) {}
+
+            children.push({ label: labelHtml, layer: layer });
+          }
+
+          treeGroups.push({
+            label: `<b>${groupName}</b>`,
+            selectAllCheckbox: true,
+            children: children,
+            collapsed: true
+          });
         }
 
-        setTimeout(function() {
-            try { if (allBounds.isValid && typeof allBounds.isValid === "function" && allBounds.isValid()) { map.fitBounds(allBounds); } } catch(e) {}
-            var control = L.control.layers.tree(null, treeGroups, {
-                collapsed: false,
-                position: "topright"
-            });
-            control.addTo(map);
-            // إضافة عنوان page_title أعلى نافذة الطبقات
-            var layersPanel = document.querySelector(".leaflet-control-layers");
-            
-            if (layersPanel) {
-                var titleDiv = document.createElement("div");
-                titleDiv.className = "layer-title";
-                titleDiv.innerText = "\u062e\u0631\u064a\u0637\u0629 \u0627\u0644\u0645\u0634\u0627\u0631\u064a\u0639 \u0627\u0644\u0627\u0633\u062a\u062b\u0645\u0627\u0631\u064a\u0629";
-                layersPanel.insertBefore(titleDiv, layersPanel.firstChild);
+        setTimeout(() => {
+          if (allBounds.isValid && allBounds.isValid()) {
+            map.fitBounds(allBounds);
+          }
+
+          const control = L.control.layers.tree(null, treeGroups, {
+            collapsed: false,
+            position: "topright"
+          }).addTo(map);
+        }, 1000);
+
+        setTimeout(() => {
+          document.querySelector(".leaflet-control-layers").addEventListener("click", e => {
+            const icon = e.target.closest(".jump-icon");
+            if (icon) {
+              e.preventDefault();
+              e.stopPropagation();
+              const zoom = parseInt(icon.dataset.zoom);
+              const lat = parseFloat(icon.dataset.lat);
+              const lng = parseFloat(icon.dataset.lng);
+              if (!isNaN(zoom) && !isNaN(lat) && !isNaN(lng)) {
+                map.setView([lat, lng], zoom);
+              }
             }
-        },1000);
+          });
+        }, 1500);
+      });
+
+    document.getElementById("toggleLayers").addEventListener("click", () => {
+      const panel = document.querySelector(".leaflet-control-layers");
+      if (panel) {
+        panel.style.display = (panel.style.display === "none") ? "flex" : "none";
+      }
     });
-    </script>
+  </script>
 </body>
 </html>
