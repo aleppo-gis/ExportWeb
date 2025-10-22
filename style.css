@@ -6,7 +6,7 @@ html, body {
     overflow: hidden;
     direction: rtl;
     font-family: 'Tajawal', sans-serif !important;
-    font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+    font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
 }
 
 /* خريطة Leaflet */
@@ -19,7 +19,7 @@ html, body {
 .leaflet-popup-content {
     text-align: right;
     max-width: 90vw;
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
 }
 
 /* نافذة التحكم في الطبقات */
@@ -34,7 +34,7 @@ html, body {
     direction: rtl;
     text-align: right;
     font-family: 'Tajawal', sans-serif !important;
-    font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+    font-size: clamp(1rem, 1.2vw, 1.2rem) !important;
     display: flex;
     flex-direction: column;
     height: 90vh !important;
@@ -54,7 +54,7 @@ html, body {
     text-align: right;
     border-bottom: 1px solid #ccc;
     font-family: 'Tajawal', sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
     flex: 0 0 auto;
 }
 
@@ -75,21 +75,17 @@ html, body {
 
 /* تحسينات خاصة بالجوال */
 @media (max-width: 600px) {
-    .leaflet-control-layers {
-        width: 95vw !important;
-        font-size: 1.3rem !important;
-    }
-    .layer-title {
+    html, body {
         font-size: 1.4rem !important;
     }
-    .leaflet-popup-content {
-        font-size: 1.3rem !important;
+    .leaflet-control-layers {
+        width: 95vw !important;
+        font-size: 1.4rem !important;
     }
-}
-/* تحسينات على أزرار التوسيع/الطي في شجرة الطبقات */
-.leaflet-layerstree-toggle {
-    cursor: pointer;
-    font-weight: bold;
-    margin-right: 5px;
-    user-select: none;
+    .layer-title {
+        font-size: 1.5rem !important;
+    }
+    .leaflet-popup-content {
+        font-size: 1.5rem !important;
+    }
 }
