@@ -1,3 +1,4 @@
+/* إعدادات عامة للصفحة */
 html, body {
     margin: 0;
     padding: 0;
@@ -5,20 +6,23 @@ html, body {
     overflow: hidden;
     direction: rtl;
     font-family: 'Tajawal', sans-serif !important;
-    font-size: clamp(1rem, 1.5vw, 1.2rem) !important;
+    font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
 }
 
+/* خريطة Leaflet */
 #map {
     width: 100%;
     height: 100%;
 }
 
+/* محتوى الـ popup */
 .leaflet-popup-content {
     text-align: right;
     max-width: 90vw;
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    font-size: clamp(1rem, 2vw, 1.3rem);
 }
 
+/* نافذة التحكم في الطبقات */
 .leaflet-control-layers {
     top: 0 !important;
     right: 0 !important;
@@ -30,17 +34,19 @@ html, body {
     direction: rtl;
     text-align: right;
     font-family: 'Tajawal', sans-serif !important;
-    font-size: clamp(1rem, 1.5vw, 1.2rem) !important;
+    font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
     display: flex;
     flex-direction: column;
     height: 90vh !important;
     max-height: 90vh !important;
 }
 
+/* ضبط أقصى عرض لعناصر التحكم */
 .leaflet-control {
     max-width: 100vw;
 }
 
+/* عنوان نافذة الطبقات */
 .layer-title {
     background: #eee;
     padding: 8px 12px;
@@ -48,10 +54,11 @@ html, body {
     text-align: right;
     border-bottom: 1px solid #ccc;
     font-family: 'Tajawal', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     flex: 0 0 auto;
 }
 
+/* قائمة الطبقات */
 .leaflet-control-layers-list,
 .leaflet-control-layers-overlays,
 .leaflet-control-layers-tree {
@@ -61,18 +68,28 @@ html, body {
     max-height: none !important;
 }
 
+/* إزاحة العناصر الفرعية داخل الشجرة */
 .leaflet-layerstree-children .leaflet-layerstree-children {
     padding-right: 20px !important;
 }
 
-/* ��� ������ */
+/* تحسينات خاصة بالجوال */
 @media (max-width: 600px) {
     .leaflet-control-layers {
-        width: 90vw !important;
-        font-size: 1rem !important;
+        width: 95vw !important;
+        font-size: 1.3rem !important;
     }
-
     .layer-title {
-        font-size: 1.1rem !important;
+        font-size: 1.4rem !important;
     }
+    .leaflet-popup-content {
+        font-size: 1.3rem !important;
+    }
+}
+/* تحسينات على أزرار التوسيع/الطي في شجرة الطبقات */
+.leaflet-layerstree-toggle {
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 5px;
+    user-select: none;
 }
