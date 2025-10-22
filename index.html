@@ -9,67 +9,8 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
     <style>
-    html, body {
-        margin:0;
-        padding:0;
-        height:100%;
-        overflow: hidden;
-        direction: rtl;
-        font-family: 'Tajawal', sans-serif !important;
-        font-size: 12pt !important;
-    }
-    #map {
-        width:100%;
-        height:100%;
-    }
-    .leaflet-popup-content {
-        text-align: right;
-    }
-    .leaflet-control-layers {
-        top:0 !important;
-        right:0 !important;
-        left: auto !important;
-        margin:0 !important;
-        border-radius:0 !important;
-        box-shadow: none !important;
-        min-width:220px;
-        max-width:400px;
-        width:auto !important;
-        direction: rtl;
-        text-align: right;
-        font-family: 'Tajawal', sans-serif !important;
-        font-size: 12pt !important;
-        display: flex;
-        flex-direction: column;
-        height:90vh !important;
-        max-height:90vh !important;
-    }
-    .leaflet-control {
-        max-width:100vw;
-    }
-    .layer-title {
-        background: #eee;
-        padding:8px12px;
-        font-weight: bold;
-        text-align: right;
-        border-bottom:1px solid #ccc;
-        font-family: 'Tajawal', sans-serif;
-        font-size:14pt;
-        flex:00 auto;
-    }
-    .leaflet-control-layers-list,
-    .leaflet-control-layers-overlays,
-    .leaflet-control-layers-tree {
-       flex:11 auto;
-       overflow-y: auto !important;
-       min-height:0;
-       max-height: none !important;
-    }
-    /* indent child layer items inside the tree to create a tree-like offset */
-    .leaflet-layerstree-children .leaflet-layerstree-children {
-        padding-right:20px !important;
-    }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <style>
 </head>
 <body>
     <div id="map"></div>
