@@ -9,7 +9,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="map-controls" style="direction: rtl;">
   <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات">☰</button>
+  <button class="basemap-button" onclick="setBaseMap('Map')">🗺️</button>
+  <button class="basemap-button" onclick="setBaseMap('Esri')">🛰️</button>
+</div>
+
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
@@ -120,7 +125,7 @@
 
                 if (markerLatLng) {
                   const icon = L.icon({
-                    iconUrl: 'img/marker8.png',
+                    iconUrl: 'img/marker.png',
                     iconSize: [32, 32],
                     iconAnchor: [16, 32],
                     className: 'marker-with-shadow'
@@ -185,6 +190,14 @@
         panel.style.display = (panel.style.display === "none") ? "flex" : "none";
       }
     });
+    let currentBaseMap = baseMaps["خريطة عادية"];
+    function setBaseMap(name) {
+    if (currentBaseMap) {
+      map.removeLayer(currentBaseMap);
+    }
+    currentBaseMap = baseMaps[name];
+    map.addLayer(currentBaseMap);
+    }
   </script>
 </body>
 </html>
