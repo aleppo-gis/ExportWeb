@@ -15,7 +15,12 @@
     <button class="basemap-button" onclick="setBaseMap('Esri')">🛰️</button>
     <button class="basemap-button" onclick="setBaseMap('Gray')">⬜</button>
     <input type="text" id="filterInput" placeholder="🔍 اكتب نص الفلترة" title="اكتب للبحث داخل الطبقات" />
-    <button id="clearFilter" title="مسح الفلترة">🧹</button>
+    <span id="filter-status" style="display: none;">
+    <span id="match-count">0</span>
+    <button id="prev-match" title="السابق">⬅️</button>
+    <button id="next-match" title="التالي">➡️</button>
+    </span>
+    <button id="clearFilter" title="مسح الفلترة">❌</button>
   </div>
 </div>
 
@@ -24,7 +29,18 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
   <script>
-    function normalizeText(text) {
+let matchedLayers = [];
+let currentMatchIndex = -1;
+let filterTimeout = null;
+
+const filterInput = document.getElementById("filterInput");
+const clearFilterBtn = document.getElementById("clearFilter");
+const matchCountSpan = document.getElementById("match-count");
+const filterStatus = document.getElementById("filter-status");
+const nextBtn = document.getElementById("next-match");
+const prevBtn = document.getElementById("prev-match");
+
+function normalizeText(text) {
       return text
       .toLowerCase()
       .replace(/[إأآا]/g, "ا")
@@ -94,7 +110,7 @@
             const lng = zoomCoords ? parseFloat(zoomCoords[2]) : null;
 
             const jumpIcon = (zoom && lat && lng)
-              ? `<span class='jump-icon' title='الذهاب إلى الموقع' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'>>></span>`
+              ? `<span class='jump-icon' title='الذهاب إلى الموقع' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'>⬅️</span>`
               : "";
 
             const labelHtml = `
@@ -243,47 +259,107 @@
           }
         });
       });
-      const filterInput = document.getElementById("filterInput");
-      let filterTimeout = null;
-
+      
 filterInput.addEventListener("input", () => {
   clearTimeout(filterTimeout);
   filterTimeout = setTimeout(() => {
     const text = normalizeText(filterInput.value);
+    matchedLayers = [];
+    currentMatchIndex = -1;
 
-    allLayerGroups.forEach(({ keywords, group }) => {
-      const match = keywords.includes(text);
+    const seenNames = new Set();
 
+    // 1. اجمع الطبقات المطابقة فقط
+    allLayerGroups.forEach(({ group }) => {
       group.eachLayer(layer => {
-        const el = layer.getElement?.();
-        if (!el) return;
+        const props = layer.feature?.properties;
+        const hasZoom = layer.getBounds || layer.getLatLng;
 
-        el.classList.remove("layer-highlight", "layer-dimmed");
-        if (text === "") return;
+        let match = false;
+        if (props) {
+          for (const key in props) {
+            const value = props[key];
+            if (typeof value === "string" && normalizeText(value).includes(text)) {
+              match = true;
+              break;
+            }
+          }
+        }
 
         if (match) {
-          el.classList.add("layer-highlight");
-        } else {
-          el.classList.add("layer-dimmed");
+          const name = props?.name?.trim() || `${layer._leaflet_id}`;
+          if (hasZoom && !seenNames.has(name)) {
+            matchedLayers.push(layer);
+            seenNames.add(name);
+          }
         }
       });
     });
-  }, 300);
-});
-  
-document.getElementById("clearFilter").addEventListener("click", () => {
-  filterInput.value = "";
 
-  allLayerGroups.forEach(({ group }) => {
-    if (!map.hasLayer(group)) map.addLayer(group);
+    // 2. أخفِ كل الطبقات
+    allLayerGroups.forEach(({ group }) => {
+      group.eachLayer(layer => {
+        if (map.hasLayer(layer)) map.removeLayer(layer);
+      });
+    });
 
-    group.eachLayer(layer => {
-      const el = layer.getElement?.();
-      if (el) {
-        el.classList.remove("layer-highlight", "layer-dimmed");
+    // 3. أظهر فقط الطبقات المطابقة
+    matchedLayers.forEach(layer => {
+      if (!map.hasLayer(layer))
+      { 
+        map.addLayer(layer);
       }
     });
+
+    // 4. تحديث الواجهة
+    matchCountSpan.textContent = matchedLayers.length;
+    filterStatus.style.display = matchedLayers.length > 0 ? "flex" : "none";
+
+    if (matchedLayers.length > 0) {
+      currentMatchIndex = 0;
+      zoomToMatch(currentMatchIndex);
+    }
+  }, 300);
+});
+
+clearFilterBtn.addEventListener("click", () => {
+  filterInput.value = "";
+  filterStatus.style.display = "none";
+  matchedLayers = [];
+  currentMatchIndex = -1;
+
+  allLayerGroups.forEach(({ group }) => {
+    group.eachLayer(layer => {
+      if (!map.hasLayer(layer)) map.addLayer(layer);
+    });
   });
+});
+
+function zoomToMatch(index) {
+  const layer = matchedLayers[index];
+  if (!layer) return;
+
+  try {
+    if (layer.getBounds) {
+      map.fitBounds(layer.getBounds(), { maxZoom: 17 });
+    } else if (layer.getLatLng) {
+      map.setView(layer.getLatLng(), 17);
+    }
+  } catch (e) {
+    console.warn("تعذر التكبير:", e);
+  }
+}
+
+nextBtn.addEventListener("click", () => {
+  if (matchedLayers.length === 0) return;
+  currentMatchIndex = (currentMatchIndex + 1) % matchedLayers.length;
+  zoomToMatch(currentMatchIndex);
+});
+
+prevBtn.addEventListener("click", () => {
+  if (matchedLayers.length === 0) return;
+  currentMatchIndex = (currentMatchIndex - 1 + matchedLayers.length) % matchedLayers.length;
+  zoomToMatch(currentMatchIndex);
 });
 
   </script>
