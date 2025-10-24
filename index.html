@@ -6,31 +6,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.css" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div id="map-controls" style="direction: rtl;">
-  <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات">☰</button>
-  <button class="basemap-button" onclick="setBaseMap('Map')">🗺️</button>
-  <button class="basemap-button" onclick="setBaseMap('Esri')">🛰️</button>
-</div>
-
+  <div id="map-controls">
+    <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات">☰</button>
+    <button class="basemap-button" onclick="setBaseMap('Map')">🗺️</button>
+    <button class="basemap-button" onclick="setBaseMap('Esri')">🛰️</button>
+    <button class="basemap-button" onclick="setBaseMap('Gray')">⬜</button>
+  </div>
   <div id="map"></div>
+
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
   <script>
-    const map = L.map("map");
-    const allBounds = L.latLngBounds();
-    const treeGroups = [];
+    const map = L.map("map", { preferCanvas: true });
 
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      attribution: "© OpenStreetMap"
-    }).addTo(map);
+const baseMaps = {
+  "Map": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
+  "Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
+  "Gray": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}')
+};
+    let currentBaseMap = baseMaps["Gray"];
+
+    document.getElementById("toggleLayers").addEventListener("click", () => {
+      const panel = document.querySelector(".leaflet-control-layers");
+      if (panel) {
+        panel.style.display = (panel.style.display === "none") ? "flex" : "none";
+      }
+    });
+
+    function setBaseMap(name) {
+      if (currentBaseMap) map.removeLayer(currentBaseMap);
+      currentBaseMap = baseMaps[name];
+      map.addLayer(currentBaseMap);
+    }
 
     fetch("geojson_grouped.json")
       .then(res => res.json())
       .then(data => {
+        const allBounds = L.latLngBounds();
+        const treeGroups = [];
+
         for (let gid in data) {
           const group = data[gid];
           const groupName = group.__group_name__ || gid;
@@ -69,7 +86,8 @@
               ${jumpIcon}
             `;
 
-            const layer = L.geoJSON(fc, {
+            const layerGroup = L.featureGroup();
+            const geoJsonLayer = L.geoJSON(fc, {
               style: () => style,
               pointToLayer: (feature, latlng) => {
                 const opts = {
@@ -112,6 +130,7 @@
                   const popup = `<table class='popup-table'>${rows}</table>`;
                   layerObj.bindPopup(popup);
                 }
+
                 let markerLatLng = null;
                 if (feature.geometry.type === "Point") {
                   markerLatLng = layerObj.getLatLng();
@@ -126,11 +145,11 @@
                 if (markerLatLng) {
                   const icon = L.icon({
                     iconUrl: 'img/marker.png',
-                    iconSize: [32, 32],
-                    iconAnchor: [16, 32],
+                    iconSize: [48, 48],
+                    iconAnchor: [24, 48],
                     className: 'marker-with-shadow'
                   });
-                  const marker = L.marker(markerLatLng, { icon }).addTo(map);
+                  const marker = L.marker(markerLatLng, { icon });
                   marker.bindPopup(layerObj.getPopup());
                   marker.bindTooltip(layerName, {
                     permanent: false,
@@ -138,14 +157,21 @@
                     sticky: true,
                     className: 'marker-tooltip'
                   });
+                  layerGroup.addLayer(marker);
                 }
+
+                layerGroup.addLayer(layerObj);
               }
             });
 
-            layer.addTo(map);
-            try { allBounds.extend(layer.getBounds()); } catch (e) {}
+            layerGroup.addLayer(geoJsonLayer);
+            layerGroup.addTo(map);
+            const bounds = layerGroup.getBounds();
+            if (bounds && bounds.isValid()) {
+              allBounds.extend(bounds);
+            }
 
-            children.push({ label: labelHtml, layer: layer });
+            children.push({ label: labelHtml, layer: layerGroup });
           }
 
           treeGroups.push({
@@ -156,48 +182,34 @@
           });
         }
 
-        setTimeout(() => {
-          if (allBounds.isValid && allBounds.isValid()) {
-            map.fitBounds(allBounds);
-          }
+        if (allBounds.isValid()) {
+          map.fitBounds(allBounds);
+        } else {
+        }
 
-          const control = L.control.layers.tree(null, treeGroups, {
-            collapsed: false,
-            position: "topright"
-          }).addTo(map);
-        }, 1000);
+        if (!map.hasLayer(currentBaseMap)) {
+          currentBaseMap.addTo(map);
+        }
 
-        setTimeout(() => {
-          document.querySelector(".leaflet-control-layers").addEventListener("click", e => {
-            const icon = e.target.closest(".jump-icon");
-            if (icon) {
-              e.preventDefault();
-              e.stopPropagation();
-              const zoom = parseInt(icon.dataset.zoom);
-              const lat = parseFloat(icon.dataset.lat);
-              const lng = parseFloat(icon.dataset.lng);
-              if (!isNaN(zoom) && !isNaN(lat) && !isNaN(lng)) {
-                map.setView([lat, lng], zoom);
-              }
+        const control = L.control.layers.tree(null, treeGroups, {
+          collapsed: false,
+          position: "topright"
+        }).addTo(map);
+
+        document.querySelector(".leaflet-control-layers").addEventListener("click", e => {
+          const icon = e.target.closest(".jump-icon");
+          if (icon) {
+            e.preventDefault();
+            e.stopPropagation();
+            const zoom = parseInt(icon.dataset.zoom);
+            const lat = parseFloat(icon.dataset.lat);
+            const lng = parseFloat(icon.dataset.lng);
+            if (!isNaN(zoom) && !isNaN(lat) && !isNaN(lng)) {
+              map.setView([lat, lng], zoom);
             }
-          });
-        }, 1500);
+          }
+        });
       });
-
-    document.getElementById("toggleLayers").addEventListener("click", () => {
-      const panel = document.querySelector(".leaflet-control-layers");
-      if (panel) {
-        panel.style.display = (panel.style.display === "none") ? "flex" : "none";
-      }
-    });
-    let currentBaseMap = baseMaps["خريطة عادية"];
-    function setBaseMap(name) {
-    if (currentBaseMap) {
-      map.removeLayer(currentBaseMap);
-    }
-    currentBaseMap = baseMaps[name];
-    map.addLayer(currentBaseMap);
-    }
   </script>
 </body>
 </html>
