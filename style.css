@@ -14,6 +14,31 @@ html, body {
     height: 100%;
 }
 
+/* أخفِ الرموز الأصلية تمامًا */
+.leaflet-layerstree-closed,
+.leaflet-layerstree-opened {
+  visibility: hidden;
+  position: relative;
+}
+
+/* أضف رمز المجلد المغلق 📁 */
+.leaflet-layerstree-closed::after {
+  content: "📁";
+  visibility: visible;
+  right: 0;
+  top: 0;
+  font-size: 1em;
+}
+
+/* أضف رمز المجلد المفتوح 📂 */
+.leaflet-layerstree-opened::after {
+  content: "📂";
+  visibility: visible;
+  right: 0;
+  top: 0;
+  font-size: 1em;
+}
+
 /* محتوى الـ popup */
 .leaflet-popup-content {
     text-align: right;
@@ -52,7 +77,7 @@ html, body {
 
 /* إزاحة العناصر الفرعية داخل الشجرة */
 .leaflet-layerstree-children .leaflet-layerstree-children {
-    padding-right: 15px !important;
+    padding-right: 40px !important;
 }
 .layer-color-box {
   display: inline-block;
@@ -74,6 +99,16 @@ html, body {
   height: 1cm;
   font-family: 'Tajawal', sans-serif;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.layer-highlight {
+  filter: drop-shadow(0 0 5px rgb(255, 0, 0));
+  transition: filter 0.3s ease;
+}
+
+.layer-dimmed {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
 }
 
 .popup-key {

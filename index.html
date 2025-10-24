@@ -14,20 +14,37 @@
     <button class="basemap-button" onclick="setBaseMap('Map')">🗺️</button>
     <button class="basemap-button" onclick="setBaseMap('Esri')">🛰️</button>
     <button class="basemap-button" onclick="setBaseMap('Gray')">⬜</button>
+    <input type="text" id="filterInput" placeholder="🔍 اكتب نص الفلترة" title="اكتب للبحث داخل الطبقات" />
+    <button id="clearFilter" title="مسح الفلترة">🧹</button>
   </div>
+</div>
+
   <div id="map"></div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
   <script>
-    const map = L.map("map", { preferCanvas: true });
+    function normalizeText(text) {
+      return text
+      .toLowerCase()
+      .replace(/[إأآا]/g, "ا")
+      .replace(/ى/g, "ي")
+      .replace(/ؤ/g, "و")
+      .replace(/ئ/g, "ي")
+      .replace(/ة/g, "ه")
+      .replace(/[ًٌٍَُِّْ]/g, "") // حذف التشكيل
+      .trim();
+    }
 
-const baseMaps = {
-  "Map": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
-  "Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
-  "Gray": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}')
-};
-    let currentBaseMap = baseMaps["Gray"];
+    const map = L.map("map", { preferCanvas: true });
+    const allLayerGroups = [];
+
+    const baseMaps = {
+    "Map": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
+    "Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
+    "Gray": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}')
+    };
+    let currentBaseMap = baseMaps["Esri"];
 
     document.getElementById("toggleLayers").addEventListener("click", () => {
       const panel = document.querySelector(".leaflet-control-layers");
@@ -172,10 +189,26 @@ const baseMaps = {
             }
 
             children.push({ label: labelHtml, layer: layerGroup });
-          }
+            let keywords = normalizeText(layerName);
 
-          treeGroups.push({
-            label: `<b>${groupName}</b>`,
+            if (fc.features && fc.features.length > 0) {
+              fc.features.forEach(f => {
+                const props = f.properties || {};
+                for (let key in props) {
+                  const val = props[key];
+                  if (typeof val === "string") {
+                    keywords += " " + normalizeText(val);
+                  }
+                }
+              });
+            }
+            allLayerGroups.push({ keywords, group: layerGroup });
+            }
+
+            const groupLabel = `<b>${groupName} (${children.length})</b>`;
+
+            treeGroups.push({
+            label: groupLabel,
             selectAllCheckbox: true,
             children: children,
             collapsed: true
@@ -210,6 +243,49 @@ const baseMaps = {
           }
         });
       });
+      const filterInput = document.getElementById("filterInput");
+      let filterTimeout = null;
+
+filterInput.addEventListener("input", () => {
+  clearTimeout(filterTimeout);
+  filterTimeout = setTimeout(() => {
+    const text = normalizeText(filterInput.value);
+
+    allLayerGroups.forEach(({ keywords, group }) => {
+      const match = keywords.includes(text);
+
+      group.eachLayer(layer => {
+        const el = layer.getElement?.();
+        if (!el) return;
+
+        el.classList.remove("layer-highlight", "layer-dimmed");
+        if (text === "") return;
+
+        if (match) {
+          el.classList.add("layer-highlight");
+        } else {
+          el.classList.add("layer-dimmed");
+        }
+      });
+    });
+  }, 300);
+});
+  
+document.getElementById("clearFilter").addEventListener("click", () => {
+  filterInput.value = "";
+
+  allLayerGroups.forEach(({ group }) => {
+    if (!map.hasLayer(group)) map.addLayer(group);
+
+    group.eachLayer(layer => {
+      const el = layer.getElement?.();
+      if (el) {
+        el.classList.remove("layer-highlight", "layer-dimmed");
+      }
+    });
+  });
+});
+
   </script>
 </body>
 </html>
