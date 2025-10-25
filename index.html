@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="ar">
+
 <head>
   <meta charset="utf-8" />
   <title>خريطة المشاريع الاستثمارية</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style/style.css" />
 </head>
+
 <body>
   <div id="map-controls">
     <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات">☰</button>
-    <button class="basemap-button" onclick="setBaseMap('Hybrid')">🗺️</button>
-    <button class="basemap-button" onclick="setBaseMap('Satellite')">🛰️</button>
-    <button class="basemap-button" onclick="setBaseMap('Road')">⬜</button>
+    <button class="basemap-button" onclick="setBaseMap('Hybrid')" title="قمر صناعي بمعلومات مكانية">🗺️</button>
+    <button class="basemap-button" onclick="setBaseMap('Satellite')" title="قمر صناعي">🛰️</button>
+    <button class="basemap-button" onclick="setBaseMap('Road')" title="خريطة بأسماء الشوارع">⬜</button>
     <input type="text" id="filterInput" placeholder="🔍 اكتب نص الفلترة" title="اكتب للبحث داخل الطبقات" />
     <span id="filter-status" style="display: none;">
-    <button id="match-count">0</button>
-    <button id="prev-match" title="السابق">⬅️</button>
-    <button id="next-match" title="التالي">➡️</button>
+      <button id="match-count">0</button>
+      <button id="prev-match" title="السابق">➡️</button>
+      <button id="next-match" title="التالي">⬅️</button>
     </span>
     <button id="clearFilter" title="مسح الفلترة">❌</button>
   </div>
-</div>
+  </div>
 
   <div id="map"></div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
   <script>
-let matchedLayers = [];
-let currentMatchIndex = -1;
-let filterTimeout = null;
+    let matchedLayers = [];
+    let currentMatchIndex = -1;
+    let filterTimeout = null;
 
-const filterInput = document.getElementById("filterInput");
-const clearFilterBtn = document.getElementById("clearFilter");
-const matchCountSpan = document.getElementById("match-count");
-const filterStatus = document.getElementById("filter-status");
-const nextBtn = document.getElementById("next-match");
-const prevBtn = document.getElementById("prev-match");
+    const filterInput = document.getElementById("filterInput");
+    const clearFilterBtn = document.getElementById("clearFilter");
+    const matchCountSpan = document.getElementById("match-count");
+    const filterStatus = document.getElementById("filter-status");
+    const nextBtn = document.getElementById("next-match");
+    const prevBtn = document.getElementById("prev-match");
 
-function normalizeText(text) {
+    function normalizeText(text) {
       return text
-      .toLowerCase()
-      .replace(/[إأآا]/g, "ا")
-      .replace(/ى/g, "ي")
-      .replace(/ؤ/g, "و")
-      .replace(/ئ/g, "ي")
-      .replace(/ة/g, "ه")
-      .replace(/[ًٌٍَُِّْ]/g, "") // حذف التشكيل
-      .trim();
+        .toLowerCase()
+        .replace(/[إأآا]/g, "ا")
+        .replace(/ى/g, "ي")
+        .replace(/ؤ/g, "و")
+        .replace(/ئ/g, "ي")
+        .replace(/ة/g, "ه")
+        .replace(/[ًٌٍَُِّْ]/g, "") // حذف التشكيل
+        .trim();
     }
 
     const map = L.map("map", { preferCanvas: true });
     const allLayerGroups = [];
 
     const baseMaps = {
-    "Hybrid": L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
-    //"Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
-    "Satellite": L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'),
-    "Road": L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}')
+      "Hybrid": L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
+      //"Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
+      "Satellite": L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'),
+      "Road": L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}')
     };
     let currentBaseMap = baseMaps["Hybrid"];
 
@@ -76,7 +78,7 @@ function normalizeText(text) {
       map.addLayer(currentBaseMap);
     }
 
-    fetch("geojson_grouped.json")
+    fetch("data/geojson_grouped.json")
       .then(res => res.json())
       .then(data => {
         const allBounds = L.latLngBounds();
@@ -220,11 +222,11 @@ function normalizeText(text) {
               });
             }
             allLayerGroups.push({ keywords, group: layerGroup });
-            }
+          }
 
-            const groupLabel = `<b>${groupName} (${children.length})</b>`;
+          const groupLabel = `<b>${groupName} (${children.length})</b>`;
 
-            treeGroups.push({
+          treeGroups.push({
             label: groupLabel,
             selectAllCheckbox: true,
             children: children,
@@ -260,109 +262,109 @@ function normalizeText(text) {
           }
         });
       });
-      
-filterInput.addEventListener("input", () => {
-  clearTimeout(filterTimeout);
-  filterTimeout = setTimeout(() => {
-    const text = normalizeText(filterInput.value);
-    matchedLayers = [];
-    currentMatchIndex = -1;
 
-    const seenNames = new Set();
+    filterInput.addEventListener("input", () => {
+      clearTimeout(filterTimeout);
+      filterTimeout = setTimeout(() => {
+        const text = normalizeText(filterInput.value);
+        matchedLayers = [];
+        currentMatchIndex = -1;
 
-    // 1. اجمع الطبقات المطابقة فقط
-    allLayerGroups.forEach(({ group }) => {
-      group.eachLayer(layer => {
-        const props = layer.feature?.properties;
-        const hasZoom = layer.getBounds || layer.getLatLng;
+        const seenNames = new Set();
 
-        let match = false;
-        if (props) {
-          for (const key in props) {
-            const value = props[key];
-            if (typeof value === "string" && normalizeText(value).includes(text)) {
-              match = true;
-              break;
+        // 1. اجمع الطبقات المطابقة فقط
+        allLayerGroups.forEach(({ group }) => {
+          group.eachLayer(layer => {
+            const props = layer.feature?.properties;
+            const hasZoom = layer.getBounds || layer.getLatLng;
+
+            let match = false;
+            if (props) {
+              for (const key in props) {
+                const value = props[key];
+                if (typeof value === "string" && normalizeText(value).includes(text)) {
+                  match = true;
+                  break;
+                }
+              }
             }
-          }
-        }
 
-        if (match) {
-          const name = props?.name?.trim() || `${layer._leaflet_id}`;
-          if (hasZoom && !seenNames.has(name)) {
-            matchedLayers.push(layer);
-            seenNames.add(name);
+            if (match) {
+              const name = props?.name?.trim() || `${layer._leaflet_id}`;
+              if (hasZoom && !seenNames.has(name)) {
+                matchedLayers.push(layer);
+                seenNames.add(name);
+              }
+            }
+          });
+        });
+
+        // 2. أخفِ كل الطبقات
+        allLayerGroups.forEach(({ group }) => {
+          group.eachLayer(layer => {
+            if (map.hasLayer(layer)) map.removeLayer(layer);
+          });
+        });
+
+        // 3. أظهر فقط الطبقات المطابقة
+        matchedLayers.forEach(layer => {
+          if (!map.hasLayer(layer)) {
+            map.addLayer(layer);
           }
+        });
+
+        // 4. تحديث الواجهة
+        matchCountSpan.textContent = matchedLayers.length;
+        filterStatus.style.display = matchedLayers.length > 0 ? "flex" : "none";
+
+        if (matchedLayers.length > 0) {
+          currentMatchIndex = 0;
+          zoomToMatch(currentMatchIndex);
         }
+      }, 500);
+    });
+
+    clearFilterBtn.addEventListener("click", () => {
+      filterInput.value = "";
+      filterStatus.style.display = "none";
+      matchedLayers = [];
+      currentMatchIndex = -1;
+
+      allLayerGroups.forEach(({ group }) => {
+        group.eachLayer(layer => {
+          if (!map.hasLayer(layer)) map.addLayer(layer);
+        });
       });
     });
 
-    // 2. أخفِ كل الطبقات
-    allLayerGroups.forEach(({ group }) => {
-      group.eachLayer(layer => {
-        if (map.hasLayer(layer)) map.removeLayer(layer);
-      });
-    });
+    function zoomToMatch(index) {
+      const layer = matchedLayers[index];
+      if (!layer) return;
 
-    // 3. أظهر فقط الطبقات المطابقة
-    matchedLayers.forEach(layer => {
-      if (!map.hasLayer(layer))
-      { 
-        map.addLayer(layer);
+      try {
+        if (layer.getBounds) {
+          map.fitBounds(layer.getBounds(), { maxZoom: 19 });
+        } else if (layer.getLatLng) {
+          map.setView(layer.getLatLng(), 17);
+        }
+      } catch (e) {
+        console.warn("تعذر التكبير:", e);
       }
-    });
+    }
 
-    // 4. تحديث الواجهة
-    matchCountSpan.textContent = matchedLayers.length;
-    filterStatus.style.display = matchedLayers.length > 0 ? "flex" : "none";
-
-    if (matchedLayers.length > 0) {
-      currentMatchIndex = 0;
+    nextBtn.addEventListener("click", () => {
+      if (matchedLayers.length === 0) return;
+      currentMatchIndex = (currentMatchIndex + 1) % matchedLayers.length;
       zoomToMatch(currentMatchIndex);
-    }
-  }, 300);
-});
-
-clearFilterBtn.addEventListener("click", () => {
-  filterInput.value = "";
-  filterStatus.style.display = "none";
-  matchedLayers = [];
-  currentMatchIndex = -1;
-
-  allLayerGroups.forEach(({ group }) => {
-    group.eachLayer(layer => {
-      if (!map.hasLayer(layer)) map.addLayer(layer);
     });
-  });
-});
 
-function zoomToMatch(index) {
-  const layer = matchedLayers[index];
-  if (!layer) return;
-
-  try {
-    if (layer.getBounds) {
-      map.fitBounds(layer.getBounds(), { maxZoom: 17 });
-    } else if (layer.getLatLng) {
-      map.setView(layer.getLatLng(), 17);
-    }
-  } catch (e) {
-    console.warn("تعذر التكبير:", e);
-  }
-}
-
-nextBtn.addEventListener("click", () => {
-  if (matchedLayers.length === 0) return;
-  currentMatchIndex = (currentMatchIndex + 1) % matchedLayers.length;
-  zoomToMatch(currentMatchIndex);
-});
-
-prevBtn.addEventListener("click", () => {
-  if (matchedLayers.length === 0) return;
-  currentMatchIndex = (currentMatchIndex - 1 + matchedLayers.length) % matchedLayers.length;
-  zoomToMatch(currentMatchIndex);
-});
+    prevBtn.addEventListener("click", () => {
+      if (matchedLayers.length === 0) return;
+      currentMatchIndex = (currentMatchIndex - 1 + matchedLayers.length) % matchedLayers.length;
+      zoomToMatch(currentMatchIndex);
+    });
 
   </script>
 </body>
+
 </html>
