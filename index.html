@@ -11,12 +11,12 @@
 <body>
   <div id="map-controls">
     <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات">☰</button>
-    <button class="basemap-button" onclick="setBaseMap('Map')">🗺️</button>
-    <button class="basemap-button" onclick="setBaseMap('Esri')">🛰️</button>
-    <button class="basemap-button" onclick="setBaseMap('Gray')">⬜</button>
+    <button class="basemap-button" onclick="setBaseMap('Hybrid')">🗺️</button>
+    <button class="basemap-button" onclick="setBaseMap('Satellite')">🛰️</button>
+    <button class="basemap-button" onclick="setBaseMap('Road')">⬜</button>
     <input type="text" id="filterInput" placeholder="🔍 اكتب نص الفلترة" title="اكتب للبحث داخل الطبقات" />
     <span id="filter-status" style="display: none;">
-    <span id="match-count">0</span>
+    <button id="match-count">0</button>
     <button id="prev-match" title="السابق">⬅️</button>
     <button id="next-match" title="التالي">➡️</button>
     </span>
@@ -56,11 +56,12 @@ function normalizeText(text) {
     const allLayerGroups = [];
 
     const baseMaps = {
-    "Map": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
-    "Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
-    "Gray": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}')
+    "Hybrid": L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
+    //"Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
+    "Satellite": L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'),
+    "Road": L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}')
     };
-    let currentBaseMap = baseMaps["Esri"];
+    let currentBaseMap = baseMaps["Hybrid"];
 
     document.getElementById("toggleLayers").addEventListener("click", () => {
       const panel = document.querySelector(".leaflet-control-layers");
