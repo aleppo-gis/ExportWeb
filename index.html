@@ -12,10 +12,10 @@
 
 <body>
   <div id="map-controls">
-    <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات">☰</button>
-    <button class="basemap-button" onclick="setBaseMap('Hybrid')" title="قمر صناعي بمعلومات مكانية">🗺️</button>
+    <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات"></button>
+    <button class="basemap-button" onclick="setBaseMap('Hybrid')" title="قمر صناعي بمعلومات مكانية">🛰️</button>
     <button class="basemap-button" onclick="setBaseMap('Satellite')" title="قمر صناعي">🛰️</button>
-    <button class="basemap-button" onclick="setBaseMap('Road')" title="خريطة بأسماء الشوارع">⬜</button>
+    <button class="basemap-button" onclick="setBaseMap('Road')" title="خريطة بأسماء الشوارع">🗺️</button>
     <input type="text" id="filterInput" placeholder="🔍 اكتب نص الفلترة" title="اكتب للبحث داخل الطبقات" />
     <span id="filter-status" style="display: none;">
       <button id="match-count">0</button>
@@ -30,6 +30,7 @@
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
+
   <script>
     let matchedLayers = [];
     let currentMatchIndex = -1;
@@ -56,10 +57,10 @@
 
     const map = L.map("map", { preferCanvas: true });
     const allLayerGroups = [];
+    //"Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
 
     const baseMaps = {
       "Hybrid": L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
-      //"Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
       "Satellite": L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'),
       "Road": L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}')
     };
@@ -113,7 +114,7 @@
             const lng = zoomCoords ? parseFloat(zoomCoords[2]) : null;
 
             const jumpIcon = (zoom && lat && lng)
-              ? `<span class='jump-icon' title='الذهاب إلى الموقع' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'>⬅️</span>`
+              ? `<button title='الذهاب إلى الموقع' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'>...</button>`
               : "";
 
             const labelHtml = `
@@ -362,6 +363,20 @@
       if (matchedLayers.length === 0) return;
       currentMatchIndex = (currentMatchIndex - 1 + matchedLayers.length) % matchedLayers.length;
       zoomToMatch(currentMatchIndex);
+    });
+    
+    document.addEventListener("click", function (e) {
+      const target = e.target;
+      if (target.matches("button[data-lat][data-lng][data-zoom]")) {
+
+        const lat = parseFloat(target.getAttribute("data-lat"));
+        const lng = parseFloat(target.getAttribute("data-lng"));
+        const zoom = parseInt(target.getAttribute("data-zoom"));
+
+        if (!isNaN(lat) && !isNaN(lng) && !isNaN(zoom)) {
+          map.setView([lat, lng], zoom);
+        }
+      }
     });
 
   </script>
