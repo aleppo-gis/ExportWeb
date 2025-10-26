@@ -237,7 +237,7 @@ function normalizeText(text) {
             const labelHtml = `
               <span class='layer-color-box' style='background-color:${style.fillColor || style.color || "#3388ff"};opacity:${style.fillOpacity || 0.6};'></span>
               <button data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}' class='layer-name'>${layerName}</button>
-              <button class="fas fa-share-alt" id='share' data-layer-name='${layerName}' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'></button>
+              <button class="fas fa-share-alt" id='share' style='background-color:#ffffff; border:0;' data-layer-name='${layerName}' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'></button>
             `;
 
             const layerGroup = L.featureGroup();
