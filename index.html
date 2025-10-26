@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <title>خريطة المشاريع الاستثمارية</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.css" />
@@ -11,6 +12,7 @@
 </head>
 
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
   <div id="map-controls">
     <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات"></button>
     <button class="basemap-button" onclick="setBaseMap('Hybrid')" title="قمر صناعي بمعلومات مكانية">🛰️</button>
@@ -43,7 +45,125 @@
     const nextBtn = document.getElementById("next-match");
     const prevBtn = document.getElementById("prev-match");
 
-    function normalizeText(text) {
+const viewerPath = 'https://aleppo-gis.github.io/v/v.html';
+
+function compressGeoJSON(obj) {
+  return LZString.compressToEncodedURIComponent(JSON.stringify(obj));
+}
+
+function findLayerByAlias(alias) {
+  let found = null;
+  if (!Array.isArray(allLayerGroups)) return null;
+  allLayerGroups.forEach(({ group }) => {
+    if (found) return;
+    group.eachLayer(layer => {
+      if (found) return;
+      const feat = layer.feature || {};
+      const props = feat.properties || {};
+      const aliasName = props.Name || props.name || props['الاسم'] || layer.options?.name;
+      if (aliasName === alias) found = layer;
+    });
+  });
+  return found;
+}
+
+function extractPolygonCoordinates(layer) {
+  if (typeof layer.getLatLngs === 'function') {
+    const latlngsRaw = layer.getLatLngs();
+    let ring = null;
+    if (Array.isArray(latlngsRaw) && latlngsRaw.length) {
+      if (Array.isArray(latlngsRaw[0]) && latlngsRaw[0][0] && typeof latlngsRaw[0][0].lat === 'number') ring = latlngsRaw[0];
+      else if (latlngsRaw[0] && typeof latlngsRaw[0].lat === 'number') ring = latlngsRaw;
+    }
+    if (ring && ring.length >= 3) {
+      const coords = ring.map(p => [p.lng, p.lat]);
+      const first = coords[0], last = coords[coords.length - 1];
+      if (!first || !last || first[0] !== last[0] || first[1] !== last[1]) coords.push([first[0], first[1]]);
+      return coords;
+    }
+  }
+  if (typeof layer.getLatLng === 'function') {
+    const p = layer.getLatLng();
+    const offset = 0.0008;
+    return [
+      [p.lng - offset, p.lat - offset],
+      [p.lng + offset, p.lat - offset],
+      [p.lng + offset, p.lat + offset],
+      [p.lng - offset, p.lat + offset],
+      [p.lng - offset, p.lat - offset]
+    ];
+  }
+  return null;
+}
+
+// تحويل خصائص الطبقة إلى كائن يحتوي فقط alias: value
+function buildVisiblePropsOnly(layer) {
+  const feat = layer.feature || {};
+  const props = feat.properties || {};
+  const visible = props.__visible_fields__;
+  const result = {};
+
+  if (Array.isArray(visible) && visible.length > 0) {
+    visible.forEach(item => {
+      if (!item || !item.name) return;
+      const key = String(item.name);
+      if (!(key in props)) return;
+      const alias = (item.alias && String(item.alias)) || key;
+      // ضع alias كمفتاح وقيمة الحقل كقيمة
+      result[alias] = props[key];
+    });
+    return result;
+  }
+
+  // fallback: اختر كل الحقول غير الخاصة واعتبر اسم الحقل نفسه alias
+  Object.keys(props).forEach(k => {
+    if (k.startsWith('_')) return;
+    result[k] = props[k];
+  });
+  return result;
+}
+
+document.addEventListener('click', function (e) {
+  const target = e.target;
+  if (!target || target.id !== 'share') return;
+  const layerAlias = target.dataset.layerName;
+  if (!layerAlias) return;
+  e.preventDefault();
+
+  const layer = findLayerByAlias(layerAlias);
+  if (!layer) { alert('لم يتم العثور على الطبقة'); return; }
+
+  const coords = extractPolygonCoordinates(layer);
+  if (!coords || coords.length < 4) { alert('تعذر استخراج مضلع صالح من الطبقة'); return; }
+
+  // خصائص مرئية فقط مع Alias كمفاتيح
+  const visibleProps = buildVisiblePropsOnly(layer);
+  // تأكد وجود اسم مرئي على الأقل كحقل عرض
+  if (!visibleProps || Object.keys(visibleProps).length === 0) {
+    // ضع اسم الطبقة كحقل بسيط إن لم توجد خصائص مرئية
+    visibleProps['الاسم'] = layerAlias;
+  }
+
+  const geojson = {
+    type: 'FeatureCollection',
+    features: [{
+      type: 'Feature',
+      geometry: { type: 'Polygon', coordinates: [coords] },
+      properties: visibleProps
+    }]
+  };
+
+  const compressed = compressGeoJSON(geojson);
+  const shareUrl = viewerPath + '?data=' + encodeURIComponent(compressed);
+  const message = `الاسم: ${layerAlias}\nرابط العرض:\n${shareUrl}`;
+  const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
+  window.open(whatsappUrl, '_blank');
+});
+
+
+
+
+function normalizeText(text) {
       return text
         .toLowerCase()
         .replace(/[إأآا]/g, "ا")
@@ -114,13 +234,10 @@
             const lng = zoomCoords ? parseFloat(zoomCoords[2]) : null;
 
             const jumpIcon = (zoom && lat && lng)
-              ? `<button title='الذهاب إلى الموقع' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'>...</button>`
-              : "";
-
             const labelHtml = `
               <span class='layer-color-box' style='background-color:${style.fillColor || style.color || "#3388ff"};opacity:${style.fillOpacity || 0.6};'></span>
-              <span class='layer-name'>${layerName}</span>
-              ${jumpIcon}
+              <button data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}' class='layer-name'>${layerName}</button>
+              <button class="fas fa-share-alt" id='share' data-layer-name='${layerName}' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'></button>
             `;
 
             const layerGroup = L.featureGroup();
