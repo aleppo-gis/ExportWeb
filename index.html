@@ -155,7 +155,7 @@ document.addEventListener('click', function (e) {
 
   const compressed = compressGeoJSON(geojson);
   const shareUrl = viewerPath + '?data=' + encodeURIComponent(compressed);
-  const message = `الاسم: ${layerAlias}\nرابط العرض:\n${shareUrl}`;
+  const message = `المشروع : ${layerAlias}\n${shareUrl}`;
   const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
   window.open(whatsappUrl, '_blank');
 });
