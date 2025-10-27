@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <title>خريطة المشاريع الاستثمارية</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" >
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.css" />
   <link rel="stylesheet" href="style/style.css" />
@@ -15,7 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
-  
+
   <div id="map-controls">
     <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات"></button>
     <button class="basemap-button" onclick="setBaseMap('Hybrid')" title="قمر صناعي بمعلومات مكانية">🛰️</button>
@@ -47,10 +47,15 @@
 
 const viewerPath = 'https://aleppo-gis.github.io/v/v.html';
 
+// مفتاح API من TinyURL (ضع مفتاحك هنا)
+const TINYURL_API_KEY = "YOUR_API_KEY_HERE";
+
+// ضغط GeoJSON
 function compressGeoJSON(obj) {
   return LZString.compressToEncodedURIComponent(JSON.stringify(obj));
 }
 
+// إيجاد الطبقة بالاسم
 function findLayerByAlias(alias) {
   let found = null;
   if (!Array.isArray(allLayerGroups)) return null;
@@ -67,6 +72,7 @@ function findLayerByAlias(alias) {
   return found;
 }
 
+// استخراج مضلع أو مربع حول نقطة
 function extractPolygonCoordinates(layer) {
   if (typeof layer.getLatLngs === 'function') {
     const latlngsRaw = layer.getLatLngs();
@@ -96,7 +102,7 @@ function extractPolygonCoordinates(layer) {
   return null;
 }
 
-// تحويل خصائص الطبقة إلى كائن يحتوي فقط alias: value
+// خصائص مرئية فقط (Alias كمفاتيح)
 function buildVisiblePropsOnly(layer) {
   const feat = layer.feature || {};
   const props = feat.properties || {};
@@ -109,13 +115,11 @@ function buildVisiblePropsOnly(layer) {
       const key = String(item.name);
       if (!(key in props)) return;
       const alias = (item.alias && String(item.alias)) || key;
-      // ضع alias كمفتاح وقيمة الحقل كقيمة
       result[alias] = props[key];
     });
     return result;
   }
 
-  // fallback: اختر كل الحقول غير الخاصة واعتبر اسم الحقل نفسه alias
   Object.keys(props).forEach(k => {
     if (k.startsWith('_')) return;
     result[k] = props[k];
@@ -123,7 +127,23 @@ function buildVisiblePropsOnly(layer) {
   return result;
 }
 
-document.addEventListener('click', function (e) {
+// استدعاء TinyURL API لتقصير الرابط
+async function shortenUrl(longUrl) {
+  const res = await fetch("https://api.tinyurl.com/create", {
+    method: "POST",
+    headers: {
+      "Authorization": "Bearer " + "xBSvW6XqO3Tdng0dhybh6VEdyiXs488gsm20nVthZoApV45x8MnsKUTDFKh3",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ url: longUrl })
+  });
+  if (!res.ok) throw new Error("TinyURL API error");
+  const data = await res.json();
+  return data.data.tiny_url;
+}
+
+// حدث زر المشاركة
+document.addEventListener('click', async function (e) {
   const target = e.target;
   if (!target || target.id !== 'share') return;
   const layerAlias = target.dataset.layerName;
@@ -136,11 +156,8 @@ document.addEventListener('click', function (e) {
   const coords = extractPolygonCoordinates(layer);
   if (!coords || coords.length < 4) { alert('تعذر استخراج مضلع صالح من الطبقة'); return; }
 
-  // خصائص مرئية فقط مع Alias كمفاتيح
   const visibleProps = buildVisiblePropsOnly(layer);
-  // تأكد وجود اسم مرئي على الأقل كحقل عرض
   if (!visibleProps || Object.keys(visibleProps).length === 0) {
-    // ضع اسم الطبقة كحقل بسيط إن لم توجد خصائص مرئية
     visibleProps['الاسم'] = layerAlias;
   }
 
@@ -154,16 +171,25 @@ document.addEventListener('click', function (e) {
   };
 
   const compressed = compressGeoJSON(geojson);
-  const shareUrl = viewerPath + '?data=' + encodeURIComponent(compressed);
-  const message = `المشروع : ${layerAlias}\n${shareUrl}`;
-  const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
-  window.open(whatsappUrl, '_blank');
+  const longUrl = viewerPath + '?data=' + encodeURIComponent(compressed);
+
+  try {
+    const shortUrl = await shortenUrl(longUrl);
+    const message = `المشروع : ${layerAlias}\n${shortUrl}`;
+    const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
+    window.open(whatsappUrl, '_blank');
+  } catch (err) {
+    console.error(err);
+    // fallback للرابط الأصلي
+    const message = `المشروع : ${layerAlias}\n${longUrl}`;
+    const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
+    window.open(whatsappUrl, '_blank');
+  }
 });
 
 
 
-
-function normalizeText(text) {
+    function normalizeText(text) {
       return text
         .toLowerCase()
         .replace(/[إأآا]/g, "ا")
@@ -481,7 +507,7 @@ function normalizeText(text) {
       currentMatchIndex = (currentMatchIndex - 1 + matchedLayers.length) % matchedLayers.length;
       zoomToMatch(currentMatchIndex);
     });
-    
+
     document.addEventListener("click", function (e) {
       const target = e.target;
       if (target.matches("button[data-lat][data-lng][data-zoom]")) {
