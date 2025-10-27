@@ -45,148 +45,154 @@
     const nextBtn = document.getElementById("next-match");
     const prevBtn = document.getElementById("prev-match");
 
-const viewerPath = 'https://aleppo-gis.github.io/v/v.html';
+    const viewerPath = 'https://aleppo-gis.github.io/v/v.html';
 
-// مفتاح API من TinyURL (ضع مفتاحك هنا)
-const TINYURL_API_KEY = "YOUR_API_KEY_HERE";
+    // مفتاح API من TinyURL (ضع مفتاحك هنا)
+    const TINYURL_API_KEY = "xBSvW6XqO3Tdng0dhybh6VEdyiXs488gsm20nVthZoApV45x8MnsKUTDFKh3";
 
-// ضغط GeoJSON
-function compressGeoJSON(obj) {
-  return LZString.compressToEncodedURIComponent(JSON.stringify(obj));
-}
+    // ضغط GeoJSON
+    function compressGeoJSON(obj) {
+      return LZString.compressToEncodedURIComponent(JSON.stringify(obj));
+    }
 
-// إيجاد الطبقة بالاسم
-function findLayerByAlias(alias) {
-  let found = null;
-  if (!Array.isArray(allLayerGroups)) return null;
-  allLayerGroups.forEach(({ group }) => {
-    if (found) return;
-    group.eachLayer(layer => {
-      if (found) return;
+    // إيجاد الطبقة بالاسم
+    function findLayerByAlias(alias) {
+      let found = null;
+      if (!Array.isArray(allLayerGroups)) return null;
+      allLayerGroups.forEach(({ group }) => {
+        if (found) return;
+        group.eachLayer(layer => {
+          if (found) return;
+          const feat = layer.feature || {};
+          const props = feat.properties || {};
+          const aliasName = props.Name || props.name || props['الاسم'] || layer.options?.name;
+          if (aliasName === alias) found = layer;
+        });
+      });
+      return found;
+    }
+
+    // استخراج مضلع أو مربع حول نقطة
+    function extractPolygonCoordinates(layer) {
+      if (typeof layer.getLatLngs === 'function') {
+        const latlngsRaw = layer.getLatLngs();
+        let ring = null;
+        if (Array.isArray(latlngsRaw) && latlngsRaw.length) {
+          if (Array.isArray(latlngsRaw[0]) && latlngsRaw[0][0] && typeof latlngsRaw[0][0].lat === 'number') ring = latlngsRaw[0];
+          else if (latlngsRaw[0] && typeof latlngsRaw[0].lat === 'number') ring = latlngsRaw;
+        }
+        if (ring && ring.length >= 3) {
+          const coords = ring.map(p => [p.lng, p.lat]);
+          const first = coords[0], last = coords[coords.length - 1];
+          if (!first || !last || first[0] !== last[0] || first[1] !== last[1]) coords.push([first[0], first[1]]);
+          return coords;
+        }
+      }
+      if (typeof layer.getLatLng === 'function') {
+        const p = layer.getLatLng();
+        const offset = 0.0008;
+        return [
+          [p.lng - offset, p.lat - offset],
+          [p.lng + offset, p.lat - offset],
+          [p.lng + offset, p.lat + offset],
+          [p.lng - offset, p.lat + offset],
+          [p.lng - offset, p.lat - offset]
+        ];
+      }
+      return null;
+    }
+
+    // خصائص مرئية فقط (Alias كمفاتيح)
+    function buildVisiblePropsOnly(layer) {
       const feat = layer.feature || {};
       const props = feat.properties || {};
-      const aliasName = props.Name || props.name || props['الاسم'] || layer.options?.name;
-      if (aliasName === alias) found = layer;
-    });
-  });
-  return found;
-}
+      const visible = props.__visible_fields__;
+      const result = {};
 
-// استخراج مضلع أو مربع حول نقطة
-function extractPolygonCoordinates(layer) {
-  if (typeof layer.getLatLngs === 'function') {
-    const latlngsRaw = layer.getLatLngs();
-    let ring = null;
-    if (Array.isArray(latlngsRaw) && latlngsRaw.length) {
-      if (Array.isArray(latlngsRaw[0]) && latlngsRaw[0][0] && typeof latlngsRaw[0][0].lat === 'number') ring = latlngsRaw[0];
-      else if (latlngsRaw[0] && typeof latlngsRaw[0].lat === 'number') ring = latlngsRaw;
+      if (Array.isArray(visible) && visible.length > 0) {
+        visible.forEach(item => {
+          if (!item || !item.name) return;
+          const key = String(item.name);
+          if (!(key in props)) return;
+          const alias = (item.alias && String(item.alias)) || key;
+          result[alias] = props[key];
+        });
+        return result;
+      }
+
+      Object.keys(props).forEach(k => {
+        if (k.startsWith('_')) return;
+        result[k] = props[k];
+      });
+      return result;
     }
-    if (ring && ring.length >= 3) {
-      const coords = ring.map(p => [p.lng, p.lat]);
-      const first = coords[0], last = coords[coords.length - 1];
-      if (!first || !last || first[0] !== last[0] || first[1] !== last[1]) coords.push([first[0], first[1]]);
-      return coords;
+
+    // استدعاء TinyURL API لتقصير الرابط
+    async function shortenUrl(longUrl) {
+      const res = await fetch("https://api.tinyurl.com/create", {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + TINYURL_API_KEY,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ url: longUrl })
+      });
+      if (!res.ok) throw new Error("TinyURL API error");
+      const data = await res.json();
+      return data.data.tiny_url;
     }
-  }
-  if (typeof layer.getLatLng === 'function') {
-    const p = layer.getLatLng();
-    const offset = 0.0008;
-    return [
-      [p.lng - offset, p.lat - offset],
-      [p.lng + offset, p.lat - offset],
-      [p.lng + offset, p.lat + offset],
-      [p.lng - offset, p.lat + offset],
-      [p.lng - offset, p.lat - offset]
-    ];
-  }
-  return null;
-}
 
-// خصائص مرئية فقط (Alias كمفاتيح)
-function buildVisiblePropsOnly(layer) {
-  const feat = layer.feature || {};
-  const props = feat.properties || {};
-  const visible = props.__visible_fields__;
-  const result = {};
+    // كشف إذا كان المستخدم على موبايل
+    function isMobile() {
+      return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
 
-  if (Array.isArray(visible) && visible.length > 0) {
-    visible.forEach(item => {
-      if (!item || !item.name) return;
-      const key = String(item.name);
-      if (!(key in props)) return;
-      const alias = (item.alias && String(item.alias)) || key;
-      result[alias] = props[key];
+    // حدث زر المشاركة
+    document.addEventListener('click', async function (e) {
+      const target = e.target;
+      if (!target || target.id !== 'share') return;
+      const layerAlias = target.dataset.layerName;
+      if (!layerAlias) return;
+      e.preventDefault();
+
+      const layer = findLayerByAlias(layerAlias);
+      if (!layer) { alert('لم يتم العثور على الطبقة'); return; }
+
+      const coords = extractPolygonCoordinates(layer);
+      if (!coords || coords.length < 4) { alert('تعذر استخراج مضلع صالح من الطبقة'); return; }
+
+      const visibleProps = buildVisiblePropsOnly(layer);
+      if (!visibleProps || Object.keys(visibleProps).length === 0) {
+        visibleProps['الاسم'] = layerAlias;
+      }
+
+      const geojson = {
+        type: 'FeatureCollection',
+        features: [{
+          type: 'Feature',
+          geometry: { type: 'Polygon', coordinates: [coords] },
+          properties: visibleProps
+        }]
+      };
+
+      const compressed = compressGeoJSON(geojson);
+      const longUrl = viewerPath + '?data=' + encodeURIComponent(compressed);
+
+      try {
+        const shortUrl = await shortenUrl(longUrl);
+        const message = `المشروع : ${layerAlias}\n${shortUrl}`;
+        const whatsappUrl = (isMobile() ? 'whatsapp://send?text=' : 'https://wa.me/?text=')
+          + encodeURIComponent(message);
+        window.location.href = whatsappUrl;
+      } catch (err) {
+        console.error(err);
+        // fallback للرابط الأصلي
+        const message = `المشروع : ${layerAlias}\n${longUrl}`;
+        const whatsappUrl = (isMobile() ? 'whatsapp://send?text=' : 'https://wa.me/?text=')
+          + encodeURIComponent(message);
+        window.location.href = whatsappUrl;
+      }
     });
-    return result;
-  }
-
-  Object.keys(props).forEach(k => {
-    if (k.startsWith('_')) return;
-    result[k] = props[k];
-  });
-  return result;
-}
-
-// استدعاء TinyURL API لتقصير الرابط
-async function shortenUrl(longUrl) {
-  const res = await fetch("https://api.tinyurl.com/create", {
-    method: "POST",
-    headers: {
-      "Authorization": "Bearer " + "xBSvW6XqO3Tdng0dhybh6VEdyiXs488gsm20nVthZoApV45x8MnsKUTDFKh3",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ url: longUrl })
-  });
-  if (!res.ok) throw new Error("TinyURL API error");
-  const data = await res.json();
-  return data.data.tiny_url;
-}
-
-// حدث زر المشاركة
-document.addEventListener('click', async function (e) {
-  const target = e.target;
-  if (!target || target.id !== 'share') return;
-  const layerAlias = target.dataset.layerName;
-  if (!layerAlias) return;
-  e.preventDefault();
-
-  const layer = findLayerByAlias(layerAlias);
-  if (!layer) { alert('لم يتم العثور على الطبقة'); return; }
-
-  const coords = extractPolygonCoordinates(layer);
-  if (!coords || coords.length < 4) { alert('تعذر استخراج مضلع صالح من الطبقة'); return; }
-
-  const visibleProps = buildVisiblePropsOnly(layer);
-  if (!visibleProps || Object.keys(visibleProps).length === 0) {
-    visibleProps['الاسم'] = layerAlias;
-  }
-
-  const geojson = {
-    type: 'FeatureCollection',
-    features: [{
-      type: 'Feature',
-      geometry: { type: 'Polygon', coordinates: [coords] },
-      properties: visibleProps
-    }]
-  };
-
-  const compressed = compressGeoJSON(geojson);
-  const longUrl = viewerPath + '?data=' + encodeURIComponent(compressed);
-
-  try {
-    const shortUrl = await shortenUrl(longUrl);
-    const message = `المشروع : ${layerAlias}\n${shortUrl}`;
-    const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
-    window.open(whatsappUrl, '_blank');
-  } catch (err) {
-    console.error(err);
-    // fallback للرابط الأصلي
-    const message = `المشروع : ${layerAlias}\n${longUrl}`;
-    const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
-    window.open(whatsappUrl, '_blank');
-  }
-});
-
 
 
     function normalizeText(text) {
