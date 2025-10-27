@@ -190,7 +190,7 @@
         const message = `المشروع : ${layerAlias}\n${longUrl}`;
         const whatsappUrl = (isMobile() ? 'whatsapp://send?text=' : 'https://wa.me/?text=')
           + encodeURIComponent(message);
-        window.location.href = whatsappUrl;
+        window.open(whatsappUrl, '_blank');
       }
     });
 
