@@ -2,6 +2,13 @@
   "group_2": {
     "__group_name__": "مجلس مدينة حلب",
     "__styles__": {
+      "12300 انصاري خلف الراشدين": {
+        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
+        "fillOpacity": 0.5019607843137255,
+        "color": "#232323",
+        "weight": 0.26,
+        "radius": 6
+      },
       "السوق العربية": {
         "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
         "fillOpacity": 0.5019607843137255,
@@ -198,6 +205,121 @@
         "weight": 0.26,
         "radius": 6
       }
+    },
+    "12300 انصاري خلف الراشدين": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              [
+                [
+                  37.07061948419972,
+                  36.15780743700913,
+                  0.0
+                ],
+                [
+                  37.06917167597626,
+                  36.16197638583476,
+                  0.0
+                ],
+                [
+                  37.06482845350688,
+                  36.16016364799295,
+                  0.0
+                ],
+                [
+                  37.06671780351938,
+                  36.15662947292041,
+                  0.0
+                ],
+                [
+                  37.07061948419972,
+                  36.15780743700913,
+                  0.0
+                ]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "0B73E1DCFA3B2CC6353A",
+            "Name": "12300 انصاري خلف الراشدين",
+            "description": "",
+            "Area": "18.34 هكتار",
+            "MapLink": "\"17/36.159304/37.067726\"",
+            "GID": "",
+            "Address": "خلف الراشدين",
+            "CadastralID": "الأنصاري",
+            "EstateID": "12300",
+            "Ownership Authority": "مجلس مدينة حلب",
+            "Land Use Category": "تطوير عقاري",
+            "Building Regulation": "سكني",
+            "Proposed Investment": "مشروع سكني",
+            "Planning Status": "داخل التنظيم",
+            "Physical Condition": "أرض حراج",
+            "Remark": "",
+            "__group__": "group_2",
+            "__layer__": "12300 انصاري خلف الراشدين",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "Area",
+                "alias": "المساحة"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
     },
     "السوق العربية": {
       "type": "FeatureCollection",
