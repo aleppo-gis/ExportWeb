@@ -13,6 +13,9 @@
 
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
+  
   <div id="map-controls">
     <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات"></button>
     <button class="basemap-button" onclick="setBaseMap('Hybrid')" title="قمر صناعي بمعلومات مكانية">🛰️</button>
@@ -29,9 +32,6 @@
   </div>
 
   <div id="map"></div>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.js"></script>
 
   <script>
     let matchedLayers = [];
