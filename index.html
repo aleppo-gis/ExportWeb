@@ -15,9 +15,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
   <div id="map-controls">
     <button id="toggleLayers" class="toggle-button" title="إظهار/إخفاء الطبقات"></button>
-    <button class="basemap-button" data-basemap="Hybrid" title="قمر صناعي بمعلومات مكانية">🛰️</button>
-    <button class="basemap-button" data-basemap="Satellite" title="قمر صناعي">🛰️</button>
-    <button class="basemap-button" data-basemap="Road" title="خريطة بأسماء الشوارع">🗺️</button>
+    <button class="basemap-button" onclick="setBaseMap('Hybrid')" title="قمر صناعي بمعلومات مكانية">🛰️</button>
+    <button class="basemap-button" onclick="setBaseMap('Satellite')" title="قمر صناعي">🛰️</button>
+    <button class="basemap-button" onclick="setBaseMap('Road')" title="خريطة بأسماء الشوارع">🗺️</button>
     <input type="text" id="filterInput" placeholder="🔍 اكتب نص الفلترة" title="اكتب للبحث داخل الطبقات" />
     <span id="filter-status" style="display: none;">
       <button id="match-count">0</button>
@@ -25,6 +25,7 @@
       <button id="next-match" title="التالي">⬅️</button>
     </span>
     <button id="clearFilter" title="مسح الفلترة">❌</button>
+  </div>
   </div>
 
   <div id="map"></div>
@@ -44,116 +45,125 @@
     const nextBtn = document.getElementById("next-match");
     const prevBtn = document.getElementById("prev-match");
 
-    const viewerPath = 'https://aleppo-gis.github.io/v/v.html';
+const viewerPath = 'https://aleppo-gis.github.io/v/v.html';
 
-    function compressGeoJSON(obj) {
-      return LZString.compressToEncodedURIComponent(JSON.stringify(obj));
-    }
+function compressGeoJSON(obj) {
+  return LZString.compressToEncodedURIComponent(JSON.stringify(obj));
+}
 
-    function findLayerByAlias(alias) {
-      let found = null;
-      if (!Array.isArray(allLayerGroups)) return null;
-      allLayerGroups.forEach(({ group }) => {
-        if (found) return;
-        group.eachLayer(layer => {
-          if (found) return;
-          const feat = layer.feature || {};
-          const props = feat.properties || {};
-          const aliasName = props.Name || props.name || props['الاسم'] || layer.options?.name;
-          if (aliasName === alias) found = layer;
-        });
-      });
-      return found;
-    }
-
-    function extractPolygonCoordinates(layer) {
-      if (typeof layer.getLatLngs === 'function') {
-        const latlngsRaw = layer.getLatLngs();
-        let ring = null;
-        if (Array.isArray(latlngsRaw) && latlngsRaw.length) {
-          if (Array.isArray(latlngsRaw[0]) && latlngsRaw[0][0] && typeof latlngsRaw[0][0].lat === 'number') ring = latlngsRaw[0];
-          else if (latlngsRaw[0] && typeof latlngsRaw[0].lat === 'number') ring = latlngsRaw;
-        }
-        if (ring && ring.length >= 3) {
-          const coords = ring.map(p => [p.lng, p.lat]);
-          const first = coords[0], last = coords[coords.length - 1];
-          if (!first || !last || first[0] !== last[0] || first[1] !== last[1]) coords.push([first[0], first[1]]);
-          return coords;
-        }
-      }
-      if (typeof layer.getLatLng === 'function') {
-        const p = layer.getLatLng();
-        const offset = 0.0008;
-        return [
-          [p.lng - offset, p.lat - offset],
-          [p.lng + offset, p.lat - offset],
-          [p.lng + offset, p.lat + offset],
-          [p.lng - offset, p.lat + offset],
-          [p.lng - offset, p.lat - offset]
-        ];
-      }
-      return null;
-    }
-
-    function buildVisiblePropsOnly(layer) {
+function findLayerByAlias(alias) {
+  let found = null;
+  if (!Array.isArray(allLayerGroups)) return null;
+  allLayerGroups.forEach(({ group }) => {
+    if (found) return;
+    group.eachLayer(layer => {
+      if (found) return;
       const feat = layer.feature || {};
       const props = feat.properties || {};
-      const visible = props.__visible_fields__;
-      const result = {};
-
-      if (Array.isArray(visible) && visible.length > 0) {
-        visible.forEach(item => {
-          if (!item || !item.name) return;
-          const key = String(item.name);
-          if (!(key in props)) return;
-          const alias = (item.alias && String(item.alias)) || key;
-          result[alias] = props[key];
-        });
-        return result;
-      }
-
-      Object.keys(props).forEach(k => {
-        if (k.startsWith('_')) return;
-        result[k] = props[k];
-      });
-      return result;
-    }
-
-    document.addEventListener('click', function (e) {
-      const target = e.target;
-      if (!target || target.id !== 'share') return;
-      const layerAlias = target.dataset.layerName;
-      if (!layerAlias) return;
-      e.preventDefault();
-
-      const layer = findLayerByAlias(layerAlias);
-      if (!layer) { alert('لم يتم العثور على الطبقة'); return; }
-
-      const coords = extractPolygonCoordinates(layer);
-      if (!coords || coords.length < 4) { alert('تعذر استخراج مضلع صالح من الطبقة'); return; }
-
-      const visibleProps = buildVisiblePropsOnly(layer);
-      if (!visibleProps || Object.keys(visibleProps).length === 0) {
-        visibleProps['الاسم'] = layerAlias;
-      }
-
-      const geojson = {
-        type: 'FeatureCollection',
-        features: [{
-          type: 'Feature',
-          geometry: { type: 'Polygon', coordinates: [coords] },
-          properties: visibleProps
-        }]
-      };
-
-      const compressed = compressGeoJSON(geojson);
-      const shareUrl = viewerPath + '?data=' + encodeURIComponent(compressed);
-      const message = `المشروع : ${layerAlias}\n${shareUrl}`;
-      const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
-      window.open(whatsappUrl, '_blank');
+      const aliasName = props.Name || props.name || props['الاسم'] || layer.options?.name;
+      if (aliasName === alias) found = layer;
     });
+  });
+  return found;
+}
 
-    function normalizeText(text) {
+function extractPolygonCoordinates(layer) {
+  if (typeof layer.getLatLngs === 'function') {
+    const latlngsRaw = layer.getLatLngs();
+    let ring = null;
+    if (Array.isArray(latlngsRaw) && latlngsRaw.length) {
+      if (Array.isArray(latlngsRaw[0]) && latlngsRaw[0][0] && typeof latlngsRaw[0][0].lat === 'number') ring = latlngsRaw[0];
+      else if (latlngsRaw[0] && typeof latlngsRaw[0].lat === 'number') ring = latlngsRaw;
+    }
+    if (ring && ring.length >= 3) {
+      const coords = ring.map(p => [p.lng, p.lat]);
+      const first = coords[0], last = coords[coords.length - 1];
+      if (!first || !last || first[0] !== last[0] || first[1] !== last[1]) coords.push([first[0], first[1]]);
+      return coords;
+    }
+  }
+  if (typeof layer.getLatLng === 'function') {
+    const p = layer.getLatLng();
+    const offset = 0.0008;
+    return [
+      [p.lng - offset, p.lat - offset],
+      [p.lng + offset, p.lat - offset],
+      [p.lng + offset, p.lat + offset],
+      [p.lng - offset, p.lat + offset],
+      [p.lng - offset, p.lat - offset]
+    ];
+  }
+  return null;
+}
+
+// تحويل خصائص الطبقة إلى كائن يحتوي فقط alias: value
+function buildVisiblePropsOnly(layer) {
+  const feat = layer.feature || {};
+  const props = feat.properties || {};
+  const visible = props.__visible_fields__;
+  const result = {};
+
+  if (Array.isArray(visible) && visible.length > 0) {
+    visible.forEach(item => {
+      if (!item || !item.name) return;
+      const key = String(item.name);
+      if (!(key in props)) return;
+      const alias = (item.alias && String(item.alias)) || key;
+      // ضع alias كمفتاح وقيمة الحقل كقيمة
+      result[alias] = props[key];
+    });
+    return result;
+  }
+
+  // fallback: اختر كل الحقول غير الخاصة واعتبر اسم الحقل نفسه alias
+  Object.keys(props).forEach(k => {
+    if (k.startsWith('_')) return;
+    result[k] = props[k];
+  });
+  return result;
+}
+
+document.addEventListener('click', function (e) {
+  const target = e.target;
+  if (!target || target.id !== 'share') return;
+  const layerAlias = target.dataset.layerName;
+  if (!layerAlias) return;
+  e.preventDefault();
+
+  const layer = findLayerByAlias(layerAlias);
+  if (!layer) { alert('لم يتم العثور على الطبقة'); return; }
+
+  const coords = extractPolygonCoordinates(layer);
+  if (!coords || coords.length < 4) { alert('تعذر استخراج مضلع صالح من الطبقة'); return; }
+
+  // خصائص مرئية فقط مع Alias كمفاتيح
+  const visibleProps = buildVisiblePropsOnly(layer);
+  // تأكد وجود اسم مرئي على الأقل كحقل عرض
+  if (!visibleProps || Object.keys(visibleProps).length === 0) {
+    // ضع اسم الطبقة كحقل بسيط إن لم توجد خصائص مرئية
+    visibleProps['الاسم'] = layerAlias;
+  }
+
+  const geojson = {
+    type: 'FeatureCollection',
+    features: [{
+      type: 'Feature',
+      geometry: { type: 'Polygon', coordinates: [coords] },
+      properties: visibleProps
+    }]
+  };
+
+  const compressed = compressGeoJSON(geojson);
+  const shareUrl = viewerPath + '?data=' + encodeURIComponent(compressed);
+  const message = `المشروع : ${layerAlias}\n${shareUrl}`;
+  const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
+  window.open(whatsappUrl, '_blank');
+});
+
+
+
+
+function normalizeText(text) {
       return text
         .toLowerCase()
         .replace(/[إأآا]/g, "ا")
@@ -161,12 +171,13 @@
         .replace(/ؤ/g, "و")
         .replace(/ئ/g, "ي")
         .replace(/ة/g, "ه")
-        .replace(/[ًٌٍَُِّْ]/g, "")
+        .replace(/[ًٌٍَُِّْ]/g, "") // حذف التشكيل
         .trim();
     }
 
     const map = L.map("map", { preferCanvas: true });
     const allLayerGroups = [];
+    //"Esri": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
 
     const baseMaps = {
       "Hybrid": L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'),
@@ -180,15 +191,6 @@
       if (panel) {
         panel.style.display = (panel.style.display === "none") ? "flex" : "none";
       }
-    });
-
-    document.querySelectorAll('.basemap-button').forEach(button => {
-      button.addEventListener('click', (e) => {
-        const basemapType = e.target.dataset.basemap;
-        if (basemapType && baseMaps[basemapType]) {
-          setBaseMap(basemapType);
-        }
-      });
     });
 
     function setBaseMap(name) {
@@ -231,194 +233,270 @@
             const lat = zoomCoords ? parseFloat(zoomCoords[1]) : null;
             const lng = zoomCoords ? parseFloat(zoomCoords[2]) : null;
 
-            const jumpIcon = (zoom && lat && lng) ? " 🎯" : "";
+            const jumpIcon = (zoom && lat && lng)
             const labelHtml = `
-              <span class='layer-color-box' style='background-color:${style.fillColor || style.color || "#3388ff"}'></span>
-              ${layerName}${jumpIcon}
-              <button id='share' data-layer-name='${layerName}' style='margin-right: 5px; background: #25d366; color: white; border: none; padding: 2px 6px; border-radius: 3px; cursor: pointer;' title='مشاركة عبر واتساب'>📤</button>
+              <span class='layer-color-box' style='background-color:${style.fillColor || style.color || "#3388ff"};opacity:${style.fillOpacity || 0.6};'></span>
+              <button data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}' class='layer-name'>${layerName}</button>
+              <button class="fa-brands fa-whatsapp" id='share' style='background-color:#ffffff; border:0;' data-layer-name='${layerName}' data-zoom='${zoom}' data-lat='${lat}' data-lng='${lng}'></button>
             `;
 
-            const layerGroup = L.geoJSON(fc, {
-              style: function(feature) {
-                return {
-                  fillColor: style.fillColor || "#3388ff",
-                  color: style.color || "#3388ff",
-                  weight: style.weight || 2,
-                  opacity: style.opacity || 1,
-                  fillOpacity: style.fillOpacity || 0.2
+            const layerGroup = L.featureGroup();
+            const geoJsonLayer = L.geoJSON(fc, {
+              style: () => style,
+              pointToLayer: (feature, latlng) => {
+                const opts = {
+                  radius: style.radius || 6,
+                  fillColor: style.fillColor || style.color || "#3388ff",
+                  color: style.color || "#333333",
+                  weight: style.weight || 1,
+                  fillOpacity: style.fillOpacity || 0.6
                 };
+                return L.circleMarker(latlng, opts);
               },
-              onEachFeature: function(feature, layer) {
-                if (feature.properties) {
-                  const props = feature.properties;
-                  const visible = props.__visible_fields__ || [];
-                  let popupContent = "<div style='direction: rtl; text-align: right;'>";
-                  
-                  if (visible.length > 0) {
-                    visible.forEach(field => {
-                      if (field.name && props[field.name] !== undefined) {
-                        const alias = field.alias || field.name;
-                        popupContent += `<b>${alias}:</b> ${props[field.name]}<br>`;
-                      }
-                    });
-                  } else {
-                    Object.keys(props).forEach(key => {
-                      if (!key.startsWith('_')) {
-                        popupContent += `<b>${key}:</b> ${props[key]}<br>`;
-                      }
-                    });
+              onEachFeature: (feature, layerObj) => {
+                const props = feature.properties || {};
+                let rows = "";
+                let rowsAdded = 0;
+                const visible = props.__visible_fields__;
+
+                if (Array.isArray(visible) && visible.length > 0) {
+                  visible.forEach(f => {
+                    const key = f.name;
+                    const alias = f.alias || key;
+                    const value = props[key];
+                    if (value !== null && value !== undefined && value !== "") {
+                      rows += `<tr><td class='popup-key'><b>${alias}</b></td><td class='popup-value'>${value}</td></tr>`;
+                      rowsAdded++;
+                    }
+                  });
+                } else {
+                  for (let key in props) {
+                    if (key.startsWith("__")) continue;
+                    const value = props[key];
+                    if (value !== null && value !== undefined && value !== "") {
+                      rows += `<tr><td class='popup-key'><b>${key}</b></td><td class='popup-value'>${value}</td></tr>`;
+                      rowsAdded++;
+                    }
                   }
-                  
-                  popupContent += "</div>";
-                  layer.bindPopup(popupContent);
                 }
-                
-                allBounds.extend(layer.getBounds());
+
+                if (rowsAdded > 0) {
+                  const popup = `<table class='popup-table'>${rows}</table>`;
+                  layerObj.bindPopup(popup);
+                }
+
+                let markerLatLng = null;
+                if (feature.geometry.type === "Point") {
+                  markerLatLng = layerObj.getLatLng();
+                } else {
+                  try {
+                    markerLatLng = layerObj.getBounds().getCenter();
+                  } catch (e) {
+                    markerLatLng = null;
+                  }
+                }
+
+                if (markerLatLng) {
+                  const icon = L.icon({
+                    iconUrl: 'img/marker.png',
+                    iconSize: [48, 48],
+                    iconAnchor: [24, 48],
+                    className: 'marker-with-shadow'
+                  });
+                  const marker = L.marker(markerLatLng, { icon });
+                  marker.bindPopup(layerObj.getPopup());
+                  marker.bindTooltip(layerName, {
+                    permanent: false,
+                    direction: 'top',
+                    sticky: true,
+                    className: 'marker-tooltip'
+                  });
+                  layerGroup.addLayer(marker);
+                }
+
+                layerGroup.addLayer(layerObj);
               }
             });
 
-            children.push({
-              label: labelHtml,
-              layer: layerGroup
-            });
+            layerGroup.addLayer(geoJsonLayer);
+            layerGroup.addTo(map);
+            const bounds = layerGroup.getBounds();
+            if (bounds && bounds.isValid()) {
+              allBounds.extend(bounds);
+            }
 
-            allLayerGroups.push({ name: layerName, group: layerGroup });
+            children.push({ label: labelHtml, layer: layerGroup });
+            let keywords = normalizeText(layerName);
+
+            if (fc.features && fc.features.length > 0) {
+              fc.features.forEach(f => {
+                const props = f.properties || {};
+                for (let key in props) {
+                  const val = props[key];
+                  if (typeof val === "string") {
+                    keywords += " " + normalizeText(val);
+                  }
+                }
+              });
+            }
+            allLayerGroups.push({ keywords, group: layerGroup });
           }
 
-          if (children.length > 0) {
-            treeGroups.push({
-              label: groupName,
-              children: children
-            });
-          }
+          const groupLabel = `<b>${groupName} (${children.length})</b>`;
+
+          treeGroups.push({
+            label: groupLabel,
+            selectAllCheckbox: true,
+            children: children,
+            collapsed: true
+          });
         }
 
-        const layersControl = L.control.layers.tree(null, treeGroups, {
-          namedToggle: false,
-          selectorBack: false,
-          closedSymbol: '▶',
-          openedSymbol: '▼',
-          spaceSymbol: ' ',
-          collapsed: false
-        });
-
-        layersControl.addTo(map);
-        
         if (allBounds.isValid()) {
-          map.fitBounds(allBounds, { padding: [20, 20] });
+          map.fitBounds(allBounds);
         } else {
-          map.setView([36.2021, 37.1343], 10);
         }
 
-        setBaseMap("Hybrid");
-
-        function performFilter() {
-          const query = filterInput.value.trim();
-          if (!query) {
-            clearFilter();
-            return;
-          }
-
-          const normalizedQuery = normalizeText(query);
-          matchedLayers = [];
-
-          allLayerGroups.forEach(({ name, group }) => {
-            group.eachLayer(layer => {
-              const feature = layer.feature;
-              if (!feature || !feature.properties) return;
-
-              const props = feature.properties;
-              const visible = props.__visible_fields__ || [];
-              let searchText = "";
-
-              if (visible.length > 0) {
-                visible.forEach(field => {
-                  if (field.name && props[field.name]) {
-                    searchText += " " + String(props[field.name]);
-                  }
-                });
-              } else {
-                Object.keys(props).forEach(key => {
-                  if (!key.startsWith('_') && props[key]) {
-                    searchText += " " + String(props[key]);
-                  }
-                });
-              }
-
-              if (normalizeText(searchText).includes(normalizedQuery)) {
-                matchedLayers.push(layer);
-              }
-            });
-          });
-
-          updateFilterStatus();
-          if (matchedLayers.length > 0) {
-            currentMatchIndex = 0;
-            highlightCurrentMatch();
-          }
+        if (!map.hasLayer(currentBaseMap)) {
+          currentBaseMap.addTo(map);
         }
 
-        function clearFilter() {
-          matchedLayers = [];
-          currentMatchIndex = -1;
-          filterInput.value = "";
-          filterStatus.style.display = "none";
-          
-          allLayerGroups.forEach(({ group }) => {
-            group.eachLayer(layer => {
-              layer.setStyle({ opacity: 1, fillOpacity: 0.2 });
-            });
-          });
-        }
+        const control = L.control.layers.tree(null, treeGroups, {
+          collapsed: false,
+          position: "topright"
+        }).addTo(map);
 
-        function updateFilterStatus() {
-          if (matchedLayers.length > 0) {
-            filterStatus.style.display = "inline";
-            matchCountSpan.textContent = matchedLayers.length;
-          } else {
-            filterStatus.style.display = "none";
-          }
-        }
-
-        function highlightCurrentMatch() {
-          if (matchedLayers.length === 0) return;
-
-          allLayerGroups.forEach(({ group }) => {
-            group.eachLayer(layer => {
-              layer.setStyle({ opacity: 0.3, fillOpacity: 0.1 });
-            });
-          });
-
-          const currentLayer = matchedLayers[currentMatchIndex];
-          currentLayer.setStyle({ opacity: 1, fillOpacity: 0.6 });
-          map.fitBounds(currentLayer.getBounds(), { padding: [50, 50] });
-        }
-
-        filterInput.addEventListener("input", () => {
-          clearTimeout(filterTimeout);
-          filterTimeout = setTimeout(performFilter, 300);
-        });
-
-        clearFilterBtn.addEventListener("click", clearFilter);
-
-        nextBtn.addEventListener("click", () => {
-          if (matchedLayers.length > 0) {
-            currentMatchIndex = (currentMatchIndex + 1) % matchedLayers.length;
-            highlightCurrentMatch();
+        document.querySelector(".leaflet-control-layers").addEventListener("click", e => {
+          const icon = e.target.closest(".jump-icon");
+          if (icon) {
+            e.preventDefault();
+            e.stopPropagation();
+            const zoom = parseInt(icon.dataset.zoom);
+            const lat = parseFloat(icon.dataset.lat);
+            const lng = parseFloat(icon.dataset.lng);
+            if (!isNaN(zoom) && !isNaN(lat) && !isNaN(lng)) {
+              map.setView([lat, lng], zoom);
+            }
           }
         });
-
-        prevBtn.addEventListener("click", () => {
-          if (matchedLayers.length > 0) {
-            currentMatchIndex = (currentMatchIndex - 1 + matchedLayers.length) % matchedLayers.length;
-            highlightCurrentMatch();
-          }
-        });
-      })
-      .catch(error => {
-        console.error('خطأ في تحميل البيانات:', error);
-        alert('فشل في تحميل بيانات الخريطة');
       });
+
+    filterInput.addEventListener("input", () => {
+      clearTimeout(filterTimeout);
+      filterTimeout = setTimeout(() => {
+        const text = normalizeText(filterInput.value);
+        matchedLayers = [];
+        currentMatchIndex = -1;
+
+        const seenNames = new Set();
+
+        // 1. اجمع الطبقات المطابقة فقط
+        allLayerGroups.forEach(({ group }) => {
+          group.eachLayer(layer => {
+            const props = layer.feature?.properties;
+            const hasZoom = layer.getBounds || layer.getLatLng;
+
+            let match = false;
+            if (props) {
+              for (const key in props) {
+                const value = props[key];
+                if (typeof value === "string" && normalizeText(value).includes(text)) {
+                  match = true;
+                  break;
+                }
+              }
+            }
+
+            if (match) {
+              const name = props?.name?.trim() || `${layer._leaflet_id}`;
+              if (hasZoom && !seenNames.has(name)) {
+                matchedLayers.push(layer);
+                seenNames.add(name);
+              }
+            }
+          });
+        });
+
+        // 2. أخفِ كل الطبقات
+        allLayerGroups.forEach(({ group }) => {
+          group.eachLayer(layer => {
+            if (map.hasLayer(layer)) map.removeLayer(layer);
+          });
+        });
+
+        // 3. أظهر فقط الطبقات المطابقة
+        matchedLayers.forEach(layer => {
+          if (!map.hasLayer(layer)) {
+            map.addLayer(layer);
+          }
+        });
+
+        // 4. تحديث الواجهة
+        matchCountSpan.textContent = matchedLayers.length;
+        filterStatus.style.display = matchedLayers.length > 0 ? "flex" : "none";
+
+        if (matchedLayers.length > 0) {
+          currentMatchIndex = 0;
+          zoomToMatch(currentMatchIndex);
+        }
+      }, 500);
+    });
+
+    clearFilterBtn.addEventListener("click", () => {
+      filterInput.value = "";
+      filterStatus.style.display = "none";
+      matchedLayers = [];
+      currentMatchIndex = -1;
+
+      allLayerGroups.forEach(({ group }) => {
+        group.eachLayer(layer => {
+          if (!map.hasLayer(layer)) map.addLayer(layer);
+        });
+      });
+    });
+
+    function zoomToMatch(index) {
+      const layer = matchedLayers[index];
+      if (!layer) return;
+
+      try {
+        if (layer.getBounds) {
+          map.fitBounds(layer.getBounds(), { maxZoom: 19 });
+        } else if (layer.getLatLng) {
+          map.setView(layer.getLatLng(), 17);
+        }
+      } catch (e) {
+        console.warn("تعذر التكبير:", e);
+      }
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (matchedLayers.length === 0) return;
+      currentMatchIndex = (currentMatchIndex + 1) % matchedLayers.length;
+      zoomToMatch(currentMatchIndex);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (matchedLayers.length === 0) return;
+      currentMatchIndex = (currentMatchIndex - 1 + matchedLayers.length) % matchedLayers.length;
+      zoomToMatch(currentMatchIndex);
+    });
+    
+    document.addEventListener("click", function (e) {
+      const target = e.target;
+      if (target.matches("button[data-lat][data-lng][data-zoom]")) {
+
+        const lat = parseFloat(target.getAttribute("data-lat"));
+        const lng = parseFloat(target.getAttribute("data-lng"));
+        const zoom = parseInt(target.getAttribute("data-zoom"));
+
+        if (!isNaN(lat) && !isNaN(lng) && !isNaN(zoom)) {
+          map.setView([lat, lng], zoom);
+        }
+      }
+    });
+
   </script>
 </body>
+
 </html>
