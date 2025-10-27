@@ -17313,7 +17313,7 @@
   "group_19": {
     "__group_name__": "السكك الحديدية",
     "__styles__": {
-      "مبنى حضانة في العقار 5156 مبنى السكك": {
+      "مبنى الحضانة في مبنى السكك": {
         "fillColor": "rgba(255, 0, 164, 1.0)",
         "fillOpacity": 1.0,
         "color": "#232323",
@@ -17342,7 +17342,7 @@
         "radius": 6
       }
     },
-    "مبنى حضانة في العقار 5156 مبنى السكك": {
+    "مبنى الحضانة في مبنى السكك": {
       "type": "FeatureCollection",
       "features": [
         {
@@ -17358,13 +17358,13 @@
           "properties": {
             "fid": 1,
             "id": "0DDACDA73A3B2656EAB8",
-            "Name": "مبنى حضانة في العقار 5156 مبنى السكك",
+            "Name": "مبنى الحضانة في مبنى السكك",
             "description": "",
             "MapLink": "\"17/36.21006/37.14057\"",
             "GID": "",
             "Address": "",
-            "CadastralID": "",
-            "EstateID": "",
+            "CadastralID": "الجميلية",
+            "EstateID": "في العقار 5156",
             "Ownership Authority": "السكك الحديدية",
             "Land Use Category": "",
             "Building Regulation": "",
@@ -17373,7 +17373,7 @@
             "Physical Condition": "",
             "Remark": "",
             "__group__": "group_19",
-            "__layer__": "مبنى حضانة في العقار 5156 مبنى السكك",
+            "__layer__": "مبنى الحضانة في مبنى السكك",
             "__visible_fields__": [
               {
                 "name": "Name",
