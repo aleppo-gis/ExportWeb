@@ -183,14 +183,22 @@
         const message = `المشروع : ${layerAlias}\n${shortUrl}`;
         const whatsappUrl = (isMobile() ? 'whatsapp://send?text=' : 'https://wa.me/?text=')
           + encodeURIComponent(message);
-        window.open(whatsappUrl, '_blank');
+        if (isMobile()) {
+          window.location.href = whatsappUrl; // يفتح التطبيق مباشرة
+        } else {
+          window.open(whatsappUrl, '_blank');
+        }
       } catch (err) {
         console.error(err);
         // fallback للرابط الأصلي
         const message = `المشروع : ${layerAlias}\n${longUrl}`;
         const whatsappUrl = (isMobile() ? 'whatsapp://send?text=' : 'https://wa.me/?text=')
           + encodeURIComponent(message);
-        window.open(whatsappUrl, '_blank');
+        if (isMobile()) {
+          window.location.href = whatsappUrl; // يفتح التطبيق مباشرة
+        } else {
+          window.open(whatsappUrl, '_blank');
+        }
       }
     });
 
