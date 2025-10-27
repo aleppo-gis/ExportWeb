@@ -10,13 +10,18 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.control.layers.tree/L.Control.Layers.Tree.css" />
   <link rel="stylesheet" href="style/style.css" />
   <script>
-  // إذا لم توجد معلمة v، أعد تحميل الصفحة بإضافة توقيع زمني
-  const url = new URL(window.location.href);
-  if (!url.searchParams.has('v')) {
-    url.searchParams.set('v', Date.now());
-    window.location.replace(url.toString());
-  }
-</script>
+    (function () {
+      const VERSION = '1.00.000'; // ← غيّر هذا الرقم يدويًا مع كل نشر جديد على GitHub
+
+      const url = new URL(window.location.href);
+      const currentV = url.searchParams.get('v');
+
+      if (currentV !== VERSION) {
+        url.searchParams.set('v', VERSION);
+        window.location.replace(url.toString());
+      }
+    })();
+  </script>
 
 </head>
 
