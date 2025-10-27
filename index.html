@@ -176,7 +176,8 @@
       };
 
       const compressed = compressGeoJSON(geojson);
-      const longUrl = viewerPath + '?data=' + encodeURIComponent(compressed);
+      const timestamp = Date.now();
+      const longUrl = viewerPath + '?data=' + encodeURIComponent(compressed) + '&v=' + timestamp;
 
       try {
         const shortUrl = await shortenUrl(longUrl);
