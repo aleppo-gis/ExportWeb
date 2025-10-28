@@ -98,7 +98,7 @@ html, body {
   height: 1cm;
   font-family: 'Tajawal', sans-serif;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  background-image: url('/img/layers.png');
+  background-image: url('../img/layers.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
