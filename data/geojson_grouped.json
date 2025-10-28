@@ -17268,6 +17268,13 @@
   "group_18": {
     "__group_name__": "وزارة الإدارة المحلية",
     "__styles__": {
+      "الطلائع": {
+        "fillColor": "rgba(243, 166, 178, 1.0)",
+        "fillOpacity": 1.0,
+        "color": "#232323",
+        "weight": 0.0,
+        "radius": 6
+      },
       "معسكر الشبية": {
         "fillColor": "rgba(58, 177, 252, 0.5019607843137255)",
         "fillOpacity": 0.5019607843137255,
@@ -17275,6 +17282,92 @@
         "weight": 0.26,
         "radius": 6
       }
+    },
+    "الطلائع": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              36.97098224468334,
+              36.11288639856315,
+              0.0
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "",
+            "Name": "الطلائع",
+            "description": "15 هكتار جزء من العقار 14 كفرجوم مخصصة عام 2008 لوزارة الادارة المحلية  للطلائع",
+            "MapLink": "\"17/36.112886/36.970982\"",
+            "GID": "",
+            "Address": "كفرجوم",
+            "CadastralID": "",
+            "EstateID": "جزء من العقار 14",
+            "Ownership Authority": "وزارة الإدارة المحلية",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "",
+            "__group__": "group_18",
+            "__layer__": "الطلائع",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
     },
     "معسكر الشبية": {
       "type": "FeatureCollection",
