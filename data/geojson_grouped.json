@@ -2,7 +2,7 @@
   "group_2": {
     "__group_name__": "مجلس مدينة حلب",
     "__styles__": {
-      "12300 انصاري خلف الراشدين": {
+      "أمام باب القلعة": {
         "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
         "fillOpacity": 0.5019607843137255,
         "color": "#232323",
@@ -206,7 +206,7 @@
         "radius": 6
       }
     },
-    "12300 انصاري خلف الراشدين": {
+    "أمام باب القلعة": {
       "type": "FeatureCollection",
       "features": [
         {
@@ -215,28 +215,103 @@
             "coordinates": [
               [
                 [
-                  37.07061948419972,
-                  36.15780743700913,
+                  37.16312282644176,
+                  36.1957966309338,
                   0.0
                 ],
                 [
-                  37.06917167597626,
-                  36.16197638583476,
+                  37.16319302853032,
+                  36.19669331597515,
                   0.0
                 ],
                 [
-                  37.06482845350688,
-                  36.16016364799295,
+                  37.16484480310543,
+                  36.19694506922087,
                   0.0
                 ],
                 [
-                  37.06671780351938,
-                  36.15662947292041,
+                  37.16515858677778,
+                  36.19830179732269,
                   0.0
                 ],
                 [
-                  37.07061948419972,
-                  36.15780743700913,
+                  37.16376071570645,
+                  36.19781089830316,
+                  0.0
+                ],
+                [
+                  37.16259204521049,
+                  36.19767207460897,
+                  0.0
+                ],
+                [
+                  37.16153875525795,
+                  36.19758410525876,
+                  0.0
+                ],
+                [
+                  37.16144345557097,
+                  36.19785345291756,
+                  0.0
+                ],
+                [
+                  37.16081859316511,
+                  36.19818864017874,
+                  0.0
+                ],
+                [
+                  37.15998088099602,
+                  36.19877613974592,
+                  0.0
+                ],
+                [
+                  37.15917712858685,
+                  36.19862725037794,
+                  0.0
+                ],
+                [
+                  37.15919952060421,
+                  36.19847276689267,
+                  0.0
+                ],
+                [
+                  37.15914260508087,
+                  36.19767449756645,
+                  0.0
+                ],
+                [
+                  37.15993327897647,
+                  36.19762146169766,
+                  0.0
+                ],
+                [
+                  37.16050752654655,
+                  36.19734548563356,
+                  0.0
+                ],
+                [
+                  37.15990612102816,
+                  36.19653854590339,
+                  0.0
+                ],
+                [
+                  37.16062439983357,
+                  36.19616726682429,
+                  0.0
+                ],
+                [
+                  37.16201880841096,
+                  36.19590548901986,
+                  0.0
+                ],
+                [
+                  37.16261590499889,
+                  36.19537206056514,
+                  0.0
+                ],
+                [
+                  37.16312282644176,
+                  36.1957966309338,
                   0.0
                 ]
               ]
@@ -245,24 +320,24 @@
           },
           "properties": {
             "fid": 1,
-            "id": "0B73E1DCFA3B2CC6353A",
-            "Name": "12300 انصاري خلف الراشدين",
+            "id": "018503600A3B310724D5",
+            "Name": "أمام باب القلعة",
             "description": "",
-            "Area": "18.34 هكتار",
-            "MapLink": "\"17/36.159304/37.067726\"",
+            "Area": "9.0 هكتار",
+            "MapLink": "\"17/36.197074/37.162151\"",
             "GID": "",
-            "Address": "خلف الراشدين",
-            "CadastralID": "الأنصاري",
-            "EstateID": "12300",
+            "Address": "أمام باب القلعة",
+            "CadastralID": "",
+            "EstateID": "",
             "Ownership Authority": "مجلس مدينة حلب",
-            "Land Use Category": "تطوير عقاري",
-            "Building Regulation": "سكني",
-            "Proposed Investment": "مشروع سكني",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
             "Planning Status": "داخل التنظيم",
-            "Physical Condition": "أرض حراج",
+            "Physical Condition": "",
             "Remark": "",
             "__group__": "group_2",
-            "__layer__": "12300 انصاري خلف الراشدين",
+            "__layer__": "أمام باب القلعة",
             "__visible_fields__": [
               {
                 "name": "Name",
@@ -4665,7 +4740,7 @@
         "weight": 0.26,
         "radius": 6
       },
-      "أرض بلليرمون": {
+      "أرض الليرمون": {
         "fillColor": "rgba(166, 29, 225, 0.5019607843137255)",
         "fillOpacity": 0.5019607843137255,
         "color": "#232323",
@@ -5150,7 +5225,7 @@
         }
       ]
     },
-    "أرض بلليرمون": {
+    "أرض الليرمون": {
       "type": "FeatureCollection",
       "features": [
         {
@@ -5205,7 +5280,7 @@
           "properties": {
             "fid": 1,
             "id": "164",
-            "Name": "أرض بلليرمون",
+            "Name": "أرض الليرمون",
             "description": "",
             "MapLink": "\"17/36.233345/37.106503\"",
             "GID": 164,
@@ -5221,7 +5296,7 @@
             "Remark": "",
             "Area": "1.41 هكتار",
             "__group__": "group_4",
-            "__layer__": "أرض بلليرمون",
+            "__layer__": "أرض الليرمون",
             "__visible_fields__": [
               {
                 "name": "Name",
@@ -5407,13 +5482,6 @@
         "radius": 6
       },
       "الكلية الادارية كفرجوم": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
-        "color": "#232323",
-        "weight": 0.26,
-        "radius": 6
-      },
-      "جمارك كفرجوم": {
         "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
         "fillOpacity": 0.5019607843137255,
         "color": "#232323",
@@ -5787,196 +5855,6 @@
             "Area": "129.32 هكتار",
             "__group__": "group_5",
             "__layer__": "الكلية الادارية كفرجوم",
-            "__visible_fields__": [
-              {
-                "name": "Name",
-                "alias": "الاسم"
-              },
-              {
-                "name": "GID",
-                "alias": "رقم الموقع"
-              },
-              {
-                "name": "Address",
-                "alias": "العنوان التفصيلي"
-              },
-              {
-                "name": "CadastralID",
-                "alias": "المنطقة العقارية"
-              },
-              {
-                "name": "EstateID",
-                "alias": "رقم العقار"
-              },
-              {
-                "name": "Ownership Authority",
-                "alias": "الجهة المالكة"
-              },
-              {
-                "name": "Land Use Category",
-                "alias": "الصفة التنظيمية"
-              },
-              {
-                "name": "Building Regulation",
-                "alias": "ضابطة البناء"
-              },
-              {
-                "name": "Proposed Investment",
-                "alias": "الاستثمار المقترح"
-              },
-              {
-                "name": "Planning Status",
-                "alias": "الحالة التنطيمية"
-              },
-              {
-                "name": "Physical Condition",
-                "alias": "الحالة الراهنة"
-              },
-              {
-                "name": "Remark",
-                "alias": "ملاحظات"
-              },
-              {
-                "name": "Area",
-                "alias": "المساحة"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "جمارك كفرجوم": {
-      "type": "FeatureCollection",
-      "features": [
-        {
-          "type": "Feature",
-          "geometry": {
-            "coordinates": [
-              [
-                [
-                  36.95348762425242,
-                  36.09615066853537,
-                  0.0
-                ],
-                [
-                  36.95081040060027,
-                  36.0985195160638,
-                  0.0
-                ],
-                [
-                  36.94982059787123,
-                  36.09904747425192,
-                  0.0
-                ],
-                [
-                  36.94914874966096,
-                  36.09870743215377,
-                  0.0
-                ],
-                [
-                  36.94951634961767,
-                  36.0979312107059,
-                  0.0
-                ],
-                [
-                  36.94965922257956,
-                  36.09743942681639,
-                  0.0
-                ],
-                [
-                  36.94962749034732,
-                  36.09679294979876,
-                  0.0
-                ],
-                [
-                  36.94971094809721,
-                  36.09622346788871,
-                  0.0
-                ],
-                [
-                  36.94984460154094,
-                  36.09569105704523,
-                  0.0
-                ],
-                [
-                  36.95006183110268,
-                  36.09513966674255,
-                  0.0
-                ],
-                [
-                  36.95016142005003,
-                  36.09453124946882,
-                  0.0
-                ],
-                [
-                  36.95024337706197,
-                  36.09382806003645,
-                  0.0
-                ],
-                [
-                  36.95023716012729,
-                  36.09298011653104,
-                  0.0
-                ],
-                [
-                  36.95019115158375,
-                  36.092003085155,
-                  0.0
-                ],
-                [
-                  36.94997114397313,
-                  36.09078144710605,
-                  0.0
-                ],
-                [
-                  36.94992352332771,
-                  36.08754042706282,
-                  0.0
-                ],
-                [
-                  36.9523435587847,
-                  36.08773816268435,
-                  0.0
-                ],
-                [
-                  36.95227809788757,
-                  36.08881647334672,
-                  0.0
-                ],
-                [
-                  36.95432511369903,
-                  36.08896066776185,
-                  0.0
-                ],
-                [
-                  36.95348762425242,
-                  36.09615066853537,
-                  0.0
-                ]
-              ]
-            ],
-            "type": "Polygon"
-          },
-          "properties": {
-            "fid": 1,
-            "id": "",
-            "Name": "جمارك كفرجوم",
-            "description": "",
-            "MapLink": "\"17/36.093294/36.951735\"",
-            "GID": "",
-            "Address": "",
-            "CadastralID": "",
-            "EstateID": "",
-            "Ownership Authority": "وزارة الدفاع",
-            "Land Use Category": "",
-            "Building Regulation": "",
-            "Proposed Investment": "",
-            "Planning Status": "",
-            "Physical Condition": "",
-            "Remark": "",
-            "Area": "37.42 هكتار",
-            "__group__": "group_5",
-            "__layer__": "جمارك كفرجوم",
             "__visible_fields__": [
               {
                 "name": "Name",
@@ -6897,6 +6775,280 @@
     }
   },
   "group_6": {
+    "__group_name__": "أملاك دولة",
+    "__styles__": {
+      "العقار 16 ابوشيلم": {
+        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
+        "fillOpacity": 0.5019607843137255,
+        "color": "#232323",
+        "weight": 0.26,
+        "radius": 6
+      },
+      "12300 انصاري خلف الراشدين": {
+        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
+        "fillOpacity": 0.5019607843137255,
+        "color": "#232323",
+        "weight": 0.26,
+        "radius": 6
+      }
+    },
+    "العقار 16 ابوشيلم": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              [
+                [
+                  37.03540133103643,
+                  36.13521517367219,
+                  0.0
+                ],
+                [
+                  37.0353935290869,
+                  36.13472391191652,
+                  0.0
+                ],
+                [
+                  37.03529710115603,
+                  36.1331738619912,
+                  0.0
+                ],
+                [
+                  37.03536190206729,
+                  36.13166304455117,
+                  0.0
+                ],
+                [
+                  37.03527540389872,
+                  36.13064729047568,
+                  0.0
+                ],
+                [
+                  37.03582280057113,
+                  36.13009002125035,
+                  0.0
+                ],
+                [
+                  37.03795837838725,
+                  36.13038377037293,
+                  0.0
+                ],
+                [
+                  37.04139837939435,
+                  36.13102087343508,
+                  0.0
+                ],
+                [
+                  37.04017309324969,
+                  36.13578749062788,
+                  0.0
+                ],
+                [
+                  37.03540133103643,
+                  36.13521517367219,
+                  0.0
+                ]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "",
+            "Name": "العقار 16 ابوشيلم",
+            "description": "",
+            "MapLink": "\"17/36.132938/37.038338\"",
+            "GID": "",
+            "Address": "",
+            "CadastralID": "",
+            "EstateID": "",
+            "Ownership Authority": "أملاك دولة",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "",
+            "Area": "27.63 هكتار",
+            "__group__": "group_6",
+            "__layer__": "العقار 16 ابوشيلم",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              },
+              {
+                "name": "Area",
+                "alias": "المساحة"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "12300 انصاري خلف الراشدين": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              [
+                [
+                  37.07061948419972,
+                  36.15780743700913,
+                  0.0
+                ],
+                [
+                  37.06917167597626,
+                  36.16197638583476,
+                  0.0
+                ],
+                [
+                  37.06482845350688,
+                  36.16016364799295,
+                  0.0
+                ],
+                [
+                  37.06671780351938,
+                  36.15662947292041,
+                  0.0
+                ],
+                [
+                  37.07061948419972,
+                  36.15780743700913,
+                  0.0
+                ]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "0B73E1DCFA3B2CC6353A",
+            "Name": "12300 انصاري خلف الراشدين",
+            "description": "",
+            "Area": "18.34 هكتار",
+            "MapLink": "\"17/36.159304/37.067726\"",
+            "GID": "",
+            "Address": "خلف الراشدين",
+            "CadastralID": "الأنصاري",
+            "EstateID": "12300",
+            "Ownership Authority": "أملاك دولة",
+            "Land Use Category": "تطوير عقاري",
+            "Building Regulation": "سكني",
+            "Proposed Investment": "مشروع سكني",
+            "Planning Status": "داخل التنظيم",
+            "Physical Condition": "أرض حراج",
+            "Remark": "",
+            "__group__": "group_6",
+            "__layer__": "12300 انصاري خلف الراشدين",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "Area",
+                "alias": "المساحة"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "group_7": {
     "__group_name__": "اتحاد العمال",
     "__styles__": {
       "أرض الشيخ نجار": {
@@ -6997,7 +7149,7 @@
             "Physical Condition": "يوجد كهرباء مياه صرف صحي انترنت طرق معبدة",
             "Remark": "",
             "Area": "7933 م²",
-            "__group__": "group_6",
+            "__group__": "group_7",
             "__layer__": "أرض الشيخ نجار",
             "__visible_fields__": [
               {
@@ -7116,7 +7268,7 @@
             "Physical Condition": "يوجد كهرباء مياه صرف صحي انترنت طرق معبدة",
             "Remark": "",
             "Area": "1.58 هكتار",
-            "__group__": "group_6",
+            "__group__": "group_7",
             "__layer__": "أرض المسلمية",
             "__visible_fields__": [
               {
@@ -7236,7 +7388,7 @@
             "Physical Condition": "لا يوجد كهرباء أو انترنت أو شبكة اتصالات ... يوجد مياه وصرف صحي وطرق معبدة",
             "Remark": "",
             "Area": "4.95 هكتار",
-            "__group__": "group_6",
+            "__group__": "group_7",
             "__layer__": "أرض هنانو",
             "__visible_fields__": [
               {
@@ -7366,7 +7518,7 @@
             "Physical Condition": "بناء غير مستثمر مؤلف من ثمانية طوابق متضرر جزئيا يحتاج إلى ترميم يوجد كهرباء ومياه وصرف صحي وشبكة اتصالات/ انترنت وطرق معبدة",
             "Remark": "",
             "Area": "2771 م²",
-            "__group__": "group_6",
+            "__group__": "group_7",
             "__layer__": "العيادات العمالية",
             "__visible_fields__": [
               {
@@ -7490,7 +7642,7 @@
             "Physical Condition": "بناء عبارة عن أساسات + برجين على العظم يوجد كهرباء ومياه وصرف صحي وشبكة اتصالات/ انترنت وطرق معبدة",
             "Remark": "",
             "Area": "5201 م²",
-            "__group__": "group_6",
+            "__group__": "group_7",
             "__layer__": "المجمع العمالي",
             "__visible_fields__": [
               {
@@ -7629,7 +7781,7 @@
             "Physical Condition": "بناء غير مستثمر يحتاج إلى ترميم يوجد كهرباء ومياه وصرف صحي وشبكة اتصالات/ انترنت وطرق معبدة",
             "Remark": "",
             "Area": "3297 م²",
-            "__group__": "group_6",
+            "__group__": "group_7",
             "__layer__": "مشفى الشيحان",
             "__visible_fields__": [
               {
@@ -7694,7 +7846,209 @@
       ]
     }
   },
-  "group_7": {
+  "group_8": {
+    "__group_name__": "هيئة المنافذ البحرية والبرية",
+    "__styles__": {
+      "جمارك كفرجوم": {
+        "fillColor": "rgba(234, 12, 109, 0.5019607843137255)",
+        "fillOpacity": 0.5019607843137255,
+        "color": "#232323",
+        "weight": 0.26,
+        "radius": 6
+      }
+    },
+    "جمارك كفرجوم": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              [
+                [
+                  36.95348762425242,
+                  36.09615066853537,
+                  0.0
+                ],
+                [
+                  36.95081040060027,
+                  36.0985195160638,
+                  0.0
+                ],
+                [
+                  36.94982059787123,
+                  36.09904747425192,
+                  0.0
+                ],
+                [
+                  36.94914874966096,
+                  36.09870743215377,
+                  0.0
+                ],
+                [
+                  36.94951634961767,
+                  36.0979312107059,
+                  0.0
+                ],
+                [
+                  36.94965922257956,
+                  36.09743942681639,
+                  0.0
+                ],
+                [
+                  36.94962749034732,
+                  36.09679294979876,
+                  0.0
+                ],
+                [
+                  36.94971094809721,
+                  36.09622346788871,
+                  0.0
+                ],
+                [
+                  36.94984460154094,
+                  36.09569105704523,
+                  0.0
+                ],
+                [
+                  36.95006183110268,
+                  36.09513966674255,
+                  0.0
+                ],
+                [
+                  36.95016142005003,
+                  36.09453124946882,
+                  0.0
+                ],
+                [
+                  36.95024337706197,
+                  36.09382806003645,
+                  0.0
+                ],
+                [
+                  36.95023716012729,
+                  36.09298011653104,
+                  0.0
+                ],
+                [
+                  36.95019115158375,
+                  36.092003085155,
+                  0.0
+                ],
+                [
+                  36.94997114397313,
+                  36.09078144710605,
+                  0.0
+                ],
+                [
+                  36.94992352332771,
+                  36.08754042706282,
+                  0.0
+                ],
+                [
+                  36.9523435587847,
+                  36.08773816268435,
+                  0.0
+                ],
+                [
+                  36.95227809788757,
+                  36.08881647334672,
+                  0.0
+                ],
+                [
+                  36.95432511369903,
+                  36.08896066776185,
+                  0.0
+                ],
+                [
+                  36.95348762425242,
+                  36.09615066853537,
+                  0.0
+                ]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "",
+            "Name": "جمارك كفرجوم",
+            "description": "",
+            "MapLink": "\"17/36.093294/36.951735\"",
+            "GID": "",
+            "Address": "",
+            "CadastralID": "",
+            "EstateID": "",
+            "Ownership Authority": "وزارة الدفاع",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "",
+            "Area": "37.42 هكتار",
+            "__group__": "group_8",
+            "__layer__": "جمارك كفرجوم",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              },
+              {
+                "name": "Area",
+                "alias": "المساحة"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "group_9": {
     "__group_name__": "وزارة الصناعة",
     "__styles__": {
       "الشركة السورية للغزل و النسيج": {
@@ -8147,7 +8501,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "12.07 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "الشركة السورية للغزل و النسيج",
             "__visible_fields__": [
               {
@@ -8262,7 +8616,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "1.5 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "الشركة العامة لصناعة و تسويق الاسمنت - عمران",
             "__visible_fields__": [
               {
@@ -8437,7 +8791,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "6.71 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "الشركة العامة للزيوت",
             "__visible_fields__": [
               {
@@ -8702,7 +9056,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "4.62 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "الشهباء للمفازل و المناسج",
             "__visible_fields__": [
               {
@@ -8937,7 +9291,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "4.11 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "رحبة باصات النقل الداخلي",
             "__visible_fields__": [
               {
@@ -9182,7 +9536,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "4.88 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "شركة زنوبيا وشمرا",
             "__visible_fields__": [
               {
@@ -9442,7 +9796,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "9.69 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "محلج أمية",
             "__visible_fields__": [
               {
@@ -9602,7 +9956,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "2.61 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "محلج الشرق",
             "__visible_fields__": [
               {
@@ -9782,7 +10136,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "4.52 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "محلج اللواء",
             "__visible_fields__": [
               {
@@ -10117,7 +10471,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "8.93 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "محلج الوحدة",
             "__visible_fields__": [
               {
@@ -10232,7 +10586,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "2577 م²",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل ألبان",
             "__visible_fields__": [
               {
@@ -10402,7 +10756,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "2.14 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل التبغ - الريجي",
             "__visible_fields__": [
               {
@@ -10537,7 +10891,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "15.22 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل الزجاج",
             "__visible_fields__": [
               {
@@ -10732,7 +11086,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "8.42 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل السجاد",
             "__visible_fields__": [
               {
@@ -11017,7 +11371,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "11.43 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل الشرق",
             "__visible_fields__": [
               {
@@ -11167,7 +11521,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "6.3 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "الشركة الاهلية - معمل رقم 1",
             "__visible_fields__": [
               {
@@ -11287,7 +11641,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "6.01 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "الشركة الاهلية - معمل رقم 2",
             "__visible_fields__": [
               {
@@ -11407,7 +11761,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "2.23 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "الشركة الاهلية معمل رقم 3",
             "__visible_fields__": [
               {
@@ -11522,7 +11876,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "2.33 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "محلج الثورة - مؤسسة الاقطان",
             "__visible_fields__": [
               {
@@ -11667,7 +12021,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "3.79 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "محلج الرصافة - مؤسسة الاقطان",
             "__visible_fields__": [
               {
@@ -11782,7 +12136,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "3138 م²",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "مستودع الاسطوانة - مؤسسة الاقطان",
             "__visible_fields__": [
               {
@@ -11897,7 +12251,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "6707 م²",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "مستودع الحكيم - مؤسسة الاقطان",
             "__visible_fields__": [
               {
@@ -12017,7 +12371,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "5790 م²",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "مستودع المنشاري - مؤسسة الاقطان",
             "__visible_fields__": [
               {
@@ -12137,7 +12491,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "8248 م²",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "مستودع سابا - مؤسسة الاقطان",
             "__visible_fields__": [
               {
@@ -12257,7 +12611,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "3.76 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل عوف",
             "__visible_fields__": [
               {
@@ -12372,7 +12726,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "9.93 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "شركة تاميكو - معمل السيرومات",
             "__visible_fields__": [
               {
@@ -12487,7 +12841,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "15.37 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل الشاشات",
             "__visible_fields__": [
               {
@@ -12632,7 +12986,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "64.16 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "الوحدة الاقتصادية - معمل الاسمنت",
             "__visible_fields__": [
               {
@@ -12877,7 +13231,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "150.72 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "محلج تشرين",
             "__visible_fields__": [
               {
@@ -13032,7 +13386,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "7.17 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل البطاريات",
             "__visible_fields__": [
               {
@@ -13147,7 +13501,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "45.4 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل الجرارات",
             "__visible_fields__": [
               {
@@ -13282,7 +13636,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "24.35 هكتار",
-            "__group__": "group_7",
+            "__group__": "group_9",
             "__layer__": "معمل الكابلات",
             "__visible_fields__": [
               {
@@ -13343,9 +13697,16 @@
       ]
     }
   },
-  "group_9": {
+  "group_11": {
     "__group_name__": "مؤسسة المياه",
     "__styles__": {
+      "موقع مركز الضخ": {
+        "fillColor": "rgba(229, 182, 54, 1.0)",
+        "fillOpacity": 1.0,
+        "color": "#232323",
+        "weight": 0.0,
+        "radius": 6
+      },
       "دائرة الشبكات": {
         "fillColor": "rgba(255, 206, 0, 0.5019607843137255)",
         "fillOpacity": 0.5019607843137255,
@@ -13374,6 +13735,92 @@
         "weight": 0.26,
         "radius": 6
       }
+    },
+    "موقع مركز الضخ": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              37.16668906383423,
+              36.24277667766192,
+              0.0
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "36E6C19B033AD9E66DED",
+            "Name": "موقع مركز الضخ",
+            "description": "",
+            "MapLink": "\"17/36.242777/37.166689\"",
+            "GID": "",
+            "Address": "",
+            "CadastralID": "",
+            "EstateID": "",
+            "Ownership Authority": "مؤسسة المياه",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "٤ هكتار",
+            "__group__": "group_11",
+            "__layer__": "موقع مركز الضخ",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
     },
     "دائرة الشبكات": {
       "type": "FeatureCollection",
@@ -13435,7 +13882,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "8692 م²",
-            "__group__": "group_9",
+            "__group__": "group_11",
             "__layer__": "دائرة الشبكات",
             "__visible_fields__": [
               {
@@ -13555,7 +14002,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "1808 م²",
-            "__group__": "group_9",
+            "__group__": "group_11",
             "__layer__": "دائرة الاليات - المراب",
             "__visible_fields__": [
               {
@@ -13705,7 +14152,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "1625 م²",
-            "__group__": "group_9",
+            "__group__": "group_11",
             "__layer__": "دائرة الاليات - الكازية",
             "__visible_fields__": [
               {
@@ -13820,7 +14267,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "2952 م²",
-            "__group__": "group_9",
+            "__group__": "group_11",
             "__layer__": "أرض مركز الجباية",
             "__visible_fields__": [
               {
@@ -13881,7 +14328,7 @@
       ]
     }
   },
-  "group_10": {
+  "group_12": {
     "__group_name__": "وزارة السياحة",
     "__styles__": {
       "حمام يلبغا الناصري": {
@@ -14033,7 +14480,7 @@
             "Physical Condition": "بناء متهدم",
             "Remark": "",
             "Area": "1665 م²",
-            "__group__": "group_10",
+            "__group__": "group_12",
             "__layer__": "حمام يلبغا الناصري",
             "__visible_fields__": [
               {
@@ -14178,7 +14625,7 @@
             "Physical Condition": "العقار بناء قائم غير مستثمر",
             "Remark": "",
             "Area": "356 م²",
-            "__group__": "group_10",
+            "__group__": "group_12",
             "__layer__": "المطبخ العجمي",
             "__visible_fields__": [
               {
@@ -14323,7 +14770,7 @@
             "Physical Condition": "",
             "Remark": "اسم الجهة المستثمرة: شركة مجموعة القاطرجي الدولية المحدودة نوع الاستثمار:شركة مساهمة مدة الاستثمار:/45/سنة",
             "Area": "7.88 هكتار",
-            "__group__": "group_10",
+            "__group__": "group_12",
             "__layer__": "المشفى العسكري",
             "__visible_fields__": [
               {
@@ -14543,7 +14990,7 @@
             "Physical Condition": "",
             "Remark": "اسم الجهة المستثمرة: شركة أحياء حلب القديمة المحدودة المسؤولية",
             "Area": "7373 م²",
-            "__group__": "group_10",
+            "__group__": "group_12",
             "__layer__": "الكارلتون",
             "__visible_fields__": [
               {
@@ -14604,7 +15051,7 @@
       ]
     }
   },
-  "group_11": {
+  "group_13": {
     "__group_name__": "غرفة التجارة",
     "__styles__": {
       "أرض حلب الجديدة بنيامين": {
@@ -14684,7 +15131,7 @@
             "Physical Condition": "أرض جاهزة  للبناء غير مرخصة",
             "Remark": "",
             "Area": "9000 م²",
-            "__group__": "group_11",
+            "__group__": "group_13",
             "__layer__": "أرض حلب الجديدة بنيامين",
             "__visible_fields__": [
               {
@@ -14799,7 +15246,7 @@
             "Physical Condition": "بناء مؤلف من 12 طابق يوجد كهرباء مياه صرف صحي شبكة اتصالات ونت وطرق معبدة",
             "Remark": "محفوظ الترخيص لدى وزارة السياحة",
             "Area": "815 م²",
-            "__group__": "group_11",
+            "__group__": "group_13",
             "__layer__": "فندق الأمير",
             "__visible_fields__": [
               {
@@ -14919,7 +15366,7 @@
             "Physical Condition": "بناء مؤلف من 3 طوابق سليم بحاجة لترميم بسيط مؤجر فروغ يوجد بعض الأضرار يوجد كهرباء مياه صرف صحي شبكة اتصالات ونت وطرق معبدة",
             "Remark": "عقد آجار قديم",
             "Area": "516 م²",
-            "__group__": "group_11",
+            "__group__": "group_13",
             "__layer__": "مبنى غرفة التجارة القديم",
             "__visible_fields__": [
               {
@@ -14980,7 +15427,261 @@
       ]
     }
   },
-  "group_12": {
+  "group_14": {
+    "__group_name__": "غرفة الصناعة",
+    "__styles__": {
+      "الليرمون حرفية": {
+        "fillColor": "rgba(0, 11, 143, 0.5019607843137255)",
+        "fillOpacity": 0.5019607843137255,
+        "color": "#232323",
+        "weight": 0.26,
+        "radius": 6
+      }
+    },
+    "الليرمون حرفية": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              [
+                [
+                  [
+                    37.1100082611501,
+                    36.23842519497649,
+                    0.0
+                  ],
+                  [
+                    37.10900145630339,
+                    36.23938257719136,
+                    0.0
+                  ],
+                  [
+                    37.10837460301093,
+                    36.23997864456523,
+                    0.0
+                  ],
+                  [
+                    37.1068695958121,
+                    36.2414096847838,
+                    0.0
+                  ],
+                  [
+                    37.10571335727691,
+                    36.24250892280416,
+                    0.0
+                  ],
+                  [
+                    37.10531992048448,
+                    36.24288322525928,
+                    0.0
+                  ],
+                  [
+                    37.10256191138783,
+                    36.24098250083346,
+                    0.0
+                  ],
+                  [
+                    37.09922937876686,
+                    36.2371982863512,
+                    0.0
+                  ],
+                  [
+                    37.10176950731378,
+                    36.23568304832708,
+                    0.0
+                  ],
+                  [
+                    37.10866854891646,
+                    36.23576140302855,
+                    0.0
+                  ],
+                  [
+                    37.11233889236828,
+                    36.23364386772051,
+                    0.0
+                  ],
+                  [
+                    37.1126900359161,
+                    36.2340303442571,
+                    0.0
+                  ],
+                  [
+                    37.11350527189874,
+                    36.23492005980594,
+                    0.0
+                  ],
+                  [
+                    37.11401043938271,
+                    36.23547366216717,
+                    0.0
+                  ],
+                  [
+                    37.1142545350512,
+                    36.23574795667609,
+                    0.0
+                  ],
+                  [
+                    37.11355137202167,
+                    36.23615397949374,
+                    0.0
+                  ],
+                  [
+                    37.11181602214444,
+                    36.23713965633351,
+                    0.0
+                  ],
+                  [
+                    37.11179522039899,
+                    36.23715177099079,
+                    0.0
+                  ],
+                  [
+                    37.1117384205122,
+                    36.23718484658691,
+                    0.0
+                  ],
+                  [
+                    37.11167798565727,
+                    36.23722003896533,
+                    0.0
+                  ],
+                  [
+                    37.11161623041912,
+                    36.23725599919838,
+                    0.0
+                  ],
+                  [
+                    37.11156900578368,
+                    36.23728349833633,
+                    0.0
+                  ],
+                  [
+                    37.11151451577075,
+                    36.23731522843293,
+                    0.0
+                  ],
+                  [
+                    37.11147588123959,
+                    36.23733772693582,
+                    0.0
+                  ],
+                  [
+                    37.1114421975042,
+                    36.23735734066719,
+                    0.0
+                  ],
+                  [
+                    37.11140686155279,
+                    36.23737791894842,
+                    0.0
+                  ],
+                  [
+                    37.11135303385647,
+                    36.23740926280729,
+                    0.0
+                  ],
+                  [
+                    37.11126806369985,
+                    36.237458740676,
+                    0.0
+                  ],
+                  [
+                    37.11075504311265,
+                    36.23780958112648,
+                    0.0
+                  ],
+                  [
+                    37.1100082611501,
+                    36.23842519497649,
+                    0.0
+                  ]
+                ]
+              ]
+            ],
+            "type": "MultiPolygon"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "ID_00017",
+            "Name": "الليرمون حرفية",
+            "description": "",
+            "Area": "60.6 هكتار",
+            "MapLink": "\"17/36.238266/37.106743\"",
+            "GID": "",
+            "Address": "الليرمون الحرفية",
+            "CadastralID": "الليرمون",
+            "EstateID": "(2100 - 2121) _ 2126 _ 2127 _ 2128 _ 2129 _2130 _ (2155 - 2167) _(2130 - 2141)_(2771 - 2802) _2803 _2804 _2805 _2806 _2807 _2808 _ 2168",
+            "Ownership Authority": "غرفة الصناعة",
+            "Land Use Category": "مناطق حرف واستثمار",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "مستملكة قديماً بالمرسوم رقم /708/ لعام 1981- ولايوجد قرار احداث حيث تم الاعتماد على الدراسة التخطيطية المعدة لغاية إقامة منطقة حرفية-المنطقة موزعة على الحرفيين وقائمة ومستثمرة",
+            "__group__": "group_14",
+            "__layer__": "الليرمون حرفية",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "Area",
+                "alias": "المساحة"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "group_15": {
     "__group_name__": "غرفة زراعة حلب",
     "__styles__": {
       "غرفة زراعة حلب": {
@@ -15046,7 +15747,7 @@
             "Physical Condition": "بناء متهدم",
             "Remark": "",
             "Area": "604 م²",
-            "__group__": "group_12",
+            "__group__": "group_15",
             "__layer__": "غرفة زراعة حلب",
             "__visible_fields__": [
               {
@@ -15107,7 +15808,7 @@
       ]
     }
   },
-  "group_13": {
+  "group_16": {
     "__group_name__": "وزارة النقل",
     "__styles__": {
       "رودكو الطرق والجسور": {
@@ -15173,7 +15874,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "30.68 هكتار",
-            "__group__": "group_13",
+            "__group__": "group_16",
             "__layer__": "رودكو الطرق والجسور",
             "__visible_fields__": [
               {
@@ -15234,7 +15935,7 @@
       ]
     }
   },
-  "group_14": {
+  "group_17": {
     "__group_name__": "وزارة الطاقة",
     "__styles__": {
       "موارد مائية 31": {
@@ -15330,7 +16031,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "7.21 هكتار",
-            "__group__": "group_14",
+            "__group__": "group_17",
             "__layer__": "موارد مائية 31",
             "__visible_fields__": [
               {
@@ -15391,17 +16092,10 @@
       ]
     }
   },
-  "group_15": {
+  "group_18": {
     "__group_name__": "وزارة الإسكان",
     "__styles__": {
       "٨١ ابو شيلم مشاريع مائية": {
-        "fillColor": "rgba(205, 180, 39, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
-        "color": "#232323",
-        "weight": 0.26,
-        "radius": 6
-      },
-      "العقار 16 ابوشيلم": {
         "fillColor": "rgba(205, 180, 39, 0.5019607843137255)",
         "fillOpacity": 0.5019607843137255,
         "color": "#232323",
@@ -15509,7 +16203,7 @@
             "Planning Status": "",
             "Physical Condition": "",
             "Remark": "",
-            "__group__": "group_15",
+            "__group__": "group_18",
             "__layer__": "٨١ ابو شيلم مشاريع مائية",
             "__visible_fields__": [
               {
@@ -15568,149 +16262,9 @@
           }
         }
       ]
-    },
-    "العقار 16 ابوشيلم": {
-      "type": "FeatureCollection",
-      "features": [
-        {
-          "type": "Feature",
-          "geometry": {
-            "coordinates": [
-              [
-                [
-                  37.03540133103643,
-                  36.13521517367219,
-                  0.0
-                ],
-                [
-                  37.0353935290869,
-                  36.13472391191652,
-                  0.0
-                ],
-                [
-                  37.03529710115603,
-                  36.1331738619912,
-                  0.0
-                ],
-                [
-                  37.03536190206729,
-                  36.13166304455117,
-                  0.0
-                ],
-                [
-                  37.03527540389872,
-                  36.13064729047568,
-                  0.0
-                ],
-                [
-                  37.03582280057113,
-                  36.13009002125035,
-                  0.0
-                ],
-                [
-                  37.03795837838725,
-                  36.13038377037293,
-                  0.0
-                ],
-                [
-                  37.04139837939435,
-                  36.13102087343508,
-                  0.0
-                ],
-                [
-                  37.04017309324969,
-                  36.13578749062788,
-                  0.0
-                ],
-                [
-                  37.03540133103643,
-                  36.13521517367219,
-                  0.0
-                ]
-              ]
-            ],
-            "type": "Polygon"
-          },
-          "properties": {
-            "fid": 1,
-            "id": "",
-            "Name": "العقار 16 ابوشيلم",
-            "description": "",
-            "MapLink": "\"17/36.132938/37.038338\"",
-            "GID": "",
-            "Address": "",
-            "CadastralID": "",
-            "EstateID": "",
-            "Ownership Authority": "وزارة الإسكان",
-            "Land Use Category": "",
-            "Building Regulation": "",
-            "Proposed Investment": "",
-            "Planning Status": "",
-            "Physical Condition": "",
-            "Remark": "",
-            "Area": "27.63 هكتار",
-            "__group__": "group_15",
-            "__layer__": "العقار 16 ابوشيلم",
-            "__visible_fields__": [
-              {
-                "name": "Name",
-                "alias": "الاسم"
-              },
-              {
-                "name": "GID",
-                "alias": "رقم الموقع"
-              },
-              {
-                "name": "Address",
-                "alias": "العنوان التفصيلي"
-              },
-              {
-                "name": "CadastralID",
-                "alias": "المنطقة العقارية"
-              },
-              {
-                "name": "EstateID",
-                "alias": "رقم العقار"
-              },
-              {
-                "name": "Ownership Authority",
-                "alias": "الجهة المالكة"
-              },
-              {
-                "name": "Land Use Category",
-                "alias": "الصفة التنظيمية"
-              },
-              {
-                "name": "Building Regulation",
-                "alias": "ضابطة البناء"
-              },
-              {
-                "name": "Proposed Investment",
-                "alias": "الاستثمار المقترح"
-              },
-              {
-                "name": "Planning Status",
-                "alias": "الحالة التنطيمية"
-              },
-              {
-                "name": "Physical Condition",
-                "alias": "الحالة الراهنة"
-              },
-              {
-                "name": "Remark",
-                "alias": "ملاحظات"
-              },
-              {
-                "name": "Area",
-                "alias": "المساحة"
-              }
-            ]
-          }
-        }
-      ]
     }
   },
-  "group_16": {
+  "group_19": {
     "__group_name__": "وزارة الزراعة",
     "__styles__": {
       "بردة ايكاردا": {
@@ -15852,7 +16406,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "92.92 هكتار",
-            "__group__": "group_16",
+            "__group__": "group_19",
             "__layer__": "بردة ايكاردا",
             "__visible_fields__": [
               {
@@ -16102,7 +16656,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "219.9 هكتار",
-            "__group__": "group_16",
+            "__group__": "group_19",
             "__layer__": "مداجن خان طومان",
             "__visible_fields__": [
               {
@@ -16222,7 +16776,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "9337 م²",
-            "__group__": "group_16",
+            "__group__": "group_19",
             "__layer__": "31 تابع للدواجن خان طومان",
             "__visible_fields__": [
               {
@@ -16352,7 +16906,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "68.06 هكتار",
-            "__group__": "group_16",
+            "__group__": "group_19",
             "__layer__": "مداجن الزربة",
             "__visible_fields__": [
               {
@@ -16537,7 +17091,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "35.72 هكتار",
-            "__group__": "group_16",
+            "__group__": "group_19",
             "__layer__": "المنطقة الاولى 36 هكتار",
             "__visible_fields__": [
               {
@@ -16692,7 +17246,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "25.01 هكتار",
-            "__group__": "group_16",
+            "__group__": "group_19",
             "__layer__": "المنطقة الثانية 25 هكتار",
             "__visible_fields__": [
               {
@@ -16812,7 +17366,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "28.21 هكتار",
-            "__group__": "group_16",
+            "__group__": "group_19",
             "__layer__": "المنطقة الثالثة 28 هكتار",
             "__visible_fields__": [
               {
@@ -16932,7 +17486,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "20.64 هكتار",
-            "__group__": "group_16",
+            "__group__": "group_19",
             "__layer__": "المنطقة الرابعة 21 هكتار",
             "__visible_fields__": [
               {
@@ -17077,7 +17631,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "29.93 هكتار",
-            "__group__": "group_16",
+            "__group__": "group_19",
             "__layer__": "المنطقة الخامسة 30 هكتار",
             "__visible_fields__": [
               {
@@ -17138,7 +17692,7 @@
       ]
     }
   },
-  "group_17": {
+  "group_20": {
     "__group_name__": "وزارة المالية",
     "__styles__": {
       "أرض للمالية": {
@@ -17197,14 +17751,14 @@
             "CadastralID": "الأولى",
             "EstateID": "1028 - 1029",
             "Ownership Authority": "وزارة المالية",
-            "Land Use Category": "",
+            "Land Use Category": "سكني تجاري",
             "Building Regulation": "",
-            "Proposed Investment": "",
-            "Planning Status": "",
+            "Proposed Investment": "سكني تجاري",
+            "Planning Status": "داخل التنظيم",
             "Physical Condition": "أرض فراغ",
             "Remark": "",
             "Area": "1084 م²",
-            "__group__": "group_17",
+            "__group__": "group_20",
             "__layer__": "أرض للمالية",
             "__visible_fields__": [
               {
@@ -17265,7 +17819,7 @@
       ]
     }
   },
-  "group_18": {
+  "group_21": {
     "__group_name__": "وزارة الإدارة المحلية",
     "__styles__": {
       "الطلائع": {
@@ -17275,7 +17829,7 @@
         "weight": 0.0,
         "radius": 6
       },
-      "معسكر الشبية": {
+      "معسكر الشبيبة": {
         "fillColor": "rgba(58, 177, 252, 0.5019607843137255)",
         "fillOpacity": 0.5019607843137255,
         "color": "#232323",
@@ -17312,8 +17866,8 @@
             "Proposed Investment": "",
             "Planning Status": "",
             "Physical Condition": "",
-            "Remark": "",
-            "__group__": "group_18",
+            "Remark": "15 هكتار",
+            "__group__": "group_21",
             "__layer__": "الطلائع",
             "__visible_fields__": [
               {
@@ -17369,7 +17923,7 @@
         }
       ]
     },
-    "معسكر الشبية": {
+    "معسكر الشبيبة": {
       "type": "FeatureCollection",
       "features": [
         {
@@ -17449,7 +18003,7 @@
           "properties": {
             "fid": 1,
             "id": "",
-            "Name": "معسكر الشبية",
+            "Name": "معسكر الشبيبة",
             "description": "",
             "MapLink": "\"17/36.11783/36.970634\"",
             "GID": "",
@@ -17464,8 +18018,8 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "46.0 هكتار",
-            "__group__": "group_18",
-            "__layer__": "معسكر الشبية",
+            "__group__": "group_21",
+            "__layer__": "معسكر الشبيبة",
             "__visible_fields__": [
               {
                 "name": "Name",
@@ -17525,7 +18079,7 @@
       ]
     }
   },
-  "group_19": {
+  "group_22": {
     "__group_name__": "السكك الحديدية",
     "__styles__": {
       "مبنى الحضانة في مبنى السكك": {
@@ -17587,7 +18141,7 @@
             "Planning Status": "",
             "Physical Condition": "",
             "Remark": "",
-            "__group__": "group_19",
+            "__group__": "group_22",
             "__layer__": "مبنى الحضانة في مبنى السكك",
             "__visible_fields__": [
               {
@@ -17753,7 +18307,7 @@
             "Planning Status": "",
             "Physical Condition": "",
             "Remark": "",
-            "__group__": "group_19",
+            "__group__": "group_22",
             "__layer__": "حرم السكة جسر مشفى الحياة - نزلة الزبدية",
             "__visible_fields__": [
               {
@@ -17893,7 +18447,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "7.26 هكتار",
-            "__group__": "group_19",
+            "__group__": "group_22",
             "__layer__": "كتلة السكك",
             "__visible_fields__": [
               {
@@ -18013,7 +18567,7 @@
             "Physical Condition": "",
             "Remark": "",
             "Area": "2361 م²",
-            "__group__": "group_19",
+            "__group__": "group_22",
             "__layer__": " ضاحية فيلات سكنية",
             "__visible_fields__": [
               {
@@ -18074,7 +18628,477 @@
       ]
     }
   },
-  "group_20": {
+  "group_23": {
+    "__group_name__": "مناطق تطوير ريف",
+    "__styles__": {
+      "دارة عزة 2245": {
+        "fillColor": "rgba(232, 113, 141, 1.0)",
+        "fillOpacity": 1.0,
+        "color": "#232323",
+        "weight": 0.0,
+        "radius": 6
+      },
+      "دارة عزة 1601": {
+        "fillColor": "rgba(232, 113, 141, 1.0)",
+        "fillOpacity": 1.0,
+        "color": "#232323",
+        "weight": 0.0,
+        "radius": 6
+      },
+      "عنجارة 181": {
+        "fillColor": "rgba(232, 113, 141, 1.0)",
+        "fillOpacity": 1.0,
+        "color": "#232323",
+        "weight": 0.0,
+        "radius": 6
+      },
+      "ياقد العدس 768 و 770": {
+        "fillColor": "rgba(232, 113, 141, 1.0)",
+        "fillOpacity": 1.0,
+        "color": "#232323",
+        "weight": 0.0,
+        "radius": 6
+      },
+      "عندان 1957": {
+        "fillColor": "rgba(232, 113, 141, 1.0)",
+        "fillOpacity": 1.0,
+        "color": "#232323",
+        "weight": 0.0,
+        "radius": 6
+      }
+    },
+    "دارة عزة 2245": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              36.8524583203392,
+              36.2958071562864,
+              578.7926557536558
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "0EA408C8513999D9D9F6",
+            "Name": "دارة عزة 2245",
+            "description": "",
+            "MapLink": "\"17/36.295807/36.852458\"",
+            "GID": "",
+            "Address": "",
+            "CadastralID": "",
+            "EstateID": "",
+            "Ownership Authority": "",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "",
+            "__group__": "group_23",
+            "__layer__": "دارة عزة 2245",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "دارة عزة 1601": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              36.8552912244162,
+              36.25694822023606,
+              494.0092402430915
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "0B1F43854F3999DFAC2A",
+            "Name": "دارة عزة 1601",
+            "description": "",
+            "MapLink": "\"17/36.256948/36.855291\"",
+            "GID": "",
+            "Address": "",
+            "CadastralID": "",
+            "EstateID": "",
+            "Ownership Authority": "",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "",
+            "__group__": "group_23",
+            "__layer__": "دارة عزة 1601",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "عنجارة 181": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              36.92410750109632,
+              36.19949924698832,
+              417.6414367796206
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "0A07E197F13999E37615",
+            "Name": "عنجارة 181",
+            "description": "",
+            "MapLink": "\"17/36.199499/36.924108\"",
+            "GID": "",
+            "Address": "",
+            "CadastralID": "",
+            "EstateID": "",
+            "Ownership Authority": "",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "",
+            "__group__": "group_23",
+            "__layer__": "عنجارة 181",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ياقد العدس 768 و 770": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              37.01248202714353,
+              36.29149044170895,
+              418.5538511002134
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "0F5D3296233999E916F5",
+            "Name": "ياقد العدس 768 و 770",
+            "description": "",
+            "MapLink": "\"17/36.29149/37.012482\"",
+            "GID": "",
+            "Address": "",
+            "CadastralID": "",
+            "EstateID": "",
+            "Ownership Authority": "",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "",
+            "__group__": "group_23",
+            "__layer__": "ياقد العدس 768 و 770",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "عندان 1957": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+              37.01547580119565,
+              36.30791362279541,
+              438.0362308044404
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "fid": 1,
+            "id": "0473EC3C1D3999EAD5FD",
+            "Name": "عندان 1957",
+            "description": "",
+            "MapLink": "\"17/36.307914/37.015476\"",
+            "GID": "",
+            "Address": "",
+            "CadastralID": "",
+            "EstateID": "",
+            "Ownership Authority": "",
+            "Land Use Category": "",
+            "Building Regulation": "",
+            "Proposed Investment": "",
+            "Planning Status": "",
+            "Physical Condition": "",
+            "Remark": "",
+            "__group__": "group_23",
+            "__layer__": "عندان 1957",
+            "__visible_fields__": [
+              {
+                "name": "Name",
+                "alias": "الاسم"
+              },
+              {
+                "name": "GID",
+                "alias": "رقم الموقع"
+              },
+              {
+                "name": "Address",
+                "alias": "العنوان التفصيلي"
+              },
+              {
+                "name": "CadastralID",
+                "alias": "المنطقة العقارية"
+              },
+              {
+                "name": "EstateID",
+                "alias": "رقم العقار"
+              },
+              {
+                "name": "Ownership Authority",
+                "alias": "الجهة المالكة"
+              },
+              {
+                "name": "Land Use Category",
+                "alias": "الصفة التنظيمية"
+              },
+              {
+                "name": "Building Regulation",
+                "alias": "ضابطة البناء"
+              },
+              {
+                "name": "Proposed Investment",
+                "alias": "الاستثمار المقترح"
+              },
+              {
+                "name": "Planning Status",
+                "alias": "الحالة التنطيمية"
+              },
+              {
+                "name": "Physical Condition",
+                "alias": "الحالة الراهنة"
+              },
+              {
+                "name": "Remark",
+                "alias": "ملاحظات"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "group_24": {
     "__group_name__": "مناطق متنوعة",
     "__styles__": {
       "عقارات خاصة": {
@@ -18207,7 +19231,7 @@
             "Planning Status": "",
             "Physical Condition": "",
             "Remark": "",
-            "__group__": "group_20",
+            "__group__": "group_24",
             "__layer__": "عقارات خاصة",
             "__visible_fields__": [
               {
@@ -18387,7 +19411,7 @@
             "Planning Status": "",
             "Physical Condition": "",
             "Remark": "",
-            "__group__": "group_20",
+            "__group__": "group_24",
             "__layer__": "عقارات خاصة ١",
             "__visible_fields__": [
               {
