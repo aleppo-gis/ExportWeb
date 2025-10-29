@@ -3,211 +3,211 @@
     "__group_name__": "مجلس مدينة حلب",
     "__styles__": {
       "أرض مركز صحي": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "أمام باب القلعة": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "السوق العربية": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "صالة ألعاب أطفال": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "صالة مناسبات": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "كافتيريا 1": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "كافتيريا 2": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "كافتيريا 3": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "كافتيريا 4": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "كافتيريا 5": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "كافتيريا 6": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مؤسسة تعليمية خاصة (روضة)": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مؤسسة تعليمية خاصة (روضة+مدرسة)": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مبنى الخدمات الفنية": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مبنى الهجرة والجوازات القديم": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مبنى خدمي في موقع المقصف العمالي": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مجمع تجاري في جمعية التعليم العالي": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مجمع تجاري في جمعية الزهراء": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مجمع تجاري في جمعية المهندسين": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مجمع تجاري حلب الجديدة القطعة 268": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مركز السفريات": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مركز تجاري سياحي ثقافي": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "موقع السرايا القديمة (أرض السجن)": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "موقع ثكنة طارق بن زياد": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "موقع رحبة فيصل": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "موقع سوق الأنتاج": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "موقع مدينة ملاهي": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "موقع مقصف ميامي": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مول التجاري في سوق البشائر": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "نادي اجتماعي": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -4643,8 +4643,8 @@
     "__group_name__": "المحافظة",
     "__styles__": {
       "سوق الهال": {
-        "fillColor": "rgba(56, 218, 87, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(56, 218, 87, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -4845,43 +4845,43 @@
     "__group_name__": "نقابة المهندسين",
     "__styles__": {
       "أرض في ريف المهندسين الثاني": {
-        "fillColor": "rgba(166, 29, 225, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(166, 29, 225, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "أرض مجبل نقابة المهندسين": {
-        "fillColor": "rgba(166, 29, 225, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(166, 29, 225, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مطعم نقابة المهندسين الزربة": {
-        "fillColor": "rgba(166, 29, 225, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(166, 29, 225, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مول المهندسين بشارع النيل": {
-        "fillColor": "rgba(166, 29, 225, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(166, 29, 225, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "أرض الليرمون": {
-        "fillColor": "rgba(166, 29, 225, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(166, 29, 225, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "أرض خزانة التقاعد": {
-        "fillColor": "rgba(166, 29, 225, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(166, 29, 225, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -5607,64 +5607,64 @@
     "__group_name__": "وزارة الدفاع",
     "__styles__": {
       "الفوج 46": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "الكلية الادارية كفرجوم": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "١٠٠٩٧ دفاع": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "٧٩٠٧ و٧٩٠٨ دفاع": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "٧٩٠٩ و٧٩١٠ دفاع": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "١٢٧٢٨ انصاري دفاع": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "٩٧ دفاع": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "البحوث العلمية": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "اللواء 80": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -6910,15 +6910,15 @@
     "__group_name__": "أملاك دولة",
     "__styles__": {
       "العقار 16 ابوشيلم": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "انصاري خلف الراشدين": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -7184,43 +7184,43 @@
     "__group_name__": "اتحاد العمال",
     "__styles__": {
       "أرض الشيخ نجار": {
-        "fillColor": "rgba(255, 0, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 0, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "أرض المسلمية": {
-        "fillColor": "rgba(255, 0, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 0, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "أرض هنانو": {
-        "fillColor": "rgba(255, 0, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 0, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "العيادات العمالية": {
-        "fillColor": "rgba(255, 0, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 0, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "المجمع العمالي": {
-        "fillColor": "rgba(255, 0, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 0, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مشفى الشيحان": {
-        "fillColor": "rgba(255, 0, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 0, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -7982,8 +7982,8 @@
     "__group_name__": "هيئة المنافذ البحرية والبرية",
     "__styles__": {
       "جمارك كفرجوم": {
-        "fillColor": "rgba(234, 12, 109, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(234, 12, 109, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -8184,225 +8184,225 @@
     "__group_name__": "وزارة الصناعة",
     "__styles__": {
       "الشركة السورية للغزل و النسيج": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "الشركة العامة لصناعة و تسويق الاسمنت - عمران": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "الشركة العامة للزيوت": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "الشهباء للمفازل و المناسج": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "رحبة باصات النقل الداخلي": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "شركة زنوبيا وشمرا": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "محلج أمية": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "محلج الشرق": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "محلج اللواء": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "محلج الوحدة": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل ألبان": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل التبغ - الريجي": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل الزجاج": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل السجاد": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل الشرق": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "الشركة الاهلية - معمل رقم 1": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "الشركة الاهلية - معمل رقم 2": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "الشركة الاهلية معمل رقم 3": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "محلج الثورة - مؤسسة الاقطان": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "محلج الرصافة - مؤسسة الاقطان": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مستودع الاسطوانة - مؤسسة الاقطان": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مستودع الحكيم - مؤسسة الاقطان": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مستودع المنشاري - مؤسسة الاقطان": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مستودع سابا - مؤسسة الاقطان": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل عوف": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "شركة تاميكو - معمل السيرومات": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل الشاشات": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "الوحدة الاقتصادية - معمل الاسمنت": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "محلج تشرين": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل البطاريات": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل الجرارات": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "معمل الكابلات": {
-        "fillColor": "rgba(255, 30, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 30, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -13840,29 +13840,29 @@
         "radius": 6
       },
       "دائرة الشبكات": {
-        "fillColor": "rgba(255, 206, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 206, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "دائرة الاليات - المراب": {
-        "fillColor": "rgba(255, 206, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 206, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "دائرة الاليات - الكازية": {
-        "fillColor": "rgba(255, 206, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 206, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "أرض مركز الجباية": {
-        "fillColor": "rgba(255, 206, 0, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(255, 206, 0, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -14464,29 +14464,29 @@
     "__group_name__": "وزارة السياحة",
     "__styles__": {
       "حمام يلبغا الناصري": {
-        "fillColor": "rgba(183, 201, 38, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(183, 201, 38, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "المطبخ العجمي": {
-        "fillColor": "rgba(183, 201, 38, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(183, 201, 38, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "المشفى العسكري": {
-        "fillColor": "rgba(183, 201, 38, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(183, 201, 38, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "الكارلتون": {
-        "fillColor": "rgba(183, 201, 38, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(183, 201, 38, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -15187,22 +15187,22 @@
     "__group_name__": "غرفة التجارة",
     "__styles__": {
       "أرض حلب الجديدة بنيامين": {
-        "fillColor": "rgba(164, 113, 88, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(164, 113, 88, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "فندق الأمير": {
-        "fillColor": "rgba(164, 113, 88, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(164, 113, 88, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مبنى غرفة التجارة القديم": {
-        "fillColor": "rgba(164, 113, 88, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(164, 113, 88, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -15563,8 +15563,8 @@
     "__group_name__": "غرفة الصناعة",
     "__styles__": {
       "الليرمون حرفية": {
-        "fillColor": "rgba(0, 11, 143, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 11, 143, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -15817,8 +15817,8 @@
     "__group_name__": "غرفة زراعة حلب",
     "__styles__": {
       "غرفة زراعة حلب": {
-        "fillColor": "rgba(167, 229, 141, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(167, 229, 141, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -15944,8 +15944,8 @@
     "__group_name__": "وزارة النقل",
     "__styles__": {
       "رودكو الطرق والجسور": {
-        "fillColor": "rgba(0, 0, 255, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 0, 255, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -16071,8 +16071,8 @@
     "__group_name__": "وزارة الطاقة",
     "__styles__": {
       "موارد مائية 31": {
-        "fillColor": "rgba(49, 173, 236, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(49, 173, 236, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -16228,8 +16228,8 @@
     "__group_name__": "وزارة الإسكان",
     "__styles__": {
       "٨١ ابو شيلم مشاريع مائية": {
-        "fillColor": "rgba(205, 180, 39, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(205, 180, 39, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -16400,64 +16400,64 @@
     "__group_name__": "وزارة الزراعة",
     "__styles__": {
       "بردة ايكاردا": {
-        "fillColor": "rgba(61, 193, 150, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(61, 193, 150, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مداجن خان طومان": {
-        "fillColor": "rgba(61, 193, 150, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(61, 193, 150, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "31 تابع للدواجن خان طومان": {
-        "fillColor": "rgba(61, 193, 150, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(61, 193, 150, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "مداجن الزربة": {
-        "fillColor": "rgba(61, 193, 150, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(61, 193, 150, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "المنطقة الاولى 36 هكتار": {
-        "fillColor": "rgba(61, 193, 150, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(61, 193, 150, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "المنطقة الثانية 25 هكتار": {
-        "fillColor": "rgba(61, 193, 150, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(61, 193, 150, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "المنطقة الثالثة 28 هكتار": {
-        "fillColor": "rgba(61, 193, 150, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(61, 193, 150, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "المنطقة الرابعة 21 هكتار": {
-        "fillColor": "rgba(61, 193, 150, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(61, 193, 150, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "المنطقة الخامسة 30 هكتار": {
-        "fillColor": "rgba(61, 193, 150, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(61, 193, 150, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -17828,8 +17828,8 @@
     "__group_name__": "وزارة المالية",
     "__styles__": {
       "أرض للمالية": {
-        "fillColor": "rgba(196, 60, 57, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(196, 60, 57, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -17962,8 +17962,8 @@
         "radius": 6
       },
       "معسكر الشبيبة": {
-        "fillColor": "rgba(58, 177, 252, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(58, 177, 252, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -18222,22 +18222,22 @@
         "radius": 6
       },
       "حرم السكة جسر مشفى الحياة - نزلة الزبدية": {
-        "fillColor": "rgba(208, 53, 154, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(208, 53, 154, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "كتلة السكك": {
-        "fillColor": "rgba(208, 53, 154, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(208, 53, 154, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       " ضاحية فيلات سكنية": {
-        "fillColor": "rgba(208, 53, 154, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(208, 53, 154, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -18764,57 +18764,57 @@
     "__group_name__": "مناطق تطوير ريف",
     "__styles__": {
       "دارة عزة 1601": {
-        "fillColor": "rgba(0, 255, 242, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 255, 242, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "دارة عزة 1597": {
-        "fillColor": "rgba(0, 255, 242, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 255, 242, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "دارة عزة 2212": {
-        "fillColor": "rgba(0, 255, 242, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 255, 242, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "دارة عزة 2245": {
-        "fillColor": "rgba(0, 255, 242, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 255, 242, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "عندان 1957": {
-        "fillColor": "rgba(0, 255, 242, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 255, 242, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "ياقد العدس 770": {
-        "fillColor": "rgba(0, 255, 242, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 255, 242, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "ياقد العدس 768": {
-        "fillColor": "rgba(0, 255, 242, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 255, 242, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "عنجارة 181": {
-        "fillColor": "rgba(0, 255, 242, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(0, 255, 242, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
@@ -18888,7 +18888,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "",
+            "Ownership Authority": "مناطق تطوير ريف",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -19033,7 +19033,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "",
+            "Ownership Authority": "مناطق تطوير ريف",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -19173,7 +19173,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "",
+            "Ownership Authority": "مناطق تطوير ريف",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -19298,7 +19298,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "",
+            "Ownership Authority": "مناطق تطوير ريف",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -19538,7 +19538,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "",
+            "Ownership Authority": "مناطق تطوير ريف",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -19693,7 +19693,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "",
+            "Ownership Authority": "مناطق تطوير ريف",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -19863,7 +19863,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "",
+            "Ownership Authority": "مناطق تطوير ريف",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -20258,7 +20258,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "",
+            "Ownership Authority": "مناطق تطوير ريف",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -20330,15 +20330,15 @@
     "__group_name__": "مناطق خاصة",
     "__styles__": {
       "عقارات خاصة": {
-        "fillColor": "rgba(205, 180, 39, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(205, 180, 39, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
       },
       "عقارات خاصة ١": {
-        "fillColor": "rgba(205, 180, 39, 0.5019607843137255)",
-        "fillOpacity": 0.5019607843137255,
+        "fillColor": "rgba(205, 180, 39, 0.5)",
+        "fillOpacity": 0.5,
         "color": "#232323",
         "weight": 0.26,
         "radius": 6
