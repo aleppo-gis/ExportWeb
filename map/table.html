@@ -2,10 +2,12 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>عرض بيانات الطبقات من ملف JSON</title>
+  <title>جدول المعلومات التفصيلية للمشاريع الاستثمارية</title>
   <style>
     body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
-    h2 { color: #333; margin-top: 40px; }
+    h1 { margin-bottom: 10px; }
+    h2 { color: #333; margin-top: 30px; }
+    h3 { color: #555; margin-top: 20px; }
     table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
     th, td { border: 1px solid #ccc; padding: 8px; text-align: right; }
     th { background-color: #eee; }
@@ -13,61 +15,62 @@
 </head>
 <body>
 
-<h1>جداول الطبقات حسب الحقول المرئية</h1>
-<div id="tables-container">جاري تحميل البيانات...</div>
+<h1>قائمة المشاريع الاستثمارية</h1>
+<div id="tables-container"></div>
 
 <script>
-fetch('/data/geojson_grouped.json')
-  .then(response => response.json())
+fetch('data/geojson_grouped.json')
+  .then(res => res.json())
   .then(data => {
     const container = document.getElementById("tables-container");
-    container.innerHTML = ""; // إزالة رسالة التحميل
 
-    const group = data.group_2;
-    for (const layerName in group) {
-      if (layerName.startsWith("__")) continue;
-      const layer = group[layerName];
-      const features = layer.features;
-      if (!features || features.length === 0) continue;
+    Object.keys(data).forEach(groupKey => {
+      if (!groupKey.startsWith("group_")) return;
+      const group = data[groupKey];
+      const groupName = group.__group_name__ || groupKey;
 
-      const visibleFields = features[0].properties.__visible_fields__;
-      const table = document.createElement("table");
-      const thead = document.createElement("thead");
-      const tbody = document.createElement("tbody");
+      const groupTitle = document.createElement("h2");
+      groupTitle.textContent = "المجموعة: " + groupName;
+      container.appendChild(groupTitle);
 
-      // عنوان الطبقة
-      const title = document.createElement("h2");
-      title.textContent = layerName;
-      container.appendChild(title);
+      Object.keys(group).forEach(layerName => {
+        if (layerName.startsWith("__")) return;
+        const layer = group[layerName];
+        if (!layer.features) return;
 
-      // رؤوس الأعمدة
-      const headerRow = document.createElement("tr");
-      visibleFields.forEach(field => {
-        const th = document.createElement("th");
-        th.textContent = field.alias;
-        headerRow.appendChild(th);
-      });
-      thead.appendChild(headerRow);
-      table.appendChild(thead);
+        const visibleFields = layer.features[0].properties.__visible_fields__;
+        if (!visibleFields) return;
 
-      // بيانات الصفوف
-      features.forEach(feature => {
-        const row = document.createElement("tr");
-        visibleFields.forEach(field => {
-          const td = document.createElement("td");
-          td.textContent = feature.properties[field.name] || "";
-          row.appendChild(td);
+        const title = document.createElement("h3");
+        title.textContent = layerName;
+        container.appendChild(title);
+
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+        visibleFields.forEach(f => {
+          const th = document.createElement("th");
+          th.textContent = f.alias;
+          headerRow.appendChild(th);
         });
-        tbody.appendChild(row);
-      });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
 
-      table.appendChild(tbody);
-      container.appendChild(table);
-    }
-  })
-  .catch(error => {
-    document.getElementById("tables-container").innerHTML = "حدث خطأ أثناء تحميل الملف.";
-    console.error("خطأ في تحميل JSON:", error);
+        const tbody = document.createElement("tbody");
+        layer.features.forEach(feat => {
+          const row = document.createElement("tr");
+          visibleFields.forEach(f => {
+            const td = document.createElement("td");
+            td.textContent = feat.properties[f.name] || "";
+            row.appendChild(td);
+          });
+          tbody.appendChild(row);
+        });
+        table.appendChild(tbody);
+
+        container.appendChild(table);
+      });
+    });
   });
 </script>
 
