@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>عرض بيانات الطبقات من ملف JSON</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    h2 { color: #333; margin-top: 40px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: right; }
+    th { background-color: #eee; }
+  </style>
+</head>
+<body>
+
+<h1>جداول الطبقات حسب الحقول المرئية</h1>
+<div id="tables-container">جاري تحميل البيانات...</div>
+
+<script>
+fetch('/data/geojson_grouped.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById("tables-container");
+    container.innerHTML = ""; // إزالة رسالة التحميل
+
+    const group = data.group_2;
+    for (const layerName in group) {
+      if (layerName.startsWith("__")) continue;
+      const layer = group[layerName];
+      const features = layer.features;
+      if (!features || features.length === 0) continue;
+
+      const visibleFields = features[0].properties.__visible_fields__;
+      const table = document.createElement("table");
+      const thead = document.createElement("thead");
+      const tbody = document.createElement("tbody");
+
+      // عنوان الطبقة
+      const title = document.createElement("h2");
+      title.textContent = layerName;
+      container.appendChild(title);
+
+      // رؤوس الأعمدة
+      const headerRow = document.createElement("tr");
+      visibleFields.forEach(field => {
+        const th = document.createElement("th");
+        th.textContent = field.alias;
+        headerRow.appendChild(th);
+      });
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+
+      // بيانات الصفوف
+      features.forEach(feature => {
+        const row = document.createElement("tr");
+        visibleFields.forEach(field => {
+          const td = document.createElement("td");
+          td.textContent = feature.properties[field.name] || "";
+          row.appendChild(td);
+        });
+        tbody.appendChild(row);
+      });
+
+      table.appendChild(tbody);
+      container.appendChild(table);
+    }
+  })
+  .catch(error => {
+    document.getElementById("tables-container").innerHTML = "حدث خطأ أثناء تحميل الملف.";
+    console.error("خطأ في تحميل JSON:", error);
+  });
+</script>
+
+</body>
+</html>
