@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 
 <head>
   <meta charset="utf-8" />
@@ -35,21 +35,24 @@
       font-size: 24px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 30px;
-    }
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 20px;
+}
 
-    .card {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 20px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
+.card {
+  width: 70%; /* أو أي نسبة أقل من 100% */
+  max-width: 600px; /* لتحديد الحد الأقصى للعرض */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
 
     .card:hover {
       transform: scale(1.03);
@@ -63,6 +66,18 @@
     .card p {
       color: #333;
     }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+      z-index: 1000;
+    }
   </style>
 </head>
 
@@ -74,13 +89,19 @@
   <div class="grid">
     <div class="card" onclick="location.href='https://aleppo-gis.github.io/aleppo/map/'">
       <h3>خريطة المشاريع الاستثمارية الكاملة</h3>
-      <p>خريطة المشاريع الاستثمارية الكاملة مصنفة حسب الجهة المالكة</p>
+      <p>خريطة المشاريع الاستثمارية الكاملة في مدينة حلب والريف مصنفة حسب الجهة المالكة</p>
     </div>
     <div class="card" onclick="location.href='https://example.com/link2'">
       <h3>عنوان البطاقة 2</h3>
       <p>وصف آخر يمكن تخصيصه حسب الحاجة.</p>
     </div>
     <!-- أضف المزيد من البطاقات هنا -->
-  </div></body>
+  </div>
+
+  <footer>
+    <p>© 2025 محافظة حلب - مكتب الاستثمار — جميع الحقوق محفوظة</p>
+  </footer>
+
+</body>
 
 </html>
