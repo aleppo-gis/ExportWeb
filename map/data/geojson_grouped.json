@@ -8111,7 +8111,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "وزارة الدفاع",
+            "Ownership Authority": "هيئة المنافذ البحرية والبرية",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -19231,7 +19231,7 @@
     }
   },
   "group_24": {
-    "__group_name__": "مناطق متنوعة",
+    "__group_name__": "مناطق خاصة",
     "__styles__": {
       "عقارات خاصة": {
         "fillColor": "rgba(205, 180, 39, 0.5019607843137255)",
@@ -19356,7 +19356,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "وزارة الإسكان",
+            "Ownership Authority": "مناطق خاصة",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
@@ -19536,7 +19536,7 @@
             "Address": "",
             "CadastralID": "",
             "EstateID": "",
-            "Ownership Authority": "وزارة الإسكان",
+            "Ownership Authority": "مناطق خاصة",
             "Land Use Category": "",
             "Building Regulation": "",
             "Proposed Investment": "",
